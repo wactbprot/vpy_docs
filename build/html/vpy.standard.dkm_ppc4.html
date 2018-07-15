@@ -114,6 +114,7 @@
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.sim">vpy.sim module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_document">vpy.test_document module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_todo">vpy.test_todo module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_values">vpy.test_values module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.todo">vpy.todo module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.values">vpy.values module</a></li>
 </ul>
@@ -342,10 +343,67 @@ state measurements <code class="docutils literal"><span class="pre">amt</span></
 <em class="property">class </em><code class="descclassname">vpy.standard.dkm_ppc4.uncert.</code><code class="descname">Uncert</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/dkm_ppc4/uncert.html#Uncert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.dkm_ppc4.uncert.Uncert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#vpy.standard.dkm_ppc4.std.DkmPpc4" title="vpy.standard.dkm_ppc4.std.DkmPpc4"><code class="xref py py-class docutils literal"><span class="pre">vpy.standard.dkm_ppc4.std.DkmPpc4</span></code></a></p>
 <dl class="method">
+<dt id="vpy.standard.dkm_ppc4.uncert.Uncert.longterm">
+<code class="descname">longterm</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/dkm_ppc4/uncert.html#Uncert.longterm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.dkm_ppc4.uncert.Uncert.longterm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the uncert. contrib of the longterm stability</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.dkm_ppc4.uncert.Uncert.pressure_cal">
+<code class="descname">pressure_cal</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/dkm_ppc4/uncert.html#Uncert.pressure_cal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.dkm_ppc4.uncert.Uncert.pressure_cal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the uncertainty contribution of the calibration of the device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.dkm_ppc4.uncert.Uncert.pressure_res">
+<code class="descname">pressure_res</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/dkm_ppc4/uncert.html#Uncert.pressure_res"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.dkm_ppc4.uncert.Uncert.pressure_res" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the uncertainty contribution of the residual pressure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="vpy.standard.dkm_ppc4.uncert.Uncert.total">
 <code class="descname">total</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/dkm_ppc4/uncert.html#Uncert.total"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.dkm_ppc4.uncert.Uncert.total" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the total uncertainty.
-sympy derives the sensitivity coefficients.</p>
+<dd><p>Calculates the total uncertainty.</p>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">store uncertainty expression in database document</p>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

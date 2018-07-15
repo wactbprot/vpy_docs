@@ -199,6 +199,11 @@
                <span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Doc</span> <span class="o">=</span> <span class="n">Document</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="TestDocument.test_log"><a class="viewcode-back" href="../../vpy.html#vpy.test_document.TestDocument.test_log">[docs]</a>    <span class="k">def</span> <span class="nf">test_log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Should provide log functionality</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="s2">&quot;log&quot;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Doc</span><span class="p">))</span></div>
+
 <div class="viewcode-block" id="TestDocument.test_get_object_1"><a class="viewcode-back" href="../../vpy.html#vpy.test_document.TestDocument.test_get_object_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_object_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;flat obj</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -295,12 +300,8 @@
 <div class="viewcode-block" id="TestDocument.test_get_expression_1"><a class="viewcode-back" href="../../vpy.html#vpy.test_document.TestDocument.test_get_expression_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_expression_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Should return a sympy Expression</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Doc</span><span class="o">.</span><span class="n">get_expression</span><span class="p">(</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">==</span> <span class="s1">&#39;sympy.core.mul&#39;</span><span class="p">)</span></div></div>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
 
            </div>

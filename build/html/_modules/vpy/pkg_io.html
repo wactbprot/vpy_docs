@@ -196,9 +196,6 @@
         <span class="c1"># --file</span>
         <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--file&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                             <span class="n">help</span><span class="o">=</span><span class="s2">&quot;file containing document to analyse&quot;</span><span class="p">)</span>
-        <span class="c1"># -p plot</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-                    <span class="n">help</span><span class="o">=</span><span class="s1">&#39;provide visual feedback of calculation&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="c1"># -s save</span>
         <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
                             <span class="n">help</span><span class="o">=</span><span class="s1">&#39;save the results of calculation&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -211,12 +208,6 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">save</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">save</span> <span class="o">=</span> <span class="kc">False</span>
-
-        <span class="c1"># provide visual feedback</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">p</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">db</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;db&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -443,8 +434,9 @@
 
 
 <div class="viewcode-block" id="Io.get_hist_data"><a class="viewcode-back" href="../../vpy.html#vpy.pkg_io.Io.get_hist_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_hist_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">std</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets and returns an array</span>
-<span class="sd">        containing history data</span>
+        <span class="sd">&quot;&quot;&quot;Gets and returns an array containing history data.</span>
+<span class="sd">        Please use  the view ``se3_req/views/group_normal_hist/`` as a</span>
+<span class="sd">        template.</span>
 
 <span class="sd">        :param std: name of the calibration standard</span>
 <span class="sd">        :type std: str</span>
@@ -458,7 +450,8 @@
 
         <span class="n">view</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;standards&#39;</span><span class="p">][</span><span class="n">std</span><span class="p">][</span><span class="s1">&#39;hist_data&#39;</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">db</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">view</span><span class="p">):</span>
-            <span class="n">dat</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">value</span>
+
+            <span class="n">dat</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="s2">&quot;IdentString&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">value</span>
 
 
         <span class="k">return</span> <span class="n">dat</span></div></div>

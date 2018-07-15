@@ -162,10 +162,11 @@
 <span class="kn">from</span> <span class="nn">...device.dmm</span> <span class="k">import</span> <span class="n">Dmm</span>
 <span class="kn">from</span> <span class="nn">...device.cdg</span> <span class="k">import</span> <span class="n">InfCdg</span>
 <span class="kn">from</span> <span class="nn">...constants</span> <span class="k">import</span> <span class="n">Constants</span>
-<span class="kn">from</span> <span class="nn">...calibration_devices</span> <span class="k">import</span>  <span class="n">CalibrationObject</span>
+<span class="kn">from</span> <span class="nn">...calibration_devices</span> <span class="k">import</span> <span class="n">CalibrationObject</span>
 <span class="kn">from</span> <span class="nn">...values</span> <span class="k">import</span> <span class="n">Temperature</span><span class="p">,</span> <span class="n">Pressure</span><span class="p">,</span> <span class="n">Time</span><span class="p">,</span> <span class="n">AuxSe3</span><span class="p">,</span> <span class="n">OutGasRate</span><span class="p">,</span> <span class="n">Position</span>
 <span class="kn">from</span> <span class="nn">..standard</span> <span class="k">import</span> <span class="n">Standard</span>
-<span class="kn">from</span> <span class="nn">...device.cdg</span>  <span class="k">import</span> <span class="n">Cdg</span>
+<span class="kn">from</span> <span class="nn">...device.cdg</span> <span class="k">import</span> <span class="n">Cdg</span>
+
 
 <div class="viewcode-block" id="Se3"><a class="viewcode-back" href="../../../../vpy.standard.se3.html#vpy.standard.se3.std.Se3">[docs]</a><span class="k">class</span> <span class="nc">Se3</span><span class="p">(</span><span class="n">Standard</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Configuration and methodes of static expansion system SE3.</span>
@@ -177,18 +178,59 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;SE3&quot;</span>
     <span class="n">unit</span> <span class="o">=</span> <span class="s2">&quot;mbar&quot;</span>
+    <span class="n">temp_dev_name</span> <span class="o">=</span> <span class="s2">&quot;SE3_Temperature_Keithley&quot;</span>
+    <span class="n">small_temp_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ch_3001_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3002_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3003_before&quot;</span><span class="p">,</span> <span class="p">]</span>
+
+    <span class="n">medium_temp_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ch_3004_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3005_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3006_before&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_3007_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3008_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3009_before&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_3010_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3011_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3012_before&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_3013_before&quot;</span><span class="p">,</span> <span class="p">]</span>
+
+    <span class="n">large_temp_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ch_3014_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3015_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3016_before&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_3017_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3018_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3019_before&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_3020_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3021_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3022_before&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_3023_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3024_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3025_before&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_3026_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3027_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3028_before&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_3029_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3030_before&quot;</span><span class="p">,</span> <span class="p">]</span>
+
+    <span class="n">vessel_temp_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ch_1001_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1002_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1003_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_1004_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1005_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1006_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_1007_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1008_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1009_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_1010_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1011_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1012_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_1013_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1014_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1015_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_1016_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1017_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1018_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_1019_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1020_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1020_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_1021_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1022_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1023_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_1024_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1025_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1026_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_1027_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1028_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_1029_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_1030_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2001_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2002_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_2003_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2004_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2005_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_2006_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2007_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2008_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_2009_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2010_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2011_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_2012_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2013_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2014_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_2015_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2016_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2017_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_2018_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2019_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2020_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_2020_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2021_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2022_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_2023_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2024_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2025_after&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ch_2026_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2027_after&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_2028_after&quot;</span><span class="p">,</span> <span class="p">]</span>
+
+    <span class="n">fill_dev_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CDG_1T_1&quot;</span><span class="p">,</span>  <span class="s2">&quot;CDG_1T_2&quot;</span><span class="p">,</span> <span class="s2">&quot;CDG_1T_3&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;CDG_10T_1&quot;</span><span class="p">,</span>  <span class="s2">&quot;CDG_10T_2&quot;</span><span class="p">,</span>  <span class="s2">&quot;CDG_10T_3&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;CDG_100T_1&quot;</span><span class="p">,</span> <span class="s2">&quot;CDG_100T_2&quot;</span><span class="p">,</span> <span class="s2">&quot;CDG_100T_3&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;CDG_1000T_1&quot;</span><span class="p">,</span> <span class="s2">&quot;CDG_1000T_2&quot;</span><span class="p">,</span> <span class="s2">&quot;CDG_1000T_3&quot;</span><span class="p">,</span> <span class="p">]</span>
+
+    <span class="n">fill_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1T_1-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;1T_2-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;1T_3-fill&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;10T_1-fill&quot;</span><span class="p">,</span>  <span class="s2">&quot;10T_2-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;10T_3-fill&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;100T_1-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;100T_2-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;100T_3-fill&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;1000T_1-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;1000T_2-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;1000T_3-fill&quot;</span><span class="p">,</span> <span class="p">]</span>
+
+    <span class="n">offset_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1T_1-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;1T_2-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;1T_3-offset&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;10T_1-offset&quot;</span><span class="p">,</span>  <span class="s2">&quot;10T_2-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;10T_3-offset&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;100T_1-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;100T_2-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;100T_3-offset&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;1000T_1-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;1000T_2-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;1000T_3-offset&quot;</span><span class="p">,</span> <span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./vpy/standard/se3/values.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">valf</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">val_conf</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">valf</span><span class="p">)</span>
-
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./vpy/standard/se3/aux_values.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">auxf</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">aux_val_conf</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">auxf</span><span class="p">)</span>
-
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./vpy/standard/se3/state.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">statef</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">state_check</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">statef</span><span class="p">)</span>
 
         <span class="c1"># measurement values</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Temp</span> <span class="o">=</span> <span class="n">Temperature</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
@@ -206,24 +248,23 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">no_of_meas_points</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;amt_fill&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">define_model</span><span class="p">()</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">TDev</span> <span class="o">=</span> <span class="n">Dmm</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cobj</span><span class="o">.</span><span class="n">get_by_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temp_dev_name</span><span class="p">))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">TDev</span>  <span class="o">=</span> <span class="n">Dmm</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cobj</span><span class="o">.</span><span class="n">get_by_name</span><span class="p">(</span><span class="s2">&quot;SE3_Temperature_Keithley&quot;</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">FillDevs</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">val_conf</span><span class="p">[</span><span class="s2">&quot;Pressure&quot;</span><span class="p">][</span><span class="s2">&quot;Fill&quot;</span><span class="p">]:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">FillDevs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">InfCdg</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cobj</span><span class="o">.</span><span class="n">get_by_name</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="s2">&quot;DevName&quot;</span><span class="p">])))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">FillDevs</span> <span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fill_dev_names</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">FillDevs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">InfCdg</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cobj</span><span class="o">.</span><span class="n">get_by_name</span><span class="p">(</span><span class="n">d</span><span class="p">)))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;init func: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="vm">__name__</span><span class="p">))</span>
 
 <div class="viewcode-block" id="Se3.define_model"><a class="viewcode-back" href="../../../../vpy.standard.se3.html#vpy.standard.se3.std.Se3.define_model">[docs]</a>    <span class="k">def</span> <span class="nf">define_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Defines symbols and model for the static expansion system SE3.</span>
 <span class="sd">        The order of symbols must match the order in ``gen_val_arr``:</span>
 
-<span class="sd">        #. f</span>
-<span class="sd">        #. p_fill</span>
-<span class="sd">        #. V_5</span>
-<span class="sd">        #. V_start</span>
-<span class="sd">        #. p_before</span>
-<span class="sd">        #. p_after</span>
+<span class="sd">        # . f</span>
+<span class="sd">        # . p_fill</span>
+<span class="sd">        # . V_5</span>
+<span class="sd">        # . V_start</span>
+<span class="sd">        # . p_before</span>
+<span class="sd">        # . p_after</span>
 
 <span class="sd">        The equation is:</span>
 
@@ -240,17 +281,17 @@
 
 <span class="sd">        :type: class</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">model_unit</span> <span class="o">=</span> <span class="s2">&quot;mbar&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_unit</span><span class="o">=</span><span class="s2">&quot;mbar&quot;</span>
 
-        <span class="n">f</span>         <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-        <span class="n">p_fill</span>    <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;p_fill&#39;</span><span class="p">)</span>
-        <span class="n">V_start</span>   <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;V_start&#39;</span><span class="p">)</span>
-        <span class="n">V_add</span>     <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;V_add&#39;</span><span class="p">)</span>
-        <span class="n">T_before</span>  <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;T_before&#39;</span><span class="p">)</span>
-        <span class="n">T_after</span>   <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;T_after&#39;</span><span class="p">)</span>
-        <span class="n">rg</span>        <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;rg&#39;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">=</span><span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+        <span class="n">p_fill</span><span class="o">=</span><span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;p_fill&#39;</span><span class="p">)</span>
+        <span class="n">V_start</span><span class="o">=</span><span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;V_start&#39;</span><span class="p">)</span>
+        <span class="n">V_add</span><span class="o">=</span><span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;V_add&#39;</span><span class="p">)</span>
+        <span class="n">T_before</span><span class="o">=</span><span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;T_before&#39;</span><span class="p">)</span>
+        <span class="n">T_after</span><span class="o">=</span><span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;T_after&#39;</span><span class="p">)</span>
+        <span class="n">rg</span><span class="o">=</span><span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;rg&#39;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">symb</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">symb</span><span class="o">=</span><span class="p">(</span>
                     <span class="n">f</span><span class="p">,</span>
                     <span class="n">p_fill</span><span class="p">,</span>
                     <span class="n">V_start</span><span class="p">,</span>
@@ -260,19 +301,19 @@
                     <span class="n">rg</span><span class="p">,</span>
                     <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">p_fill</span><span class="o">*</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">f</span><span class="o">+</span><span class="n">V_add</span><span class="o">/</span><span class="n">V_start</span><span class="p">)</span><span class="o">/</span><span class="n">T_before</span><span class="o">*</span><span class="n">T_after</span><span class="o">/</span><span class="n">rg</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">=</span><span class="n">p_fill</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">f</span> <span class="o">+</span> <span class="n">V_add</span> <span class="o">/</span> <span class="n">V_start</span><span class="p">)</span> <span class="o">/</span> <span class="n">T_before</span> <span class="o">*</span> <span class="n">T_after</span> <span class="o">/</span> <span class="n">rg</span></div>
 
 <div class="viewcode-block" id="Se3.gen_val_array"><a class="viewcode-back" href="../../../../vpy.standard.se3.html#vpy.standard.se3.std.Se3.gen_val_array">[docs]</a>    <span class="k">def</span> <span class="nf">gen_val_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Generates a array of values</span>
 <span class="sd">        with the same order as define_models symbols order:</span>
 
-<span class="sd">        #. f</span>
-<span class="sd">        #. p_fill</span>
-<span class="sd">        #. V_5</span>
-<span class="sd">        #. V_start</span>
-<span class="sd">        #. V_add</span>
-<span class="sd">        #. T_before</span>
-<span class="sd">        #. T_after</span>
+<span class="sd">        # . f</span>
+<span class="sd">        # . p_fill</span>
+<span class="sd">        # . V_5</span>
+<span class="sd">        # . V_start</span>
+<span class="sd">        # . V_add</span>
+<span class="sd">        # . T_before</span>
+<span class="sd">        # . T_after</span>
 
 <span class="sd">        :param: Class with methode</span>
 <span class="sd">            store(quantity, type, value, unit, [stdev], [N])) and</span>
@@ -281,7 +322,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">gen_val_dict</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">val_arr</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val_arr</span><span class="o">=</span><span class="p">[</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">val_dict</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">],</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">val_dict</span><span class="p">[</span><span class="s1">&#39;p_fill&#39;</span><span class="p">],</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">val_dict</span><span class="p">[</span><span class="s1">&#39;V_start&#39;</span><span class="p">],</span>
@@ -303,14 +344,14 @@
 <span class="sd">        :type: class</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">val_dict</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Expansion&quot;</span><span class="p">,</span> <span class="s2">&quot;uncorr&quot;</span><span class="p">,</span><span class="s2">&quot;1&quot;</span><span class="p">),</span>
-        <span class="s1">&#39;p_fill&#39;</span><span class="p">:</span><span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Pressure&quot;</span><span class="p">,</span> <span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">),</span>
-        <span class="s1">&#39;V_start&#39;</span><span class="p">:</span><span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Volume&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;cm^3&quot;</span><span class="p">),</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val_dict</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Expansion&quot;</span><span class="p">,</span> <span class="s2">&quot;uncorr&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">),</span>
+        <span class="s1">&#39;p_fill&#39;</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Pressure&quot;</span><span class="p">,</span> <span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">),</span>
+        <span class="s1">&#39;V_start&#39;</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Volume&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;cm^3&quot;</span><span class="p">),</span>
         <span class="s1">&#39;V_add&#39;</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Volume&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;cm^3&quot;</span><span class="p">),</span>
-        <span class="s1">&#39;T_before&#39;</span><span class="p">:</span><span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;before&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">),</span>
-        <span class="s1">&#39;T_after&#39;</span><span class="p">:</span><span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;after&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">),</span>
-        <span class="s1">&#39;rg&#39;</span><span class="p">:</span><span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Correction&quot;</span><span class="p">,</span> <span class="s2">&quot;rg&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">),</span>
+        <span class="s1">&#39;T_before&#39;</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;before&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">),</span>
+        <span class="s1">&#39;T_after&#39;</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;after&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">),</span>
+        <span class="s1">&#39;rg&#39;</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Correction&quot;</span><span class="p">,</span> <span class="s2">&quot;rg&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">),</span>
         <span class="p">}</span></div>
 
 <div class="viewcode-block" id="Se3.get_gas"><a class="viewcode-back" href="../../../../vpy.standard.se3.html#vpy.standard.se3.std.Se3.get_gas">[docs]</a>    <span class="k">def</span> <span class="nf">get_gas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -324,7 +365,7 @@
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">gas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Aux</span><span class="o">.</span><span class="n">get_gas</span><span class="p">()</span>
+        <span class="n">gas</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Aux</span><span class="o">.</span><span class="n">get_gas</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">gas</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">gas</span></div>
 
@@ -337,7 +378,7 @@
 <span class="sd">        :rtype: np.array of strings</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Aux</span><span class="o">.</span><span class="n">get_expansion</span><span class="p">()</span>
+        <span class="n">f</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Aux</span><span class="o">.</span><span class="n">get_expansion</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">f</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_of_meas_points</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span></div>
 
@@ -351,22 +392,36 @@
 <span class="sd">        :type: class</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">f</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_of_meas_points</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-        <span class="n">f_name</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_expansion_name</span><span class="p">()</span>
-        <span class="n">i_s</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">f_name</span> <span class="o">==</span> <span class="s2">&quot;f_s&quot;</span><span class="p">)</span>
-        <span class="n">i_m</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">f_name</span> <span class="o">==</span> <span class="s2">&quot;f_m&quot;</span><span class="p">)</span>
-        <span class="n">i_l</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">f_name</span> <span class="o">==</span> <span class="s2">&quot;f_l&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_of_meas_points</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="n">f_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_expansion_name</span><span class="p">()</span>
+        <span class="n">i_s</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">f_name</span> <span class="o">==</span> <span class="s2">&quot;f_s&quot;</span><span class="p">)</span>
+        <span class="n">i_m</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">f_name</span> <span class="o">==</span> <span class="s2">&quot;f_m&quot;</span><span class="p">)</span>
+        <span class="n">i_l</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">f_name</span> <span class="o">==</span> <span class="s2">&quot;f_l&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">i_s</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">f</span><span class="p">[</span><span class="n">i_s</span><span class="p">]</span>       <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;f_s&quot;</span><span class="p">,</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+            <span class="n">f</span><span class="p">[</span><span class="n">i_s</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;f_s&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">i_m</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">f</span><span class="p">[</span><span class="n">i_m</span><span class="p">]</span>       <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;f_m&quot;</span><span class="p">,</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+            <span class="n">f</span><span class="p">[</span><span class="n">i_m</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;f_m&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">i_l</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">f</span><span class="p">[</span><span class="n">i_l</span><span class="p">]</span>       <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;f_l&quot;</span><span class="p">,</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+            <span class="n">f</span><span class="p">[</span><span class="n">i_l</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;f_l&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
 
-        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s2">&quot;Expansion&quot;</span><span class="p">,</span> <span class="s2">&quot;uncorr&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span></div></div>
+        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s2">&quot;Expansion&quot;</span><span class="p">,</span> <span class="s2">&quot;uncorr&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Se3.time_meas"><a class="viewcode-back" href="../../../../vpy.standard.se3.html#vpy.standard.se3.std.Se3.time_meas">[docs]</a>    <span class="k">def</span> <span class="nf">time_meas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Builds a vector containing the measurement time.</span>
+
+<span class="sd">        :param: Class with methode</span>
+<span class="sd">                store(quantity, type, value, unit, [stdev], [N])) and</span>
+<span class="sd">                pick(quantity, type, unit)</span>
+<span class="sd">        :type: class</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">conv2s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cons</span><span class="o">.</span><span class="n">get_conv</span><span class="p">(</span><span class="n">from_unit</span><span class="o">=</span><span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="n">to_unit</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+        <span class="n">conv2min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cons</span><span class="o">.</span><span class="n">get_conv</span><span class="p">(</span><span class="n">from_unit</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">to_unit</span><span class="o">=</span><span class="s2">&quot;min&quot;</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">get_rmt</span><span class="p">(</span><span class="s2">&quot;amt_meas&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">)</span><span class="o">*</span><span class="n">conv2s</span> <span class="o">*</span><span class="n">conv2min</span>
+
+        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span> <span class="s2">&quot;meas&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

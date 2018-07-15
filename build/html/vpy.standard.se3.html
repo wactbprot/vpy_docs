@@ -113,6 +113,7 @@
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.sim">vpy.sim module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_document">vpy.test_document module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_todo">vpy.test_todo module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_values">vpy.test_values module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.todo">vpy.todo module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.values">vpy.values module</a></li>
 </ul>
@@ -265,9 +266,8 @@ pick(quantity, type, unit)</td>
 <dl class="method">
 <dt id="vpy.standard.se3.cal.Cal.pressure_fill">
 <code class="descname">pressure_fill</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.pressure_fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.pressure_fill" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the singel and mean value of the filling pressure
-by means data in values.json</p>
-<p>Stores result under the path <em>Pressure, fill, mbar</em></p>
+<dd><p>Calculates the  mean value of the filling pressure.
+Stores result under the path <em>Pressure, fill, mbar</em></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -469,14 +469,12 @@ state measurements <code class="docutils literal"><span class="pre">amt</span></
 <code class="descname">define_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/std.html#Se3.define_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.std.Se3.define_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines symbols and model for the static expansion system SE3.
 The order of symbols must match the order in <code class="docutils literal"><span class="pre">gen_val_arr</span></code>:</p>
-<ol class="arabic simple">
-<li>f</li>
-<li>p_fill</li>
-<li>V_5</li>
-<li>V_start</li>
-<li>p_before</li>
-<li>p_after</li>
-</ol>
+<p># . f
+# . p_fill
+# . V_5
+# . V_start
+# . p_before
+# . p_after</p>
 <p>The equation is:</p>
 <div class="math">
 \[p = f_{corr} p_{fill}\]</div>
@@ -512,20 +510,28 @@ pick(quantity, type, unit)</td>
 </table>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="vpy.standard.se3.std.Se3.fill_dev_names">
+<code class="descname">fill_dev_names</code><em class="property"> = ['CDG_1T_1', 'CDG_1T_2', 'CDG_1T_3', 'CDG_10T_1', 'CDG_10T_2', 'CDG_10T_3', 'CDG_100T_1', 'CDG_100T_2', 'CDG_100T_3', 'CDG_1000T_1', 'CDG_1000T_2', 'CDG_1000T_3']</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.fill_dev_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vpy.standard.se3.std.Se3.fill_types">
+<code class="descname">fill_types</code><em class="property"> = ['1T_1-fill', '1T_2-fill', '1T_3-fill', '10T_1-fill', '10T_2-fill', '10T_3-fill', '100T_1-fill', '100T_2-fill', '100T_3-fill', '1000T_1-fill', '1000T_2-fill', '1000T_3-fill']</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.fill_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="vpy.standard.se3.std.Se3.gen_val_array">
 <code class="descname">gen_val_array</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/std.html#Se3.gen_val_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.std.Se3.gen_val_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a array of values
 with the same order as define_models symbols order:</p>
-<ol class="arabic simple">
-<li>f</li>
-<li>p_fill</li>
-<li>V_5</li>
-<li>V_start</li>
-<li>V_add</li>
-<li>T_before</li>
-<li>T_after</li>
-</ol>
+<p># . f
+# . p_fill
+# . V_5
+# . V_start
+# . V_add
+# . T_before
+# . T_after</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -600,13 +606,61 @@ of the length: <code class="docutils literal"><span class="pre">self.no_of_meas_
 </dd></dl>
 
 <dl class="attribute">
+<dt id="vpy.standard.se3.std.Se3.large_temp_types">
+<code class="descname">large_temp_types</code><em class="property"> = ['ch_3014_before', 'ch_3015_before', 'ch_3016_before', 'ch_3017_before', 'ch_3018_before', 'ch_3019_before', 'ch_3020_before', 'ch_3021_before', 'ch_3022_before', 'ch_3023_before', 'ch_3024_before', 'ch_3025_before', 'ch_3026_before', 'ch_3027_before', 'ch_3028_before', 'ch_3029_before', 'ch_3030_before']</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.large_temp_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vpy.standard.se3.std.Se3.medium_temp_types">
+<code class="descname">medium_temp_types</code><em class="property"> = ['ch_3004_before', 'ch_3005_before', 'ch_3006_before', 'ch_3007_before', 'ch_3008_before', 'ch_3009_before', 'ch_3010_before', 'ch_3011_before', 'ch_3012_before', 'ch_3013_before']</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.medium_temp_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="vpy.standard.se3.std.Se3.name">
 <code class="descname">name</code><em class="property"> = 'SE3'</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="vpy.standard.se3.std.Se3.offset_types">
+<code class="descname">offset_types</code><em class="property"> = ['1T_1-offset', '1T_2-offset', '1T_3-offset', '10T_1-offset', '10T_2-offset', '10T_3-offset', '100T_1-offset', '100T_2-offset', '100T_3-offset', '1000T_1-offset', '1000T_2-offset', '1000T_3-offset']</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.offset_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vpy.standard.se3.std.Se3.small_temp_types">
+<code class="descname">small_temp_types</code><em class="property"> = ['ch_3001_before', 'ch_3002_before', 'ch_3003_before']</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.small_temp_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vpy.standard.se3.std.Se3.temp_dev_name">
+<code class="descname">temp_dev_name</code><em class="property"> = 'SE3_Temperature_Keithley'</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.temp_dev_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.se3.std.Se3.time_meas">
+<code class="descname">time_meas</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/std.html#Se3.time_meas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.std.Se3.time_meas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a vector containing the measurement time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="vpy.standard.se3.std.Se3.unit">
 <code class="descname">unit</code><em class="property"> = 'mbar'</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vpy.standard.se3.std.Se3.vessel_temp_types">
+<code class="descname">vessel_temp_types</code><em class="property"> = ['ch_1001_after', 'ch_1002_after', 'ch_1003_after', 'ch_1004_after', 'ch_1005_after', 'ch_1006_after', 'ch_1007_after', 'ch_1008_after', 'ch_1009_after', 'ch_1010_after', 'ch_1011_after', 'ch_1012_after', 'ch_1013_after', 'ch_1014_after', 'ch_1015_after', 'ch_1016_after', 'ch_1017_after', 'ch_1018_after', 'ch_1019_after', 'ch_1020_after', 'ch_1020_after', 'ch_1021_after', 'ch_1022_after', 'ch_1023_after', 'ch_1024_after', 'ch_1025_after', 'ch_1026_after', 'ch_1027_after', 'ch_1028_after', 'ch_1029_after', 'ch_1030_after', 'ch_2001_after', 'ch_2002_after', 'ch_2003_after', 'ch_2004_after', 'ch_2005_after', 'ch_2006_after', 'ch_2007_after', 'ch_2008_after', 'ch_2009_after', 'ch_2010_after', 'ch_2011_after', 'ch_2012_after', 'ch_2013_after', 'ch_2014_after', 'ch_2015_after', 'ch_2016_after', 'ch_2017_after', 'ch_2018_after', 'ch_2019_after', 'ch_2020_after', 'ch_2020_after', 'ch_2021_after', 'ch_2022_after', 'ch_2023_after', 'ch_2024_after', 'ch_2025_after', 'ch_2026_after', 'ch_2027_after', 'ch_2028_after']</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.vessel_temp_types" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

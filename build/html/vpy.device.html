@@ -117,6 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.sim">vpy.sim module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_document">vpy.test_document module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_todo">vpy.test_todo module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_values">vpy.test_values module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.todo">vpy.todo module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.values">vpy.values module</a></li>
 </ul>
@@ -221,11 +222,6 @@ error of indication and the uncertainty</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="vpy.device.cdg.Cdg.get_name">
-<code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/cdg.html#Cdg.get_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.cdg.Cdg.get_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="vpy.device.cdg.Cdg.get_nice_vals">
 <code class="descname">get_nice_vals</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/cdg.html#Cdg.get_nice_vals"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.cdg.Cdg.get_nice_vals" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -237,7 +233,7 @@ error of indication and the uncertainty</p>
 
 <dl class="attribute">
 <dt id="vpy.device.cdg.Cdg.max_typehead_mbar">
-<code class="descname">max_typehead_mbar</code><em class="property"> = {'001Torr': 0.0013, '01Torr': 0.0133, '1Torr': 1.3332, '10Torr': 13.332, '100Torr': 133.32, '1000Torr': 1333.2}</em><a class="headerlink" href="#vpy.device.cdg.Cdg.max_typehead_mbar" title="Permalink to this definition">¶</a></dt>
+<code class="descname">max_typehead_mbar</code><em class="property"> = {'001Torr': 0.0013, '01Torr': 0.0133, '1000Torr': 1333.2, '100Torr': 133.32, '10Torr': 13.332, '1Torr': 1.3332}</em><a class="headerlink" href="#vpy.device.cdg.Cdg.max_typehead_mbar" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -283,13 +279,32 @@ self.Const and self.Dev, nothing more</p>
 <dl class="method">
 <dt id="vpy.device.device.Device.get_total_uncert">
 <code class="descname">get_total_uncert</code><span class="sig-paren">(</span><em>meas</em>, <em>unit</em>, <em>runit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/device.html#Device.get_total_uncert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.device.Device.get_total_uncert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Collects all Uncertainty contrib for the given
+<dd><p>Collects all Uncertainty contrib. for the given
 measurant (m). Calculates the quadratic sum and returns
-a np.array of the length as m.</p>
+a np.array of the length as of m.</p>
 <div class="admonition-todo admonition" id="index-1">
 <p class="first admonition-title">Todo</p>
-<p class="last">Test Expression branch</p>
+<p class="last">rewrite expression branch</p>
 </div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>meas</strong> (<em>np.array</em>) – array containing values of the measurand</li>
+<li><strong>unit</strong> (<em>str</em>) – unit of the  measurand</li>
+<li><strong>runit</strong> (<em>str</em>) – unit of the return values</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">quadratic sum of uncertainties</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.array</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
