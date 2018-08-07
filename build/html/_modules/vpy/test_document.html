@@ -285,23 +285,19 @@
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Doc</span><span class="o">.</span><span class="n">get_array</span><span class="p">(</span><span class="s2">&quot;b_&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">res</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="TestDocument.test_get_obj_1"><a class="viewcode-back" href="../../vpy.html#vpy.test_document.TestDocument.test_get_obj_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_obj_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Should return the dict.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Doc</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s2">&quot;Type&quot;</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="TestDocument.test_get_obj_2"><a class="viewcode-back" href="../../vpy.html#vpy.test_document.TestDocument.test_get_obj_2">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_obj_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Should return None.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Doc</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestDocument.test_get_expression_1"><a class="viewcode-back" href="../../vpy.html#vpy.test_document.TestDocument.test_get_expression_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_expression_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Should return a sympy Expression</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Doc</span><span class="o">.</span><span class="n">get_expression</span><span class="p">(</span><span class="s2">&quot;expr&quot;</span><span class="p">,</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">==</span> <span class="s1">&#39;sympy.core.mul&#39;</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">==</span> <span class="s1">&#39;sympy.core.mul&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestDocument.test_get_value_and_unit_1"><a class="viewcode-back" href="../../vpy.html#vpy.test_document.TestDocument.test_get_value_and_unit_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_value_and_unit_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Should return value and unit</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">val</span><span class="p">,</span> <span class="n">unit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Doc</span><span class="o">.</span><span class="n">get_value_and_unit</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">unit</span> <span class="o">==</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

@@ -193,10 +193,54 @@
             <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
                 <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
 
+
+<div class="viewcode-block" id="Values.unit_convert"><a class="viewcode-back" href="../../vpy.html#vpy.values.Values.unit_convert">[docs]</a>    <span class="k">def</span> <span class="nf">unit_convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns value (or numpy array of values) converted from unit a to unit b.</span>
+<span class="sd">        Returns value in SI units if no third argument is given.</span>
+
+<span class="sd">        :param val: value (or numpy array of values) to be converted</span>
+<span class="sd">        :type a: float (or numpy array of floats)</span>
+<span class="sd">        :param a: initial unit</span>
+<span class="sd">        :type a: str</span>
+<span class="sd">        :param b: target unit</span>
+<span class="sd">        :type b: str</span>
+<span class="sd">        :returns: conversion factor</span>
+<span class="sd">        :rtype: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">to_SI</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">*</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;%&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">*</span><span class="mf">0.01</span><span class="p">,</span>
+            <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">+</span><span class="mf">273.15</span><span class="p">,</span>
+            <span class="s2">&quot;K&quot;</span><span class="p">:</span> <span class="n">val</span><span class="p">,</span>
+            <span class="s2">&quot;mbar&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span>
+            <span class="s2">&quot;Pa&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">*</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;Torr&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">*</span><span class="mf">133.322</span>
+            <span class="p">}</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">to_SI</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+        <span class="n">to_target_unit</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;%&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">/</span><span class="mf">0.01</span><span class="p">,</span>
+            <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">-</span><span class="mf">273.15</span><span class="p">,</span>
+            <span class="s2">&quot;K&quot;</span><span class="p">:</span> <span class="n">val</span><span class="p">,</span>
+            <span class="s2">&quot;mbar&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">/</span><span class="mi">100</span><span class="p">,</span>
+            <span class="s2">&quot;Pa&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;Torr&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">/</span><span class="mf">133.322</span>            
+            <span class="p">}</span>        
+        <span class="k">return</span> <span class="n">to_target_unit</span><span class="p">[</span><span class="n">b</span><span class="p">]</span></div>
+
+
 <div class="viewcode-block" id="Values.round_to_sig_dig"><a class="viewcode-back" href="../../vpy.html#vpy.values.Values.round_to_sig_dig">[docs]</a>    <span class="k">def</span> <span class="nf">round_to_sig_dig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Rounds the value ``val`` to ``n`` significant digits</span>
 <span class="sd">        and outputs a formated string</span>
+
+<span class="sd">        :param val: value to be rounded</span>
+<span class="sd">        :type val: float</span>
+<span class="sd">        :param n: number of significant digits</span>
+<span class="sd">        :type n: integer       </span>
+<span class="sd">        :returns: formated string</span>
+<span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">val</span><span class="p">):</span> <span class="k">return</span> <span class="s2">&quot;nan&quot;</span>
         <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{0:.{n - 1}f}&quot;</span>
         <span class="k">else</span><span class="p">:</span>
@@ -213,26 +257,40 @@
         <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{val:.</span><span class="si">{n}</span><span class="s2">e}&quot;</span></div>
 
+
 <div class="viewcode-block" id="Values.round_to_sig_dig_array"><a class="viewcode-back" href="../../vpy.html#vpy.values.Values.round_to_sig_dig_array">[docs]</a>    <span class="k">def</span> <span class="nf">round_to_sig_dig_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val_arr</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Applies ``round_to_sig_dig`` to the array ``val_arr``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">round_to_sig_dig</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">val_arr</span><span class="p">])</span></div>
 
+
 <div class="viewcode-block" id="Values.round_to_uncertainty"><a class="viewcode-back" href="../../vpy.html#vpy.values.Values.round_to_uncertainty">[docs]</a>    <span class="k">def</span> <span class="nf">round_to_uncertainty</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">unc</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Rounds the value ``val`` to the ``n``th significant digit</span>
 <span class="sd">        of its uncertainty ``unc`` and outputs a formated string</span>
+
+<span class="sd">        :param val: value to be rounded</span>
+<span class="sd">        :type val: float</span>
+<span class="sd">        :param unc: uncertainty of the value</span>
+<span class="sd">        :type unc: float       </span>
+<span class="sd">        :param n: number of significant digits of uncertainty</span>
+<span class="sd">        :type n: integer       </span>
+<span class="sd">        :returns: formated string</span>
+<span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">unc</span><span class="p">)</span> <span class="ow">or</span> <span class="n">unc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="s2">&quot;nan&quot;</span>
         <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="n">val_power</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">else</span><span class="p">:</span> <span class="n">val_power</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">val</span><span class="p">))))</span>
         <span class="n">unc_power</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">unc</span><span class="p">))))</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">val_power</span> <span class="o">-</span> <span class="n">unc_power</span> <span class="o">+</span> <span class="n">n</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">round_to_sig_dig</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span></div>
 
+
 <div class="viewcode-block" id="Values.round_to_uncertainty_array"><a class="viewcode-back" href="../../vpy.html#vpy.values.Values.round_to_uncertainty_array">[docs]</a>    <span class="k">def</span> <span class="nf">round_to_uncertainty_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val_arr</span><span class="p">,</span> <span class="n">unc_arr</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Applies ``round_to_uncertainty`` to the array of values ``val_arr``</span>
 <span class="sd">        using the array of uncertainties ``unc_arr``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">round_to_uncertainty</span><span class="p">(</span><span class="n">val_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">unc_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">val_arr</span><span class="p">))])</span></div></div>
+    
     
 <div class="viewcode-block" id="Mass"><a class="viewcode-back" href="../../vpy.html#vpy.values.Mass">[docs]</a><span class="k">class</span> <span class="nc">Mass</span><span class="p">(</span><span class="n">Values</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">quant</span><span class="o">=</span><span class="s2">&quot;Measurement&quot;</span><span class="p">):</span>
@@ -279,8 +337,10 @@
 <div class="viewcode-block" id="Date"><a class="viewcode-back" href="../../vpy.html#vpy.values.Date">[docs]</a><span class="k">class</span> <span class="nc">Date</span><span class="p">(</span><span class="n">Values</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">quant</span><span class="o">=</span><span class="s2">&quot;Measurement&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">quant</span><span class="p">)</span>
+        <span class="c1">#super().__init__(doc[&quot;Calibration&quot;][&quot;Measurement&quot;][&quot;Values&quot;])</span>
 
-<div class="viewcode-block" id="Date.parse_labview_date"><a class="viewcode-back" href="../../vpy.html#vpy.values.Date.parse_labview_date">[docs]</a>    <span class="k">def</span> <span class="nf">parse_labview_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Date.parse_labview_date"><a class="viewcode-back" href="../../vpy.html#vpy.values.Date.parse_labview_date">[docs]</a>    <span class="k">def</span> <span class="nf">parse_labview_date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Parses dates generated by LabView with the form:</span>
 <span class="sd">        ``Mi, Mai 30, 2018``</span>
 <span class="sd">        To match such a date ``locale.getlocale()`` has to be ``de_DE``</span>
@@ -295,19 +355,24 @@
 <span class="sd">        :type t: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_TIME</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;^[A-Z]</span><span class="si">{1}</span><span class="s1">[a-z]</span><span class="si">{1}</span><span class="s1">, [A-Z]</span><span class="si">{1}</span><span class="s1">[a-z]</span><span class="si">{2}</span><span class="s1"> [0-3]</span><span class="si">{1}</span><span class="s1">[0-9]</span><span class="si">{1}</span><span class="s1">, [0-9]</span><span class="si">{4}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_str</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span>
+
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;^[A-Z]</span><span class="si">{1}</span><span class="s1">[a-z]</span><span class="si">{1}</span><span class="s1">, [A-Z]</span><span class="si">{1}</span><span class="s1">[a-z]</span><span class="si">{2}</span><span class="s1"> [0-3]</span><span class="si">{1}</span><span class="s1">[0-9]</span><span class="si">{1}</span><span class="s1">, [0-9]</span><span class="si">{4}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;[0-9]</span><span class="si">{4}</span><span class="s1">-[0-1]</span><span class="si">{1}</span><span class="s1">[0-9]</span><span class="si">{1}</span><span class="s1">-[0-3]</span><span class="si">{1}</span><span class="s1">[0-9]</span><span class="si">{1}</span><span class="s1">$&#39;</span><span class="p">)</span>
         <span class="n">r</span> <span class="o">=</span><span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">val</span><span class="p">:</span>
-           <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-           <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
-               <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;%a, %b </span><span class="si">%d</span><span class="s1">, %Y&#39;</span><span class="p">))</span>
-           <span class="k">else</span><span class="p">:</span>
-               <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="k">if</span> <span class="n">p1</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;%a, %b </span><span class="si">%d</span><span class="s1">, %Y&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">p2</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;date conversion did not work out!&quot;</span><span class="p">)</span>
 
-           <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
 
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">r</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">r</span></div></div>
+
 
 <div class="viewcode-block" id="AuxValues"><a class="viewcode-back" href="../../vpy.html#vpy.values.AuxValues">[docs]</a><span class="k">class</span> <span class="nc">AuxValues</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
 

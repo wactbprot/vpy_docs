@@ -177,7 +177,8 @@
 <span class="sd">        :type: class</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">tem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temp</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="s2">&quot;frs5&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">)</span>
+        <span class="c1">## untestet methode call:</span>
+        <span class="n">tem</span><span class="p">,</span> <span class="n">tem_unit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temp</span><span class="o">.</span><span class="n">get_value_and_unit</span><span class="p">(</span><span class="s2">&quot;frs5&quot;</span><span class="p">)</span>
         <span class="n">gas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Aux</span><span class="o">.</span><span class="n">get_gas</span><span class="p">()</span>
         <span class="n">mt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;amt_meas&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">)</span>
 
@@ -185,7 +186,8 @@
             <span class="n">mt</span><span class="p">,</span> <span class="s2">&quot;offset_mt&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="s2">&quot;frs_res_off&quot;</span><span class="p">,</span> <span class="s2">&quot;DCR&quot;</span><span class="p">)</span>
         <span class="n">res_off</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ResDev</span><span class="o">.</span><span class="n">pressure</span><span class="p">(</span><span class="n">off</span><span class="p">,</span> <span class="n">tem</span><span class="p">,</span> <span class="s2">&quot;mbar&quot;</span><span class="p">,</span> <span class="n">gas</span><span class="p">)</span>
 
-        <span class="n">ind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Pres</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="s2">&quot;frs_res_ind&quot;</span><span class="p">,</span> <span class="s2">&quot;DCR&quot;</span><span class="p">)</span>
+        <span class="c1">## untestet methode call:</span>
+        <span class="n">ind</span><span class="p">,</span> <span class="n">ind_unit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Pres</span><span class="o">.</span><span class="n">get_value_and_unit</span><span class="p">(</span><span class="s2">&quot;frs_res_ind&quot;</span><span class="p">)</span>
         <span class="n">res_ind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ResDev</span><span class="o">.</span><span class="n">pressure</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">tem</span><span class="p">,</span> <span class="s2">&quot;mbar&quot;</span><span class="p">,</span> <span class="n">gas</span><span class="p">)</span>
         <span class="n">p_res</span> <span class="o">=</span> <span class="n">res_ind</span> <span class="o">-</span> <span class="n">res_off</span>
 
