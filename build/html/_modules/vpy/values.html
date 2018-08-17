@@ -241,20 +241,31 @@
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">val</span><span class="p">):</span> <span class="k">return</span> <span class="s2">&quot;nan&quot;</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{0:.{n - 1}f}&quot;</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">val_power</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">val</span><span class="p">))))</span>
-            <span class="n">power</span> <span class="o">=</span> <span class="o">-</span> <span class="n">val_power</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="n">factor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="n">power</span><span class="p">)</span>
-            <span class="n">val</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">val</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span> <span class="o">/</span> <span class="n">factor</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{0:.{n - 1}f}&quot;</span>       
+        <span class="n">val_power</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">val</span><span class="p">))))</span>
+        <span class="n">power</span> <span class="o">=</span> <span class="o">-</span> <span class="n">val_power</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">factor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="n">power</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">val</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span> <span class="o">/</span> <span class="n">factor</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="n">val_power</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{0:.{n - val_power - 1}f}&quot;</span>
+            <span class="n">val_str</span> <span class="o">=</span> <span class="s2">&quot;0e&quot;</span>
+            <span class="k">if</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="n">val_power</span> <span class="o">+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">val_str</span> <span class="o">=</span> <span class="n">val_str</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                 <span class="n">val_str</span> <span class="o">=</span> <span class="n">val_str</span> <span class="o">+</span> <span class="s2">&quot;+&quot;</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="n">val_power</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="n">val_str</span> <span class="o">=</span> <span class="n">val_str</span> <span class="o">+</span> <span class="s2">&quot;0&quot;</span>
+            <span class="k">return</span> <span class="n">val_str</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="n">val_power</span> <span class="o">+</span><span class="mi">1</span><span class="p">))</span>
         <span class="k">if</span> <span class="o">-</span><span class="mi">3</span> <span class="o">&lt;=</span> <span class="n">val_power</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{val:.{n - val_power - 1}f}&quot;</span>
         <span class="k">if</span>  <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">val_power</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
             <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">val_power</span> <span class="o">-</span> <span class="mi">1</span>
             <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{val:.</span><span class="si">{n}</span><span class="s2">f}&quot;</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>         
         <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{val:.</span><span class="si">{n}</span><span class="s2">e}&quot;</span></div>
 
 
@@ -282,6 +293,7 @@
         <span class="k">else</span><span class="p">:</span> <span class="n">val_power</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">val</span><span class="p">))))</span>
         <span class="n">unc_power</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">unc</span><span class="p">))))</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">val_power</span> <span class="o">-</span> <span class="n">unc_power</span> <span class="o">+</span> <span class="n">n</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">round_to_sig_dig</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span></div>
 
 
@@ -363,13 +375,12 @@
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">val</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">p1</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
                 <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;%a, %b </span><span class="si">%d</span><span class="s1">, %Y&#39;</span><span class="p">)</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
             <span class="k">elif</span> <span class="n">p2</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-                <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;date conversion did not work out!&quot;</span><span class="p">)</span>
-
-            <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">r</span></div></div>
 

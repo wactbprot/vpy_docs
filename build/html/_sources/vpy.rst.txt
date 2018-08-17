@@ -81,6 +81,14 @@ vpy\.sim module
     :undoc-members:
     :show-inheritance:
 
+vpy\.test\_analysis module
+--------------------------
+
+.. automodule:: vpy.test_analysis
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 vpy\.test\_document module
 --------------------------
 
