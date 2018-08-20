@@ -104,7 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#module-vpy.document">vpy.document module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-vpy.pkg_io">vpy.pkg_io module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-vpy.pkg_log">vpy.pkg_log module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#vpy-result-module">vpy.result module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-vpy.result">vpy.result module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-vpy.sim">vpy.sim module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-vpy.test_analysis">vpy.test_analysis module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-vpy.test_document">vpy.test_document module</a></li>
@@ -896,8 +896,167 @@ order to have a nice name for the plot. Solutions:</p>
 </dd></dl>
 
 </div>
-<div class="section" id="vpy-result-module">
-<h2>vpy.result module<a class="headerlink" href="#vpy-result-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-vpy.result">
+<span id="vpy-result-module"></span><h2>vpy.result module<a class="headerlink" href="#module-vpy.result" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="vpy.result.Result">
+<em class="property">class </em><code class="descclassname">vpy.result.</code><code class="descname">Result</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vpy.analysis.Analysis" title="vpy.analysis.Analysis"><code class="xref py py-class docutils literal"><span class="pre">vpy.analysis.Analysis</span></code></a></p>
+<p>Holds a deep copy of <code class="docutils literal"><span class="pre">document</span></code>. Container for storing
+Results of analysis.</p>
+<dl class="method">
+<dt id="vpy.result.Result.fit_thermal_transpiration">
+<code class="descname">fit_thermal_transpiration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.fit_thermal_transpiration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.fit_thermal_transpiration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.fit_thermal_transpiration2">
+<code class="descname">fit_thermal_transpiration2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.fit_thermal_transpiration2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.fit_thermal_transpiration2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.flatten">
+<code class="descname">flatten</code><span class="sig-paren">(</span><em>l</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.flatten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.flatten" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flattens a list of lists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>l</strong> – list of lists</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vpy.result.Result.gas">
+<code class="descname">gas</code><em class="property"> = {'de': {'Ar': 'Argon', 'H2': 'Wasserstoff', 'N2': 'Stickstoff', 'Ne': 'Neon'}, 'en': {'Ar': 'argon', 'H2': 'hydrogen', 'N2': 'nitrogen', 'Ne': 'neon'}}</em><a class="headerlink" href="#vpy.result.Result.gas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.gatherby_idx">
+<code class="descname">gatherby_idx</code><span class="sig-paren">(</span><em>l</em>, <em>compare_function</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.gatherby_idx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.gatherby_idx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vpy.result.Result.head_cell">
+<code class="descname">head_cell</code><em class="property"> = {'cal': '{\\(p_\\text{cal}\\)}', 'ind': '{\\(p_\\text{ind}\\)}', 'ind_corr': '{\\(p_\\text{ind} - p_\\text{r}\\)}', 'uncertTotal_rel': '{\\(U(k=2)\\)}', 'uncertTotal_abs': '{\\(U(k=2)\\)}', 'error': '{\\(e\\)}'}</em><a class="headerlink" href="#vpy.result.Result.head_cell" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.make_error_table">
+<code class="descname">make_error_table</code><span class="sig-paren">(</span><em>ana</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_error_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_error_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.make_evis_formula">
+<code class="descname">make_evis_formula</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_evis_formula"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_evis_formula" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.make_formula_section">
+<code class="descname">make_formula_section</code><span class="sig-paren">(</span><em>ana</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_formula_section"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_formula_section" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.make_main_maesurement_index">
+<code class="descname">make_main_maesurement_index</code><span class="sig-paren">(</span><em>ana</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_main_maesurement_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_main_maesurement_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects indices of the main measurement in average_index.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of indices</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.make_offset_stability">
+<code class="descname">make_offset_stability</code><span class="sig-paren">(</span><em>ana</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_offset_stability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_offset_stability" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.make_pressure_range_index">
+<code class="descname">make_pressure_range_index</code><span class="sig-paren">(</span><em>ana</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_pressure_range_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_pressure_range_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects indices of measurements with the same conversion factor in r1.
+Collects indices of measurements within the same decade of p_cal in r2.
+Returns the one with smaller standard deviation in the low pressure range.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of lists of indices</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.make_sens_table">
+<code class="descname">make_sens_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_sens_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_sens_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.make_sigma_formula">
+<code class="descname">make_sigma_formula</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_sigma_formula"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_sigma_formula" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.reject_outliers_index">
+<code class="descname">reject_outliers_index</code><span class="sig-paren">(</span><em>ana</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.reject_outliers_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.reject_outliers_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the list of indices of measurement points belonging to a
+certain target pressure and rejects outliers by comparing each
+measurement value to the mean value of the neighbors (without the
+point itself).
+remarks: using the standard deviation of the neighbors is unsatisfactory
+because one may end up with a small value by chance. Probably it is
+better to use a threshold that is decreasing with increasing pressure
+values. Another problem is that iterating over empty lists aborts the
+program.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">array of arrays of indices</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.repeat_rel">
+<code class="descname">repeat_rel</code><span class="sig-paren">(</span><em>p_list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.repeat_rel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.repeat_rel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.result.Result.u_PTB_rel">
+<code class="descname">u_PTB_rel</code><span class="sig-paren">(</span><em>p_list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.u_PTB_rel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.u_PTB_rel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vpy.result.Result.unit">
+<code class="descname">unit</code><em class="property"> = {'mbar': '\\mbar', 'Pa': '\\Pa'}</em><a class="headerlink" href="#vpy.result.Result.unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vpy.result.Result.unit_cell">
+<code class="descname">unit_cell</code><em class="property"> = {'1': '', 'mbar': 'mbar', '%': '{\\(\\si{\\percent}\\)}'}</em><a class="headerlink" href="#vpy.result.Result.unit_cell" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-vpy.sim">
 <span id="vpy-sim-module"></span><h2>vpy.sim module<a class="headerlink" href="#module-vpy.sim" title="Permalink to this headline">¶</a></h2>

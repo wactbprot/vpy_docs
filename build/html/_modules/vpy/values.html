@@ -243,7 +243,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">val</span><span class="p">):</span> <span class="k">return</span> <span class="s2">&quot;nan&quot;</span>
         <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{0:.{n - 1}f}&quot;</span>       
+            <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{0:.{n - 1}f}&quot;</span>
         <span class="n">val_power</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">val</span><span class="p">))))</span>
         <span class="n">power</span> <span class="o">=</span> <span class="o">-</span> <span class="n">val_power</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">factor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="n">power</span><span class="p">)</span>
