@@ -1,5 +1,5 @@
-vpy\.standard\.frs5 package
-===========================
+vpy.standard.frs5 package
+=========================
 
 .. automodule:: vpy.standard.frs5
     :members:
@@ -9,24 +9,24 @@ vpy\.standard\.frs5 package
 Submodules
 ----------
 
-vpy\.standard\.frs5\.cal module
--------------------------------
+vpy.standard.frs5.cal module
+----------------------------
 
 .. automodule:: vpy.standard.frs5.cal
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.standard\.frs5\.std module
--------------------------------
+vpy.standard.frs5.std module
+----------------------------
 
 .. automodule:: vpy.standard.frs5.std
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.standard\.frs5\.uncert module
-----------------------------------
+vpy.standard.frs5.uncert module
+-------------------------------
 
 .. automodule:: vpy.standard.frs5.uncert
     :members:

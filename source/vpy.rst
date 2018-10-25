@@ -17,112 +17,120 @@ Subpackages
 Submodules
 ----------
 
-vpy\.analysis module
---------------------
+vpy.analysis module
+-------------------
 
 .. automodule:: vpy.analysis
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.calibration\_devices module
---------------------------------
+vpy.calibration\_devices module
+-------------------------------
 
 .. automodule:: vpy.calibration_devices
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.constants module
----------------------
+vpy.constants module
+--------------------
 
 .. automodule:: vpy.constants
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.document module
---------------------
+vpy.display module
+------------------
+
+.. automodule:: vpy.display
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+vpy.document module
+-------------------
 
 .. automodule:: vpy.document
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.pkg\_io module
--------------------
+vpy.pkg\_io module
+------------------
 
 .. automodule:: vpy.pkg_io
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.pkg\_log module
---------------------
+vpy.pkg\_log module
+-------------------
 
 .. automodule:: vpy.pkg_log
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.result module
-------------------
+vpy.result module
+-----------------
 
 .. automodule:: vpy.result
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.sim module
----------------
+vpy.sim module
+--------------
 
 .. automodule:: vpy.sim
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.test\_analysis module
---------------------------
+vpy.test\_analysis module
+-------------------------
 
 .. automodule:: vpy.test_analysis
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.test\_document module
---------------------------
+vpy.test\_document module
+-------------------------
 
 .. automodule:: vpy.test_document
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.test\_todo module
-----------------------
+vpy.test\_todo module
+---------------------
 
 .. automodule:: vpy.test_todo
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.test\_values module
-------------------------
+vpy.test\_values module
+-----------------------
 
 .. automodule:: vpy.test_values
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.todo module
-----------------
+vpy.todo module
+---------------
 
 .. automodule:: vpy.todo
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.values module
-------------------
+vpy.values module
+-----------------
 
 .. automodule:: vpy.values
     :members:

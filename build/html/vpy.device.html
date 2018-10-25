@@ -24,28 +24,19 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="vpy 0.1.0 documentation" href="index.html"/>
-        <link rel="up" title="vpy package" href="vpy.html"/>
-        <link rel="next" title="vpy.standard package" href="vpy.standard.html"/>
-        <link rel="prev" title="vpy package" href="vpy.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="vpy.standard package" href="vpy.standard.html" />
+    <link rel="prev" title="vpy package" href="vpy.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -110,11 +101,13 @@
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.analysis">vpy.analysis module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.calibration_devices">vpy.calibration_devices module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.constants">vpy.constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.display">vpy.display module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.document">vpy.document module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.pkg_io">vpy.pkg_io module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.pkg_log">vpy.pkg_log module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.result">vpy.result module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.sim">vpy.sim module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_analysis">vpy.test_analysis module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_document">vpy.test_document module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_todo">vpy.test_todo module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_values">vpy.test_values module</a></li>
@@ -133,7 +126,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="modules.html">vpy</a>
@@ -141,9 +134,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -197,7 +191,7 @@
 <dl class="class">
 <dt id="vpy.device.cdg.Cdg">
 <em class="property">class </em><code class="descclassname">vpy.device.cdg.</code><code class="descname">Cdg</code><span class="sig-paren">(</span><em>doc</em>, <em>dev</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/cdg.html#Cdg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.cdg.Cdg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.device.device.Device" title="vpy.device.device.Device"><code class="xref py py-class docutils literal"><span class="pre">vpy.device.device.Device</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.device.device.Device" title="vpy.device.device.Device"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.device.device.Device</span></code></a></p>
 <dl class="method">
 <dt id="vpy.device.cdg.Cdg.cal_interpol">
 <code class="descname">cal_interpol</code><span class="sig-paren">(</span><em>p_cal</em>, <em>p_ind</em>, <em>uncert</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/cdg.html#Cdg.cal_interpol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.cdg.Cdg.cal_interpol" title="Permalink to this definition">¶</a></dt>
@@ -233,14 +227,19 @@ error of indication and the uncertainty</p>
 
 <dl class="attribute">
 <dt id="vpy.device.cdg.Cdg.max_typehead_mbar">
-<code class="descname">max_typehead_mbar</code><em class="property"> = {'001Torr': 0.0013, '01Torr': 0.0133, '1Torr': 1.3332, '10Torr': 13.332, '100Torr': 133.32, '1000Torr': 1333.2}</em><a class="headerlink" href="#vpy.device.cdg.Cdg.max_typehead_mbar" title="Permalink to this definition">¶</a></dt>
+<code class="descname">max_typehead_mbar</code><em class="property"> = {'001Torr': 0.0013, '01Torr': 0.0133, '1000Torr': 1333.2, '100Torr': 133.32, '10Torr': 13.332, '1Torr': 1.3332}</em><a class="headerlink" href="#vpy.device.cdg.Cdg.max_typehead_mbar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.device.cdg.Cdg.pressure">
+<code class="descname">pressure</code><span class="sig-paren">(</span><em>pressure_dict</em>, <em>temperature_dict</em>, <em>unit='Pa'</em>, <em>gas='N2'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/cdg.html#Cdg.pressure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.cdg.Cdg.pressure" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="vpy.device.cdg.Cdg.store_interpol">
 <code class="descname">store_interpol</code><span class="sig-paren">(</span><em>p</em>, <em>e</em>, <em>u</em>, <em>p_unit</em>, <em>e_unit</em>, <em>u_unit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/cdg.html#Cdg.store_interpol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.cdg.Cdg.store_interpol" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stores a dict containing <code class="docutils literal"><span class="pre">p</span> <span class="pre">..</span> <span class="pre">pressure</span></code>, <code class="docutils literal"><span class="pre">e</span> <span class="pre">..</span> <span class="pre">error</span></code> and
-<code class="docutils literal"><span class="pre">u</span> <span class="pre">..</span> <span class="pre">uncertainty</span></code></p>
+<dd><p>Stores a dict containing <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">..</span> <span class="pre">pressure</span></code>, <code class="docutils literal notranslate"><span class="pre">e</span> <span class="pre">..</span> <span class="pre">error</span></code> and
+<code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">..</span> <span class="pre">uncertainty</span></code></p>
 </dd></dl>
 
 <dl class="attribute">
@@ -258,7 +257,7 @@ error of indication and the uncertainty</p>
 <dl class="class">
 <dt id="vpy.device.cdg.InfCdg">
 <em class="property">class </em><code class="descclassname">vpy.device.cdg.</code><code class="descname">InfCdg</code><span class="sig-paren">(</span><em>doc</em>, <em>dev</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/cdg.html#InfCdg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.cdg.InfCdg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.device.cdg.Cdg" title="vpy.device.cdg.Cdg"><code class="xref py py-class docutils literal"><span class="pre">vpy.device.cdg.Cdg</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.device.cdg.Cdg" title="vpy.device.cdg.Cdg"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.device.cdg.Cdg</span></code></a></p>
 <p>Inficon CDGs are usable two decades only</p>
 <dl class="attribute">
 <dt id="vpy.device.cdg.InfCdg.usable_decades">
@@ -273,7 +272,7 @@ error of indication and the uncertainty</p>
 <dl class="class">
 <dt id="vpy.device.device.Device">
 <em class="property">class </em><code class="descclassname">vpy.device.device.</code><code class="descname">Device</code><span class="sig-paren">(</span><em>doc</em>, <em>dev</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/device.html#Device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.device.Device" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="vpy.html#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal"><span class="pre">vpy.document.Document</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="vpy.html#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.document.Document</span></code></a></p>
 <p>Class should be complete with
 self.Const and self.Dev, nothing more</p>
 <dl class="method">
@@ -315,7 +314,7 @@ a np.array of the length as of m.</p>
 <dl class="class">
 <dt id="vpy.device.dmm.Dmm">
 <em class="property">class </em><code class="descclassname">vpy.device.dmm.</code><code class="descname">Dmm</code><span class="sig-paren">(</span><em>doc</em>, <em>dev</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/dmm.html#Dmm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.dmm.Dmm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.device.device.Device" title="vpy.device.device.Device"><code class="xref py py-class docutils literal"><span class="pre">vpy.device.device.Device</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.device.device.Device" title="vpy.device.device.Device"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.device.device.Device</span></code></a></p>
 <dl class="method">
 <dt id="vpy.device.dmm.Dmm.get_name">
 <code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/dmm.html#Dmm.get_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.dmm.Dmm.get_name" title="Permalink to this definition">¶</a></dt>
@@ -335,7 +334,7 @@ a np.array of the length as of m.</p>
 <dl class="class">
 <dt id="vpy.device.qbs.Qbs">
 <em class="property">class </em><code class="descclassname">vpy.device.qbs.</code><code class="descname">Qbs</code><span class="sig-paren">(</span><em>doc</em>, <em>dev</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/qbs.html#Qbs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.qbs.Qbs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.device.device.Device" title="vpy.device.device.Device"><code class="xref py py-class docutils literal"><span class="pre">vpy.device.device.Device</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.device.device.Device" title="vpy.device.device.Device"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.device.device.Device</span></code></a></p>
 <dl class="method">
 <dt id="vpy.device.qbs.Qbs.get_error_correction">
 <code class="descname">get_error_correction</code><span class="sig-paren">(</span><em>p</em>, <em>punit</em>, <em>runit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/qbs.html#Qbs.get_error_correction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.qbs.Qbs.get_error_correction" title="Permalink to this definition">¶</a></dt>
@@ -368,14 +367,14 @@ a np.array of the length as of m.</p>
 <dl class="class">
 <dt id="vpy.device.srg.Srg">
 <em class="property">class </em><code class="descclassname">vpy.device.srg.</code><code class="descname">Srg</code><span class="sig-paren">(</span><em>doc</em>, <em>dev</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/srg.html#Srg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.srg.Srg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.device.device.Device" title="vpy.device.device.Device"><code class="xref py py-class docutils literal"><span class="pre">vpy.device.device.Device</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.device.device.Device" title="vpy.device.device.Device"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.device.device.Device</span></code></a></p>
 <p>SRG</p>
 <dl class="method">
 <dt id="vpy.device.srg.Srg.dcr_conversion">
-<code class="descname">dcr_conversion</code><span class="sig-paren">(</span><em>unit='mbar'</em>, <em>gas='N2'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/srg.html#Srg.dcr_conversion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.srg.Srg.dcr_conversion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the conversion constant <span class="math">\(K\)</span> between DCR and
+<code class="descname">dcr_conversion</code><span class="sig-paren">(</span><em>unit='Pa'</em>, <em>gas='N2'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/srg.html#Srg.dcr_conversion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.srg.Srg.dcr_conversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the conversion constant <span class="math notranslate nohighlight">\(K\)</span> between DCR and
 unit by means of</p>
-<p><span class="math">\(K = \sqrt{ \frac{ 8 R T }{ \pi M}} \pi d \rho /20\)</span></p>
+<p><span class="math notranslate nohighlight">\(K = \sqrt{ \frac{ 8 R T }{ \pi M}} \pi d \rho /20\)</span></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -403,11 +402,17 @@ unit by means of</p>
 
 <dl class="method">
 <dt id="vpy.device.srg.Srg.pressure">
-<code class="descname">pressure</code><span class="sig-paren">(</span><em>P</em>, <em>T</em>, <em>unit='mbar'</em>, <em>gas='N2'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/srg.html#Srg.pressure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.srg.Srg.pressure" title="Permalink to this definition">¶</a></dt>
+<code class="descname">pressure</code><span class="sig-paren">(</span><em>pressure_dict</em>, <em>temperature_dict</em>, <em>unit='Pa'</em>, <em>gas='N2'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/srg.html#Srg.pressure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.srg.Srg.pressure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the presssure by means of dcr_conversion.
 Returns the pressure in the given unit.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="vpy.device.srg.Srg.temperature_correction">
+<code class="descname">temperature_correction</code><span class="sig-paren">(</span><em>temperature_dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/srg.html#Srg.temperature_correction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.srg.Srg.temperature_correction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the temperature correction to the reference temperature</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -415,9 +420,7 @@ Returns the pressure in the given unit.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -435,11 +438,11 @@ Returns the pressure in the given unit.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, wactbprot.
+        &copy; Copyright 2018, wactbprot
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -454,36 +457,24 @@ Returns the pressure in the given unit.</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

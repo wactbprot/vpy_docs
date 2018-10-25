@@ -24,27 +24,18 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="vpy 0.1.0 documentation" href="index.html"/>
-        <link rel="up" title="vpy.standard package" href="vpy.standard.html"/>
-        <link rel="prev" title="vpy.standard.se2 package" href="vpy.standard.se2.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="vpy.standard.se2 package" href="vpy.standard.se2.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -106,6 +97,7 @@
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.analysis">vpy.analysis module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.calibration_devices">vpy.calibration_devices module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.constants">vpy.constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.display">vpy.display module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.document">vpy.document module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.pkg_io">vpy.pkg_io module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.pkg_log">vpy.pkg_log module</a></li>
@@ -130,7 +122,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="modules.html">vpy</a>
@@ -138,9 +130,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -196,25 +189,24 @@
 <dl class="class">
 <dt id="vpy.standard.se3.cal.Cal">
 <em class="property">class </em><code class="descclassname">vpy.standard.se3.cal.</code><code class="descname">Cal</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.standard.se3.std.Se3" title="vpy.standard.se3.std.Se3"><code class="xref py py-class docutils literal"><span class="pre">vpy.standard.se3.std.Se3</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.standard.se3.std.Se3" title="vpy.standard.se3.std.Se3"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.standard.se3.std.Se3</span></code></a></p>
 <dl class="method">
-<dt id="vpy.standard.se3.cal.Cal.check_state">
-<code class="descname">check_state</code><span class="sig-paren">(</span><em>res</em>, <em>chk</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.check_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.check_state" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks the measured state values against a given
-min/max-list (stored in <code class="docutils literal"><span class="pre">self.state_check</span></code>).
-Calculates a rating for each value. The range for
-this value is [0..9] where 0 is (mostly) best and 9 is (mostly) worst.</p>
+<dt id="vpy.standard.se3.cal.Cal.check_analysis">
+<code class="descname">check_analysis</code><span class="sig-paren">(</span><em>res</em>, <em>chk</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.check_analysis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.check_analysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the analysis values against a given
+min/max-list (stored in <code class="docutils literal notranslate"><span class="pre">self.analysis_check</span></code>).
+Calculates a rating for each value.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">res Class with methode
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">res instance of a class with methode
 store(quantity, type, value, unit, [stdev], [N])) and
 pick(quantity, type, unit) to pick the values from</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">chc Class with methode
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">chk instance of a class with methode
 store(quantity, type, value, unit, [stdev], [N])) and
 pick(quantity, type, unit) to store the values in</td>
 </tr>
@@ -225,15 +217,131 @@ pick(quantity, type, unit) to store the values in</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="vpy.standard.se3.cal.Cal.outgas_state">
-<code class="descname">outgas_state</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.outgas_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.outgas_state" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the outgasing rate of dut-a,b,c u (vacuum branch
-with dut valves closed) and v (vessel only).</p>
+<dt id="vpy.standard.se3.cal.Cal.check_state">
+<code class="descname">check_state</code><span class="sig-paren">(</span><em>res</em>, <em>chk</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.check_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.check_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the measured state values against a given
+min/max-list (stored in <code class="docutils literal notranslate"><span class="pre">self.state_check</span></code>).
+Calculates a rating for each value.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">res instance of a class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit) to pick the values from</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">chk instance of a class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit) to store the values in</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.se3.cal.Cal.deviation_target_cal">
+<code class="descname">deviation_target_cal</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.deviation_target_cal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.deviation_target_cal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the relative deviation between the target 
+pressure and the calculated calibration pressure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)
+pick_dict(quantity, type)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.se3.cal.Cal.deviation_target_fill">
+<code class="descname">deviation_target_fill</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.deviation_target_fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.deviation_target_fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the relative deviation from the target 
+filling pressure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)
+pick_dict(quantity, type)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.se3.cal.Cal.error">
+<code class="descname">error</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the error of indication from the calibration pressure and 
+the corrected indicated pressure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)
+pick_dict(quantity, type)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.se3.cal.Cal.error_pressure_rise">
+<code class="descname">error_pressure_rise</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.error_pressure_rise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.error_pressure_rise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the relative contribution of the pressure 
+rise due to outgasing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)
+pick_dict(quantity, type)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.se3.cal.Cal.loop_check_dict">
+<code class="descname">loop_check_dict</code><span class="sig-paren">(</span><em>check</em>, <em>compare</em>, <em>date</em>, <em>result</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.loop_check_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.loop_check_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loops over the given <code class="docutils literal notranslate"><span class="pre">check</span></code> dict. Compares the entries witth <code class="docutils literal notranslate"><span class="pre">compare</span></code>
+and writes the results plus date to <code class="docutils literal notranslate"><span class="pre">result</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.se3.cal.Cal.outgas_state">
+<code class="descname">outgas_state</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.outgas_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.outgas_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the outgasing rate of dut-a,b,c u (vacuum branch
+with dut valves closed) and v (vessel only). About 50% of the 
+outgasing rate is caused by the ion gauge (IG) which  is 
+switched of during the calibration. The factor <code class="docutils literal notranslate"><span class="pre">outgas_correction</span></code>
+takes this into account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
 store(quantity, type, value, unit, [stdev], [N])) and
 pick(quantity, type, unit)</td>
 </tr>
@@ -252,7 +360,7 @@ result under the path <em>Pressure, cal, mbar</em></p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
 store(quantity, type, value, unit, [stdev], [N])) and
 pick(quantity, type, unit)</td>
 </tr>
@@ -266,14 +374,62 @@ pick(quantity, type, unit)</td>
 <dt id="vpy.standard.se3.cal.Cal.pressure_fill">
 <code class="descname">pressure_fill</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.pressure_fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.pressure_fill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the  mean value of the filling pressure.
-Stores result under the path <em>Pressure, fill, mbar</em></p>
+Stores result under the path <em>Pressure, fill, Pa</em></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
 store(quantity, type, value, unit, [stdev], [N])) and
 pick(quantity, type, unit)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.se3.cal.Cal.pressure_ind">
+<code class="descname">pressure_ind</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.pressure_ind"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.pressure_ind" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Calculates the corrected indicated pressure in dependence</dt>
+<dd>of the customer device. The offset  and the uncorrected 
+indication are stored too.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)
+pick_dict(quantity, type)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.se3.cal.Cal.pressure_rise">
+<code class="descname">pressure_rise</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.pressure_rise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.pressure_rise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the pressure rise due to outgasing.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">An investigation plus measurement is required to find a
+proper way to correct the current outgasing rate measured by IG
+who causes the most of the outgasing.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)
+pick_dict(quantity, type)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
 </tr>
@@ -290,25 +446,7 @@ Analysis section.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
-store(quantity, type, value, unit, [stdev], [N])) and
-pick(quantity, type, unit)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="vpy.standard.se3.cal.Cal.temperatur_state">
-<code class="descname">temperatur_state</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.temperatur_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.temperatur_state" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds the correction factor for each sensor and stores the result.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
 store(quantity, type, value, unit, [stdev], [N])) and
 pick(quantity, type, unit)</td>
 </tr>
@@ -334,7 +472,7 @@ The used  sensors are:
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
 store(quantity, type, value, unit, [stdev], [N])) and
 pick(quantity, type, unit)</td>
 </tr>
@@ -363,7 +501,7 @@ For the temperature of the large (2l) volume the used  sensors are:
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
 store(quantity, type, value, unit, [stdev], [N])) and
 pick(quantity, type, unit)</td>
 </tr>
@@ -381,7 +519,44 @@ pick(quantity, type, unit)</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.se3.cal.Cal.temperature_state">
+<code class="descname">temperature_state</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.temperature_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.temperature_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the correction factor for each sensor and stores the result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.standard.se3.cal.Cal.time_state">
+<code class="descname">time_state</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.time_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.time_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>A transfer of absolute measure time to 
+relative measure time and stores the result in analysis section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
 store(quantity, type, value, unit, [stdev], [N])) and
 pick(quantity, type, unit)</td>
 </tr>
@@ -394,12 +569,15 @@ pick(quantity, type, unit)</td>
 <dl class="method">
 <dt id="vpy.standard.se3.cal.Cal.volume_add">
 <code class="descname">volume_add</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.volume_add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.volume_add" title="Permalink to this definition">¶</a></dt>
-<dd><p>Builds up a vector containing the additional volume and stores it.</p>
+<dd><p>Builds up a vector containing the additional volume and stores it.
+The additional volumes should be measured and analyzed before and stored
+under <em>Analysis.AuxValues.Volumes</em>. So far, the last measured values <em>[-1]</em>
+are used.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
 store(quantity, type, value, unit, [stdev], [N])) and
 pick(quantity, type, unit)</td>
 </tr>
@@ -417,7 +595,7 @@ pick(quantity, type, unit)</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
 store(quantity, type, value, unit, [stdev], [N])) and
 pick(quantity, type, unit)</td>
 </tr>
@@ -432,14 +610,14 @@ pick(quantity, type, unit)</td>
 <code class="descname">volume_state</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/cal.html#Cal.volume_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.cal.Cal.volume_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates additional volumes of dut-a,b,c branch of state
 measurement documents.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[V_{add} = V_5 \frac{p_{after}}{p_{before} - p_{after}}\]</div>
 <p>Stores result under the path <em>Volume, add_x, cm^3</em></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">instance of a class with methode
 store(quantity, type, value, unit, [stdev], [N])) and
 pick(quantity, type, unit)</td>
 </tr>
@@ -457,17 +635,22 @@ pick(quantity, type, unit)</td>
 <dl class="class">
 <dt id="vpy.standard.se3.std.Se3">
 <em class="property">class </em><code class="descclassname">vpy.standard.se3.std.</code><code class="descname">Se3</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/std.html#Se3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.std.Se3" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="vpy.standard.html#vpy.standard.standard.Standard" title="vpy.standard.standard.Standard"><code class="xref py py-class docutils literal"><span class="pre">vpy.standard.standard.Standard</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="vpy.standard.html#vpy.standard.standard.Standard" title="vpy.standard.standard.Standard"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.standard.standard.Standard</span></code></a></p>
 <p>Configuration and methodes of static expansion system SE3.</p>
-<p>There is a need to define the  <code class="docutils literal"><span class="pre">no_of_meas_points</span></code>:
-the time: <code class="docutils literal"><span class="pre">amt_fill</span></code> (absolut measure time of filling pressure)
+<p>There is a need to define the  <code class="docutils literal notranslate"><span class="pre">no_of_meas_points</span></code>:
+the time: <code class="docutils literal notranslate"><span class="pre">amt_fill</span></code> (absolut measure time of filling pressure)
 is used for this purpose if doc is a calibration. For the analysis of
-state measurements <code class="docutils literal"><span class="pre">amt</span></code> is used.</p>
+state measurements <code class="docutils literal notranslate"><span class="pre">amt</span></code> is used.</p>
+<dl class="attribute">
+<dt id="vpy.standard.se3.std.Se3.analysis_check">
+<code class="descname">analysis_check</code><em class="property"> = {'Error': {'CalDeviation': {'Description': 'deviation between calculated and target calibration pressure.', 'Max': 0.05, 'Min': -0.05, 'Type': 'dev_cal', 'Unit': '1'}, 'Customer': {'Description': 'Error of the Customer gauge.', 'Max': 0.25, 'Min': -0.25, 'Type': 'ind', 'Unit': '1'}, 'FillDeviation': {'Description': 'deviation between calculated and measured filling pressure.', 'Max': 0.05, 'Min': -0.05, 'Type': 'dev_fill', 'Unit': '1'}, 'PressureRise': {'Description': 'relative contribution of pressure rise to the calibration pressure.', 'Max': 0.05, 'Min': -0.05, 'Type': 'rise', 'Unit': '1'}}, 'Temperature': {'StartVolume': {'Description': 'Temperature of the starting Volume', 'Max': 297.15, 'Min': 295.15, 'Type': 'before', 'Unit': 'K'}, 'Vessel': {'Description': 'Vessel Temperature', 'Max': 297.15, 'Min': 295.15, 'Type': 'after', 'Unit': 'K'}}}</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.analysis_check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="vpy.standard.se3.std.Se3.define_model">
 <code class="descname">define_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/std.html#Se3.define_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.std.Se3.define_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines symbols and model for the static expansion system SE3.
-The order of symbols must match the order in <code class="docutils literal"><span class="pre">gen_val_arr</span></code>:</p>
+The order of symbols must match the order in <code class="docutils literal notranslate"><span class="pre">gen_val_arr</span></code>:</p>
 <p># . f
 # . p_fill
 # . V_5
@@ -475,10 +658,10 @@ The order of symbols must match the order in <code class="docutils literal"><spa
 # . p_before
 # . p_after</p>
 <p>The equation is:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[p = f_{corr} p_{fill}\]</div>
 <p>with</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[f_{corr} = \frac{1}{ \frac{1}{f} + \frac{V_{add}}{V_{start}}}\]</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -549,7 +732,7 @@ pick(quantity, type, unit)</td>
 <dt id="vpy.standard.se3.std.Se3.gen_val_dict">
 <code class="descname">gen_val_dict</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/std.html#Se3.gen_val_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.std.Se3.gen_val_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads in a dict of values
-with the same order as in <code class="docutils literal"><span class="pre">define_models</span></code>. For the calculation
+with the same order as in <code class="docutils literal notranslate"><span class="pre">define_models</span></code>. For the calculation
 of the gas density, the Frs reading is multiplyed by 10 which gives a
 suffucient approximation for the pressure.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -570,8 +753,8 @@ pick(quantity, type, unit)</td>
 <dt id="vpy.standard.se3.std.Se3.get_expansion_name">
 <code class="descname">get_expansion_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/std.html#Se3.get_expansion_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.std.Se3.get_expansion_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an np.array containing
-the expansion name (<code class="docutils literal"><span class="pre">f_s</span></code>, <code class="docutils literal"><span class="pre">f_m</span></code> or <code class="docutils literal"><span class="pre">f_l</span></code>)
-of the length: <code class="docutils literal"><span class="pre">self.no_of_meas_points`</span></code></p>
+the expansion name (<code class="docutils literal notranslate"><span class="pre">f_s</span></code>, <code class="docutils literal notranslate"><span class="pre">f_m</span></code> or <code class="docutils literal notranslate"><span class="pre">f_l</span></code>)
+of the length: <code class="docutils literal notranslate"><span class="pre">self.no_of_meas_points`</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -604,6 +787,31 @@ of the length: <code class="docutils literal"><span class="pre">self.no_of_meas_
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="vpy.standard.se3.std.Se3.insert_state_results">
+<code class="descname">insert_state_results</code><span class="sig-paren">(</span><em>res</em>, <em>state_doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/std.html#Se3.insert_state_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.std.Se3.insert_state_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the volume, outgasing rate and time out of the 
+analysis of preliminary state measurements and
+stores it under the AuxValues section of the <em>res</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">Class with methode
+store(quantity, type, value, unit, [stdev], [N])) and
+pick(quantity, type, unit)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Param:</th><td class="field-body">state doc, must contain lists under: 
+* State.Analysis.Values.Volume 
+* State.Analysis.Values.OutgasRate 
+* State.Analysis.Values.Time</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="vpy.standard.se3.std.Se3.large_temp_types">
 <code class="descname">large_temp_types</code><em class="property"> = ['ch_3014_before', 'ch_3015_before', 'ch_3016_before', 'ch_3017_before', 'ch_3018_before', 'ch_3019_before', 'ch_3020_before', 'ch_3021_before', 'ch_3022_before', 'ch_3023_before', 'ch_3024_before', 'ch_3025_before', 'ch_3026_before', 'ch_3027_before', 'ch_3028_before', 'ch_3029_before', 'ch_3030_before']</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.large_temp_types" title="Permalink to this definition">¶</a></dt>
@@ -631,7 +839,12 @@ of the length: <code class="docutils literal"><span class="pre">self.no_of_meas_
 
 <dl class="attribute">
 <dt id="vpy.standard.se3.std.Se3.state_check">
-<code class="descname">state_check</code><em class="property"> = {'Volume': {'Branch': {'Type': 'add_branch', 'Unit': 'cm^3', 'Max': 550.0, 'Min': 450.0, 'Description': 'Additional volume of dut-branch. All dut valves are closed.'}, 'BranchDutA': {'Type': 'add_a', 'Unit': 'cm^3', 'Max': 1100.0, 'Min': 500.0, 'Description': 'Additional volume of dut a'}, 'BranchDutB': {'Type': 'add_ab', 'Unit': 'cm^3', 'Max': 1700.0, 'Min': 500.0, 'Description': 'Additional volume of dut a and b together'}, 'BranchDutC': {'Type': 'add_abc', 'Unit': 'cm^3', 'Max': 2100.0, 'Min': 500.0, 'Description': 'Additional volume of dut a,b and c together'}, 'DutA': {'Type': 'a', 'Unit': 'cm^3', 'Max': 600.0, 'Min': 10.0, 'Description': 'Additional volume of dut a only'}, 'DutB': {'Type': 'b', 'Unit': 'cm^3', 'Max': 600.0, 'Min': 10.0, 'Description': 'Additional volume of dut b only'}, 'DutC': {'Type': 'c', 'Unit': 'cm^3', 'Max': 600.0, 'Min': 10.0, 'Description': 'Additional volume of dut c only'}}, 'Pressure': {'CDG1T1': {'Type': '1T_1-state', 'Unit': 'mbar', 'Max': 0.1, 'Min': -0.1, 'Description': 'Offset of 1st 1T CDG'}, 'CDG1T2': {'Type': '1T_2-state', 'Unit': 'mbar', 'Max': 0.1, 'Min': -0.1, 'Description': 'Offset of 2nd 1T CDG'}, 'CDG1T3': {'Type': '1T_3-state', 'Unit': 'mbar', 'Max': 0.1, 'Min': -0.1, 'Description': 'Offset of 3rd 1T CDG'}, 'CDG10T1': {'Type': '10T_1-state', 'Unit': 'mbar', 'Max': 0.2, 'Min': -0.2, 'Description': 'Offset of 1st 10T CDG'}, 'CDG10T2': {'Type': '10T_2-state', 'Unit': 'mbar', 'Max': 0.2, 'Min': -0.2, 'Description': 'Offset of 2nd 10T CDG'}, 'CDG10T3': {'Type': '10T_3-state', 'Unit': 'mbar', 'Max': 0.2, 'Min': -0.2, 'Description': 'Offset of 3rd 10T CDG'}, 'CDG100T1': {'Type': '100T_1-state', 'Unit': 'mbar', 'Max': 0.3, 'Min': -0.3, 'Description': 'Offset of 1st 100T CDG'}, 'CDG100T2': {'Type': '100T_2-state', 'Unit': 'mbar', 'Max': 0.3, 'Min': -0.3, 'Description': 'Offset of 2nd 100T CDG'}, 'CDG100T3': {'Type': '100T_3-state', 'Unit': 'mbar', 'Max': 0.3, 'Min': -0.3, 'Description': 'Offset of 3rd 100T CDG'}, 'CDG1000T1': {'Type': '1000T_1-state', 'Unit': 'mbar', 'Max': 0.5, 'Min': -0.5, 'Description': 'Offset of 1st 1000T CDG'}, 'CDG1000T2': {'Type': '1000T_2-state', 'Unit': 'mbar', 'Max': 0.5, 'Min': -0.5, 'Description': 'Offset of 2nd 1000T CDG'}, 'CDG1000T3': {'Type': '1000T_3-state', 'Unit': 'mbar', 'Max': 0.5, 'Min': -0.5, 'Description': 'Offset of 3rd 1000T CDG'}}, 'OutGasRate': {'Vessel': {'Type': 'outgas_v', 'Unit': 'mbar/s', 'Max': 1e-09, 'Min': 1e-11, 'Description': 'Outgasig rate of vessel only'}, 'VesselBranch': {'Type': 'outgas_u', 'Unit': 'mbar/s', 'Max': 5e-09, 'Min': 1e-11, 'Description': 'Outgasig rate of vessel and dut branch (all dut branches closed)'}, 'VesselDutABC': {'Type': 'outgas_abc', 'Unit': 'mbar/s', 'Max': 5e-09, 'Min': 1e-11, 'Description': 'Outgasig rate of vessel, dut branch and dut-abc'}, 'VesselDutBC': {'Type': 'outgas_bc', 'Unit': 'mbar/s', 'Max': 5e-09, 'Min': 1e-11, 'Description': 'Outgasig rate of vessel, dut branch and dut-bc'}, 'VesselDutA': {'Type': 'outgas_a', 'Unit': 'mbar/s', 'Max': 5e-09, 'Min': 1e-11, 'Description': 'Outgasig rate of vessel, dut branch and dut-a'}, 'VesselDutB': {'Type': 'outgas_b', 'Unit': 'mbar/s', 'Max': 5e-09, 'Min': 1e-11, 'Description': 'Outgasig rate of vessel, dut branch and dut-b'}, 'VesselDutC': {'Type': 'outgas_c', 'Unit': 'mbar/s', 'Max': 5e-09, 'Min': 1e-11, 'Description': 'Outgasig rate of vessel, dut branch and dut-c'}}, 'Temperature': {'Ch1001': {'Type': 'ch_1001state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1001'}, 'Ch1002': {'Type': 'ch_1002state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1002'}, 'Ch1003': {'Type': 'ch_1003state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1003'}, 'Ch1004': {'Type': 'ch_1004state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1004'}, 'Ch1005': {'Type': 'ch_1005state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1005'}, 'Ch1006': {'Type': 'ch_1006state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1006'}, 'Ch1007': {'Type': 'ch_1007state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1007'}, 'Ch1008': {'Type': 'ch_1008state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1008'}, 'Ch1009': {'Type': 'ch_1009state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1009'}, 'Ch1010': {'Type': 'ch_1010state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1010'}, 'Ch1011': {'Type': 'ch_1011state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1011'}, 'Ch1012': {'Type': 'ch_1012state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1012'}, 'Ch1013': {'Type': 'ch_1013state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1013'}, 'Ch1014': {'Type': 'ch_1014state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1014'}, 'Ch1015': {'Type': 'ch_1015state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1015'}, 'Ch1016': {'Type': 'ch_1016state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1016'}, 'Ch1017': {'Type': 'ch_1017state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1017'}, 'Ch1018': {'Type': 'ch_1018state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1018'}, 'Ch1019': {'Type': 'ch_1019state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1019'}, 'Ch1020': {'Type': 'ch_1020state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1020'}, 'Ch1021': {'Type': 'ch_1021state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1021'}, 'Ch1022': {'Type': 'ch_1022state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1022'}, 'Ch1023': {'Type': 'ch_1023state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1023'}, 'Ch1024': {'Type': 'ch_1024state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1024'}, 'Ch1025': {'Type': 'ch_1025state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1025'}, 'Ch1026': {'Type': 'ch_1026state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1026'}, 'Ch1027': {'Type': 'ch_1027state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1027'}, 'Ch1028': {'Type': 'ch_1028state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1028'}, 'Ch1029': {'Type': 'ch_1029state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1029'}, 'Ch1030': {'Type': 'ch_1030state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 1030'}, 'Ch2001': {'Type': 'ch_2001state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2001'}, 'Ch2002': {'Type': 'ch_2002state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2002'}, 'Ch2003': {'Type': 'ch_2003state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2003'}, 'Ch2004': {'Type': 'ch_2004state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2004'}, 'Ch2005': {'Type': 'ch_2005state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2005'}, 'Ch2006': {'Type': 'ch_2006state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2006'}, 'Ch2007': {'Type': 'ch_2007state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2007'}, 'Ch2008': {'Type': 'ch_2008state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2008'}, 'Ch2009': {'Type': 'ch_2009state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2009'}, 'Ch2010': {'Type': 'ch_2010state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2010'}, 'Ch2011': {'Type': 'ch_2011state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2011'}, 'Ch2012': {'Type': 'ch_2012state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2012'}, 'Ch2013': {'Type': 'ch_2013state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2013'}, 'Ch2014': {'Type': 'ch_2014state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2014'}, 'Ch2015': {'Type': 'ch_2015state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2015'}, 'Ch2016': {'Type': 'ch_2016state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2016'}, 'Ch2017': {'Type': 'ch_2017state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2017'}, 'Ch2018': {'Type': 'ch_2018state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2018'}, 'Ch2019': {'Type': 'ch_2019state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2019'}, 'Ch2020': {'Type': 'ch_2020state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2020'}, 'Ch2021': {'Type': 'ch_2021state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2021'}, 'Ch2022': {'Type': 'ch_2022state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2022'}, 'Ch2023': {'Type': 'ch_2023state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2023'}, 'Ch2024': {'Type': 'ch_2024state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2024'}, 'Ch2025': {'Type': 'ch_2025state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2025'}, 'Ch2026': {'Type': 'ch_2026state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2026'}, 'Ch2027': {'Type': 'ch_2027state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2027'}, 'Ch2028': {'Type': 'ch_2028state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2028'}, 'Ch2029': {'Type': 'ch_2029state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2029'}, 'Ch2030': {'Type': 'ch_2030state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 2030'}, 'Ch3001': {'Type': 'ch_3001state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3001'}, 'Ch3002': {'Type': 'ch_3002state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3002'}, 'Ch3003': {'Type': 'ch_3003state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3003'}, 'Ch3004': {'Type': 'ch_3004state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3004'}, 'Ch3005': {'Type': 'ch_3005state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3005'}, 'Ch3006': {'Type': 'ch_3006state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3006'}, 'Ch3007': {'Type': 'ch_3007state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3007'}, 'Ch3008': {'Type': 'ch_3008state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3008'}, 'Ch3009': {'Type': 'ch_3009state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3009'}, 'Ch3010': {'Type': 'ch_3010state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3010'}, 'Ch3011': {'Type': 'ch_3011state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3011'}, 'Ch3012': {'Type': 'ch_3012state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3012'}, 'Ch3013': {'Type': 'ch_3013state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3013'}, 'Ch3014': {'Type': 'ch_3014state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3014'}, 'Ch3015': {'Type': 'ch_3015state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3015'}, 'Ch3016': {'Type': 'ch_3016state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3016'}, 'Ch3017': {'Type': 'ch_3017state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3017'}, 'Ch3018': {'Type': 'ch_3018state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3018'}, 'Ch3019': {'Type': 'ch_3019state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3019'}, 'Ch3020': {'Type': 'ch_3020state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3020'}, 'Ch3021': {'Type': 'ch_3021state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3021'}, 'Ch3022': {'Type': 'ch_3022state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3022'}, 'Ch3023': {'Type': 'ch_3023state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3023'}, 'Ch3024': {'Type': 'ch_3024state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3024'}, 'Ch3025': {'Type': 'ch_3025state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3025'}, 'Ch3026': {'Type': 'ch_3026state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3026'}, 'Ch3027': {'Type': 'ch_3027state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3027'}, 'Ch3028': {'Type': 'ch_3028state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3028'}, 'Ch3029': {'Type': 'ch_3029state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3029'}, 'Ch3030': {'Type': 'ch_3030state', 'Unit': 'K', 'Max': 297.15, 'Min': 295.15, 'Description': 'Pt-100 sensor of channel 3030'}}}</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.state_check" title="Permalink to this definition">¶</a></dt>
+<code class="descname">state_check</code><em class="property"> = {'OutGasRate': {'Vessel': {'Description': 'Outgasig rate of vessel only', 'Max': 1e-09, 'Min': 1e-11, 'Type': 'outgas_v', 'Unit': 'mbar/s'}, 'VesselBranch': {'Description': 'Outgasig rate of vessel and dut branch (all dut branches closed)', 'Max': 5e-09, 'Min': 1e-11, 'Type': 'outgas_u', 'Unit': 'mbar/s'}, 'VesselDutABC': {'Description': 'Outgasig rate of vessel, dut branch and dut-abc', 'Max': 5e-09, 'Min': 1e-11, 'Type': 'outgas_abc', 'Unit': 'mbar/s'}, 'VesselDutBC': {'Description': 'Outgasig rate of vessel, dut branch and dut-bc', 'Max': 5e-09, 'Min': 1e-11, 'Type': 'outgas_bc', 'Unit': 'mbar/s'}, 'VesselDutC': {'Description': 'Outgasig rate of vessel, dut branch and dut-c', 'Max': 5e-09, 'Min': 1e-11, 'Type': 'outgas_c', 'Unit': 'mbar/s'}}, 'Pressure': {'CDG1000T1': {'Description': 'Offset of 1st 1000T CDG', 'Max': 5, 'Min': -5, 'Type': '1000T_1-state', 'Unit': 'Pa'}, 'CDG1000T2': {'Description': 'Offset of 2nd 1000T CDG', 'Max': 5, 'Min': -5, 'Type': '1000T_2-state', 'Unit': 'Pa'}, 'CDG1000T3': {'Description': 'Offset of 3rd 1000T CDG', 'Max': 5, 'Min': -5, 'Type': '1000T_3-state', 'Unit': 'Pa'}, 'CDG100T1': {'Description': 'Offset of 1st 100T CDG', 'Max': 3, 'Min': -3, 'Type': '100T_1-state', 'Unit': 'Pa'}, 'CDG100T2': {'Description': 'Offset of 2nd 100T CDG', 'Max': 3, 'Min': -3, 'Type': '100T_2-state', 'Unit': 'Pa'}, 'CDG100T3': {'Description': 'Offset of 3rd 100T CDG', 'Max': 3, 'Min': -3, 'Type': '100T_3-state', 'Unit': 'Pa'}, 'CDG10T1': {'Description': 'Offset of 1st 10T CDG', 'Max': 2, 'Min': -2, 'Type': '10T_1-state', 'Unit': 'Pa'}, 'CDG10T2': {'Description': 'Offset of 2nd 10T CDG', 'Max': 2, 'Min': -2, 'Type': '10T_2-state', 'Unit': 'Pa'}, 'CDG10T3': {'Description': 'Offset of 3rd 10T CDG', 'Max': 2, 'Min': -2, 'Type': '10T_3-state', 'Unit': 'Pa'}, 'CDG1T1': {'Description': 'Offset of 1st 1T CDG', 'Max': 1, 'Min': -1, 'Type': '1T_1-state', 'Unit': 'Pa'}, 'CDG1T2': {'Description': 'Offset of 2nd 1T CDG', 'Max': 1, 'Min': -1, 'Type': '1T_2-state', 'Unit': 'Pa'}, 'CDG1T3': {'Description': 'Offset of 3rd 1T CDG', 'Max': 1, 'Min': -1, 'Type': '1T_3-state', 'Unit': 'Pa'}}, 'Temperature': {'Ch1001': {'Description': 'Pt-100 sensor of channel 1001', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1001state', 'Unit': 'K'}, 'Ch1002': {'Description': 'Pt-100 sensor of channel 1002', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1002state', 'Unit': 'K'}, 'Ch1003': {'Description': 'Pt-100 sensor of channel 1003', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1003state', 'Unit': 'K'}, 'Ch1004': {'Description': 'Pt-100 sensor of channel 1004', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1004state', 'Unit': 'K'}, 'Ch1005': {'Description': 'Pt-100 sensor of channel 1005', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1005state', 'Unit': 'K'}, 'Ch1006': {'Description': 'Pt-100 sensor of channel 1006', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1006state', 'Unit': 'K'}, 'Ch1007': {'Description': 'Pt-100 sensor of channel 1007', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1007state', 'Unit': 'K'}, 'Ch1008': {'Description': 'Pt-100 sensor of channel 1008', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1008state', 'Unit': 'K'}, 'Ch1009': {'Description': 'Pt-100 sensor of channel 1009', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1009state', 'Unit': 'K'}, 'Ch1010': {'Description': 'Pt-100 sensor of channel 1010', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1010state', 'Unit': 'K'}, 'Ch1011': {'Description': 'Pt-100 sensor of channel 1011', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1011state', 'Unit': 'K'}, 'Ch1012': {'Description': 'Pt-100 sensor of channel 1012', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1012state', 'Unit': 'K'}, 'Ch1013': {'Description': 'Pt-100 sensor of channel 1013', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1013state', 'Unit': 'K'}, 'Ch1014': {'Description': 'Pt-100 sensor of channel 1014', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1014state', 'Unit': 'K'}, 'Ch1015': {'Description': 'Pt-100 sensor of channel 1015', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1015state', 'Unit': 'K'}, 'Ch1016': {'Description': 'Pt-100 sensor of channel 1016', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1016state', 'Unit': 'K'}, 'Ch1017': {'Description': 'Pt-100 sensor of channel 1017', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1017state', 'Unit': 'K'}, 'Ch1018': {'Description': 'Pt-100 sensor of channel 1018', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1018state', 'Unit': 'K'}, 'Ch1019': {'Description': 'Pt-100 sensor of channel 1019', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1019state', 'Unit': 'K'}, 'Ch1020': {'Description': 'Pt-100 sensor of channel 1020', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1020state', 'Unit': 'K'}, 'Ch1021': {'Description': 'Pt-100 sensor of channel 1021', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1021state', 'Unit': 'K'}, 'Ch1022': {'Description': 'Pt-100 sensor of channel 1022', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1022state', 'Unit': 'K'}, 'Ch1023': {'Description': 'Pt-100 sensor of channel 1023', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1023state', 'Unit': 'K'}, 'Ch1024': {'Description': 'Pt-100 sensor of channel 1024', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1024state', 'Unit': 'K'}, 'Ch1025': {'Description': 'Pt-100 sensor of channel 1025', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1025state', 'Unit': 'K'}, 'Ch1026': {'Description': 'Pt-100 sensor of channel 1026', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1026state', 'Unit': 'K'}, 'Ch1027': {'Description': 'Pt-100 sensor of channel 1027', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1027state', 'Unit': 'K'}, 'Ch1028': {'Description': 'Pt-100 sensor of channel 1028', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1028state', 'Unit': 'K'}, 'Ch1029': {'Description': 'Pt-100 sensor of channel 1029', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1029state', 'Unit': 'K'}, 'Ch1030': {'Description': 'Pt-100 sensor of channel 1030', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_1030state', 'Unit': 'K'}, 'Ch2001': {'Description': 'Pt-100 sensor of channel 2001', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2001state', 'Unit': 'K'}, 'Ch2002': {'Description': 'Pt-100 sensor of channel 2002', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2002state', 'Unit': 'K'}, 'Ch2003': {'Description': 'Pt-100 sensor of channel 2003', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2003state', 'Unit': 'K'}, 'Ch2004': {'Description': 'Pt-100 sensor of channel 2004', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2004state', 'Unit': 'K'}, 'Ch2005': {'Description': 'Pt-100 sensor of channel 2005', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2005state', 'Unit': 'K'}, 'Ch2006': {'Description': 'Pt-100 sensor of channel 2006', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2006state', 'Unit': 'K'}, 'Ch2007': {'Description': 'Pt-100 sensor of channel 2007', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2007state', 'Unit': 'K'}, 'Ch2008': {'Description': 'Pt-100 sensor of channel 2008', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2008state', 'Unit': 'K'}, 'Ch2009': {'Description': 'Pt-100 sensor of channel 2009', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2009state', 'Unit': 'K'}, 'Ch2010': {'Description': 'Pt-100 sensor of channel 2010', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2010state', 'Unit': 'K'}, 'Ch2011': {'Description': 'Pt-100 sensor of channel 2011', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2011state', 'Unit': 'K'}, 'Ch2012': {'Description': 'Pt-100 sensor of channel 2012', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2012state', 'Unit': 'K'}, 'Ch2013': {'Description': 'Pt-100 sensor of channel 2013', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2013state', 'Unit': 'K'}, 'Ch2014': {'Description': 'Pt-100 sensor of channel 2014', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2014state', 'Unit': 'K'}, 'Ch2015': {'Description': 'Pt-100 sensor of channel 2015', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2015state', 'Unit': 'K'}, 'Ch2016': {'Description': 'Pt-100 sensor of channel 2016', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2016state', 'Unit': 'K'}, 'Ch2017': {'Description': 'Pt-100 sensor of channel 2017', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2017state', 'Unit': 'K'}, 'Ch2018': {'Description': 'Pt-100 sensor of channel 2018', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2018state', 'Unit': 'K'}, 'Ch2019': {'Description': 'Pt-100 sensor of channel 2019', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2019state', 'Unit': 'K'}, 'Ch2020': {'Description': 'Pt-100 sensor of channel 2020', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2020state', 'Unit': 'K'}, 'Ch2021': {'Description': 'Pt-100 sensor of channel 2021', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2021state', 'Unit': 'K'}, 'Ch2022': {'Description': 'Pt-100 sensor of channel 2022', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2022state', 'Unit': 'K'}, 'Ch2023': {'Description': 'Pt-100 sensor of channel 2023', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2023state', 'Unit': 'K'}, 'Ch2024': {'Description': 'Pt-100 sensor of channel 2024', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2024state', 'Unit': 'K'}, 'Ch2025': {'Description': 'Pt-100 sensor of channel 2025', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2025state', 'Unit': 'K'}, 'Ch2026': {'Description': 'Pt-100 sensor of channel 2026', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2026state', 'Unit': 'K'}, 'Ch2027': {'Description': 'Pt-100 sensor of channel 2027', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2027state', 'Unit': 'K'}, 'Ch2028': {'Description': 'Pt-100 sensor of channel 2028', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2028state', 'Unit': 'K'}, 'Ch2029': {'Description': 'Pt-100 sensor of channel 2029', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2029state', 'Unit': 'K'}, 'Ch2030': {'Description': 'Pt-100 sensor of channel 2030', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_2030state', 'Unit': 'K'}, 'Ch3001': {'Description': 'Pt-100 sensor of channel 3001', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3001state', 'Unit': 'K'}, 'Ch3002': {'Description': 'Pt-100 sensor of channel 3002', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3002state', 'Unit': 'K'}, 'Ch3003': {'Description': 'Pt-100 sensor of channel 3003', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3003state', 'Unit': 'K'}, 'Ch3004': {'Description': 'Pt-100 sensor of channel 3004', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3004state', 'Unit': 'K'}, 'Ch3005': {'Description': 'Pt-100 sensor of channel 3005', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3005state', 'Unit': 'K'}, 'Ch3006': {'Description': 'Pt-100 sensor of channel 3006', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3006state', 'Unit': 'K'}, 'Ch3007': {'Description': 'Pt-100 sensor of channel 3007', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3007state', 'Unit': 'K'}, 'Ch3008': {'Description': 'Pt-100 sensor of channel 3008', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3008state', 'Unit': 'K'}, 'Ch3009': {'Description': 'Pt-100 sensor of channel 3009', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3009state', 'Unit': 'K'}, 'Ch3010': {'Description': 'Pt-100 sensor of channel 3010', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3010state', 'Unit': 'K'}, 'Ch3011': {'Description': 'Pt-100 sensor of channel 3011', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3011state', 'Unit': 'K'}, 'Ch3012': {'Description': 'Pt-100 sensor of channel 3012', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3012state', 'Unit': 'K'}, 'Ch3013': {'Description': 'Pt-100 sensor of channel 3013', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3013state', 'Unit': 'K'}, 'Ch3014': {'Description': 'Pt-100 sensor of channel 3014', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3014state', 'Unit': 'K'}, 'Ch3015': {'Description': 'Pt-100 sensor of channel 3015', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3015state', 'Unit': 'K'}, 'Ch3016': {'Description': 'Pt-100 sensor of channel 3016', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3016state', 'Unit': 'K'}, 'Ch3017': {'Description': 'Pt-100 sensor of channel 3017', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3017state', 'Unit': 'K'}, 'Ch3018': {'Description': 'Pt-100 sensor of channel 3018', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3018state', 'Unit': 'K'}, 'Ch3019': {'Description': 'Pt-100 sensor of channel 3019', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3019state', 'Unit': 'K'}, 'Ch3020': {'Description': 'Pt-100 sensor of channel 3020', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3020state', 'Unit': 'K'}, 'Ch3021': {'Description': 'Pt-100 sensor of channel 3021', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3021state', 'Unit': 'K'}, 'Ch3022': {'Description': 'Pt-100 sensor of channel 3022', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3022state', 'Unit': 'K'}, 'Ch3023': {'Description': 'Pt-100 sensor of channel 3023', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3023state', 'Unit': 'K'}, 'Ch3024': {'Description': 'Pt-100 sensor of channel 3024', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3024state', 'Unit': 'K'}, 'Ch3025': {'Description': 'Pt-100 sensor of channel 3025', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3025state', 'Unit': 'K'}, 'Ch3026': {'Description': 'Pt-100 sensor of channel 3026', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3026state', 'Unit': 'K'}, 'Ch3027': {'Description': 'Pt-100 sensor of channel 3027', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3027state', 'Unit': 'K'}, 'Ch3028': {'Description': 'Pt-100 sensor of channel 3028', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3028state', 'Unit': 'K'}, 'Ch3029': {'Description': 'Pt-100 sensor of channel 3029', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3029state', 'Unit': 'K'}, 'Ch3030': {'Description': 'Pt-100 sensor of channel 3030', 'Max': 297.15, 'Min': 295.15, 'Type': 'ch_3030state', 'Unit': 'K'}}, 'Volume': {'Branch': {'Description': 'Additional volume of dut-branch. All dut valves are closed.', 'Max': 550.0, 'Min': 450.0, 'Type': 'add_branch', 'Unit': 'cm^3'}, 'BranchDutA': {'Description': 'Additional volume of dut a', 'Max': 1100.0, 'Min': 500.0, 'Type': 'add_a', 'Unit': 'cm^3'}, 'BranchDutB': {'Description': 'Additional volume of dut a and b together', 'Max': 1700.0, 'Min': 500.0, 'Type': 'add_ab', 'Unit': 'cm^3'}, 'BranchDutC': {'Description': 'Additional volume of dut a,b and c together', 'Max': 2100.0, 'Min': 500.0, 'Type': 'add_abc', 'Unit': 'cm^3'}, 'DutA': {'Description': 'Additional volume of dut a only', 'Max': 600.0, 'Min': 10.0, 'Type': 'a', 'Unit': 'cm^3'}, 'DutB': {'Description': 'Additional volume of dut b only', 'Max': 600.0, 'Min': 10.0, 'Type': 'b', 'Unit': 'cm^3'}, 'DutC': {'Description': 'Additional volume of dut c only', 'Max': 600.0, 'Min': 10.0, 'Type': 'c', 'Unit': 'cm^3'}}}</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.state_check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="vpy.standard.se3.std.Se3.state_types">
+<code class="descname">state_types</code><em class="property"> = ['1T_1-state', '1T_2-state', '1T_3-state', '10T_1-state', '10T_2-state', '10T_3-state', '100T_1-state', '100T_2-state', '100T_3-state', '1000T_1-state', '1000T_2-state', '1000T_3-state']</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.state_types" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -659,7 +872,7 @@ pick(quantity, type, unit)</td>
 
 <dl class="attribute">
 <dt id="vpy.standard.se3.std.Se3.unit">
-<code class="descname">unit</code><em class="property"> = 'mbar'</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.unit" title="Permalink to this definition">¶</a></dt>
+<code class="descname">unit</code><em class="property"> = 'Pa'</em><a class="headerlink" href="#vpy.standard.se3.std.Se3.unit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -675,7 +888,7 @@ pick(quantity, type, unit)</td>
 <dl class="class">
 <dt id="vpy.standard.se3.uncert.Uncert">
 <em class="property">class </em><code class="descclassname">vpy.standard.se3.uncert.</code><code class="descname">Uncert</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/uncert.html#Uncert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.uncert.Uncert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.standard.se3.std.Se3" title="vpy.standard.se3.std.Se3"><code class="xref py py-class docutils literal"><span class="pre">vpy.standard.se3.std.Se3</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.standard.se3.std.Se3" title="vpy.standard.se3.std.Se3"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.standard.se3.std.Se3</span></code></a></p>
 <dl class="method">
 <dt id="vpy.standard.se3.uncert.Uncert.pressure_fill">
 <code class="descname">pressure_fill</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/se3/uncert.html#Uncert.pressure_fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.se3.uncert.Uncert.pressure_fill" title="Permalink to this definition">¶</a></dt>
@@ -786,9 +999,7 @@ pick(quantity, type, unit)</td>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -804,11 +1015,11 @@ pick(quantity, type, unit)</td>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, wactbprot.
+        &copy; Copyright 2018, wactbprot
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -823,36 +1034,24 @@ pick(quantity, type, unit)</td>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

@@ -24,26 +24,17 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../../search.html"/>
-    <link rel="top" title="vpy 0.1.0 documentation" href="../../../../index.html"/>
-        <link rel="up" title="Module code" href="../../../index.html"/> 
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -102,7 +93,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../modules.html">vpy</a>
@@ -110,9 +101,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -142,8 +134,6 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-        
       </li>
     
   </ul>
@@ -159,13 +149,15 @@
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+
 <span class="kn">from</span> <span class="nn">...device.dmm</span> <span class="k">import</span> <span class="n">Dmm</span>
-<span class="kn">from</span> <span class="nn">...device.cdg</span> <span class="k">import</span> <span class="n">InfCdg</span>
+<span class="kn">from</span> <span class="nn">...device.cdg</span> <span class="k">import</span> <span class="n">InfCdg</span><span class="p">,</span> <span class="n">Cdg</span>
+<span class="kn">from</span> <span class="nn">...device.srg</span> <span class="k">import</span> <span class="n">Srg</span>
+
 <span class="kn">from</span> <span class="nn">...constants</span> <span class="k">import</span> <span class="n">Constants</span>
 <span class="kn">from</span> <span class="nn">...calibration_devices</span> <span class="k">import</span> <span class="n">CalibrationObject</span>
-<span class="kn">from</span> <span class="nn">...values</span> <span class="k">import</span> <span class="n">Temperature</span><span class="p">,</span> <span class="n">Pressure</span><span class="p">,</span> <span class="n">Time</span><span class="p">,</span> <span class="n">AuxSe3</span><span class="p">,</span> <span class="n">OutGasRate</span><span class="p">,</span> <span class="n">Position</span>
+<span class="kn">from</span> <span class="nn">...values</span> <span class="k">import</span> <span class="n">Temperature</span><span class="p">,</span> <span class="n">Pressure</span><span class="p">,</span> <span class="n">Time</span><span class="p">,</span> <span class="n">AuxSe3</span><span class="p">,</span> <span class="n">OutGasRate</span><span class="p">,</span> <span class="n">Position</span><span class="p">,</span> <span class="n">Expansion</span><span class="p">,</span> <span class="n">Date</span>
 <span class="kn">from</span> <span class="nn">..standard</span> <span class="k">import</span> <span class="n">Standard</span>
-<span class="kn">from</span> <span class="nn">...device.cdg</span> <span class="k">import</span> <span class="n">Cdg</span>
 
 
 <div class="viewcode-block" id="Se3"><a class="viewcode-back" href="../../../../vpy.standard.se3.html#vpy.standard.se3.std.Se3">[docs]</a><span class="k">class</span> <span class="nc">Se3</span><span class="p">(</span><span class="n">Standard</span><span class="p">):</span>
@@ -177,7 +169,7 @@
 <span class="sd">    state measurements ``amt`` is used.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;SE3&quot;</span>
-    <span class="n">unit</span> <span class="o">=</span> <span class="s2">&quot;mbar&quot;</span>
+    <span class="n">unit</span> <span class="o">=</span> <span class="s2">&quot;Pa&quot;</span>
     <span class="n">temp_dev_name</span> <span class="o">=</span> <span class="s2">&quot;SE3_Temperature_Keithley&quot;</span>
     <span class="n">small_temp_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ch_3001_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3002_before&quot;</span><span class="p">,</span> <span class="s2">&quot;ch_3003_before&quot;</span><span class="p">,</span> <span class="p">]</span>
 
@@ -219,15 +211,36 @@
                     <span class="s2">&quot;CDG_100T_1&quot;</span><span class="p">,</span> <span class="s2">&quot;CDG_100T_2&quot;</span><span class="p">,</span> <span class="s2">&quot;CDG_100T_3&quot;</span><span class="p">,</span>
                     <span class="s2">&quot;CDG_1000T_1&quot;</span><span class="p">,</span> <span class="s2">&quot;CDG_1000T_2&quot;</span><span class="p">,</span> <span class="s2">&quot;CDG_1000T_3&quot;</span><span class="p">,</span> <span class="p">]</span>
 
+    
     <span class="n">fill_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1T_1-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;1T_2-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;1T_3-fill&quot;</span><span class="p">,</span>
                   <span class="s2">&quot;10T_1-fill&quot;</span><span class="p">,</span>  <span class="s2">&quot;10T_2-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;10T_3-fill&quot;</span><span class="p">,</span>
                   <span class="s2">&quot;100T_1-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;100T_2-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;100T_3-fill&quot;</span><span class="p">,</span>
                   <span class="s2">&quot;1000T_1-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;1000T_2-fill&quot;</span><span class="p">,</span> <span class="s2">&quot;1000T_3-fill&quot;</span><span class="p">,</span> <span class="p">]</span>
+    
+    <span class="n">state_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1T_1-state&quot;</span><span class="p">,</span> <span class="s2">&quot;1T_2-state&quot;</span><span class="p">,</span> <span class="s2">&quot;1T_3-state&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;10T_1-state&quot;</span><span class="p">,</span>  <span class="s2">&quot;10T_2-state&quot;</span><span class="p">,</span> <span class="s2">&quot;10T_3-state&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;100T_1-state&quot;</span><span class="p">,</span> <span class="s2">&quot;100T_2-state&quot;</span><span class="p">,</span> <span class="s2">&quot;100T_3-state&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;1000T_1-state&quot;</span><span class="p">,</span> <span class="s2">&quot;1000T_2-state&quot;</span><span class="p">,</span> <span class="s2">&quot;1000T_3-state&quot;</span><span class="p">,</span> <span class="p">]</span>
 
     <span class="n">offset_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1T_1-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;1T_2-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;1T_3-offset&quot;</span><span class="p">,</span>
                     <span class="s2">&quot;10T_1-offset&quot;</span><span class="p">,</span>  <span class="s2">&quot;10T_2-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;10T_3-offset&quot;</span><span class="p">,</span>
                     <span class="s2">&quot;100T_1-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;100T_2-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;100T_3-offset&quot;</span><span class="p">,</span>
                     <span class="s2">&quot;1000T_1-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;1000T_2-offset&quot;</span><span class="p">,</span> <span class="s2">&quot;1000T_3-offset&quot;</span><span class="p">,</span> <span class="p">]</span>
+   
+    <span class="n">analysis_check</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Error&quot;</span><span class="p">:{</span>
+            <span class="s2">&quot;Customer&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;ind&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.25</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Error of the Customer gauge.&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;FillDeviation&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;dev_fill&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;deviation between calculated and measured filling pressure.&quot;</span><span class="p">},</span>           
+            <span class="s2">&quot;CalDeviation&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;dev_cal&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;deviation between calculated and target calibration pressure.&quot;</span><span class="p">},</span> 
+            <span class="s2">&quot;PressureRise&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;rise&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;relative contribution of pressure rise to the calibration pressure.&quot;</span><span class="p">},</span> 
+                      
+        <span class="p">},</span>
+        <span class="s2">&quot;Temperature&quot;</span><span class="p">:{</span>
+            <span class="s2">&quot;Vessel&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;after&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">297.15</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span><span class="mf">295.15</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Vessel Temperature&quot;</span><span class="p">},</span>        
+            <span class="s2">&quot;StartVolume&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;before&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">297.15</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span><span class="mf">295.15</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Temperature of the starting Volume&quot;</span><span class="p">},</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
+
     <span class="n">state_check</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;Volume&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="s2">&quot;Branch&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;add_branch&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;cm^3&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">550.0</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span><span class="mf">450.0</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Additional volume of dut-branch. All dut valves are closed.&quot;</span><span class="p">},</span>
@@ -239,26 +252,24 @@
           <span class="s2">&quot;DutC&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;cm^3&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">600.0</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Additional volume of dut c only&quot;</span><span class="p">}</span>
         <span class="p">},</span>
         <span class="s2">&quot;Pressure&quot;</span><span class="p">:{</span>
-          <span class="s2">&quot;CDG1T1&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;1T_1-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 1st 1T CDG&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;CDG1T2&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;1T_2-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 2nd 1T CDG&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;CDG1T3&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;1T_3-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 3rd 1T CDG&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;CDG10T1&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;10T_1-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 1st 10T CDG&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;CDG10T2&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;10T_2-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 2nd 10T CDG&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;CDG10T3&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;10T_3-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 3rd 10T CDG&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;CDG100T1&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;100T_1-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 1st 100T CDG&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;CDG100T2&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;100T_2-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 2nd 100T CDG&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;CDG100T3&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;100T_3-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 3rd 100T CDG&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;CDG1000T1&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;1000T_1-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 1st 1000T CDG&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;CDG1000T2&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;1000T_2-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 2nd 1000T CDG&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;CDG1000T3&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;1000T_3-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 3rd 1000T CDG&quot;</span><span class="p">}</span>
+          <span class="s2">&quot;CDG1T1&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;1T_1-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Pa&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 1st 1T CDG&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;CDG1T2&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;1T_2-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Pa&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 2nd 1T CDG&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;CDG1T3&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;1T_3-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Pa&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 3rd 1T CDG&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;CDG10T1&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;10T_1-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Pa&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 1st 10T CDG&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;CDG10T2&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;10T_2-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Pa&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 2nd 10T CDG&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;CDG10T3&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;10T_3-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Pa&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 3rd 10T CDG&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;CDG100T1&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;100T_1-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Pa&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 1st 100T CDG&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;CDG100T2&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;100T_2-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Pa&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 2nd 100T CDG&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;CDG100T3&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;100T_3-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Pa&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 3rd 100T CDG&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;CDG1000T1&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;1000T_1-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Pa&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 1st 1000T CDG&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;CDG1000T2&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;1000T_2-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Pa&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 2nd 1000T CDG&quot;</span><span class="p">},</span>
+          <span class="s2">&quot;CDG1000T3&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;1000T_3-state&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Pa&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Offset of 3rd 1000T CDG&quot;</span><span class="p">}</span>
         <span class="p">},</span>
         <span class="s2">&quot;OutGasRate&quot;</span><span class="p">:{</span>
           <span class="s2">&quot;Vessel&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;outgas_v&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar/s&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">1e-9</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="mf">1e-11</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Outgasig rate of vessel only&quot;</span><span class="p">},</span>
           <span class="s2">&quot;VesselBranch&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;outgas_u&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar/s&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">5e-9</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="mf">1e-11</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Outgasig rate of vessel and dut branch (all dut branches closed)&quot;</span><span class="p">},</span>
           <span class="s2">&quot;VesselDutABC&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;outgas_abc&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar/s&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">5e-9</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="mf">1e-11</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Outgasig rate of vessel, dut branch and dut-abc&quot;</span><span class="p">},</span>
           <span class="s2">&quot;VesselDutBC&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;outgas_bc&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar/s&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">5e-9</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="mf">1e-11</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Outgasig rate of vessel, dut branch and dut-bc&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;VesselDutA&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;outgas_a&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar/s&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">5e-9</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="mf">1e-11</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Outgasig rate of vessel, dut branch and dut-a&quot;</span><span class="p">},</span>
-          <span class="s2">&quot;VesselDutB&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;outgas_b&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar/s&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">5e-9</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="mf">1e-11</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Outgasig rate of vessel, dut branch and dut-b&quot;</span><span class="p">},</span>
           <span class="s2">&quot;VesselDutC&quot;</span><span class="p">:{</span><span class="s2">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;outgas_c&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mbar/s&quot;</span> <span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">:</span><span class="mf">5e-9</span><span class="p">,</span> <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="mf">1e-11</span><span class="p">,</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;Outgasig rate of vessel, dut branch and dut-c&quot;</span><span class="p">},</span>
         <span class="p">},</span>
         <span class="s2">&quot;Temperature&quot;</span><span class="p">:{</span>
@@ -364,6 +375,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">Time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Aux</span> <span class="o">=</span> <span class="n">AuxSe3</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Pos</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Exp</span> <span class="o">=</span> <span class="n">Expansion</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Date</span> <span class="o">=</span> <span class="n">Date</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="s1">&#39;State&#39;</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">OutGas</span> <span class="o">=</span> <span class="n">OutGasRate</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
@@ -373,14 +386,25 @@
             <span class="c1"># define model</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">no_of_meas_points</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;amt_fill&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">define_model</span><span class="p">()</span>
+            <span class="c1"># costomer device</span>
+            <span class="k">if</span> <span class="s1">&#39;CustomerObject&#39;</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;Calibration&#39;</span><span class="p">]:</span>
+                <span class="n">customer_device</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;Calibration&#39;</span><span class="p">][</span><span class="s1">&#39;CustomerObject&#39;</span><span class="p">]</span>
+                <span class="n">dev_class</span> <span class="o">=</span> <span class="n">customer_device</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="s2">&quot;generic&quot;</span><span class="p">)</span>
 
+                <span class="k">if</span> <span class="n">dev_class</span> <span class="o">==</span> <span class="s1">&#39;SRG&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">CustomerDevice</span> <span class="o">=</span> <span class="n">Srg</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">customer_device</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">dev_class</span> <span class="o">==</span> <span class="s1">&#39;CDG&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">CustomerDevice</span> <span class="o">=</span> <span class="n">Cdg</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">customer_device</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">dev_class</span> <span class="o">==</span> <span class="s1">&#39;generic&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">CustomerDevice</span> <span class="o">=</span> <span class="n">Cdg</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="p">{})</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">TDev</span> <span class="o">=</span> <span class="n">Dmm</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cobj</span><span class="o">.</span><span class="n">get_by_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temp_dev_name</span><span class="p">))</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">FillDevs</span> <span class="o">=</span><span class="p">[]</span>
         <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fill_dev_names</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">FillDevs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">InfCdg</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cobj</span><span class="o">.</span><span class="n">get_by_name</span><span class="p">(</span><span class="n">d</span><span class="p">)))</span>
-
-
+        
+        
 <div class="viewcode-block" id="Se3.define_model"><a class="viewcode-back" href="../../../../vpy.standard.se3.html#vpy.standard.se3.std.Se3.define_model">[docs]</a>    <span class="k">def</span> <span class="nf">define_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Defines symbols and model for the static expansion system SE3.</span>
 <span class="sd">        The order of symbols must match the order in ``gen_val_arr``:</span>
@@ -504,9 +528,12 @@
 <span class="sd">        :rtype: np.array of strings</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">f</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Aux</span><span class="o">.</span><span class="n">get_expansion</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">f</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_of_meas_points</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span></div>
+        <span class="n">f_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Exp</span><span class="o">.</span><span class="n">get_str</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">f_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">f_name</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_of_meas_points</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Aux</span><span class="o">.</span><span class="n">get_expansion</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">f_name</span></div>
+
 
 <div class="viewcode-block" id="Se3.expansion"><a class="viewcode-back" href="../../../../vpy.standard.se3.html#vpy.standard.se3.std.Se3.expansion">[docs]</a>    <span class="k">def</span> <span class="nf">expansion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Builds a vector containing the expansion factors</span>
@@ -547,13 +574,48 @@
         <span class="n">conv2min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cons</span><span class="o">.</span><span class="n">get_conv</span><span class="p">(</span><span class="n">from_unit</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">to_unit</span><span class="o">=</span><span class="s2">&quot;min&quot;</span><span class="p">)</span>
         <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">get_rmt</span><span class="p">(</span><span class="s2">&quot;amt_meas&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">)</span><span class="o">*</span><span class="n">conv2s</span> <span class="o">*</span><span class="n">conv2min</span>
 
-        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span> <span class="s2">&quot;meas&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">)</span></div></div>
+        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span> <span class="s2">&quot;meas&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Se3.insert_state_results"><a class="viewcode-back" href="../../../../vpy.standard.se3.html#vpy.standard.se3.std.Se3.insert_state_results">[docs]</a>    <span class="k">def</span> <span class="nf">insert_state_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">state_doc</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Takes the volume, outgasing rate and time out of the </span>
+<span class="sd">        analysis of preliminary state measurements and</span>
+<span class="sd">        stores it under the AuxValues section of the *res*</span>
+
+<span class="sd">        :param: Class with methode</span>
+<span class="sd">                store(quantity, type, value, unit, [stdev], [N])) and</span>
+<span class="sd">                pick(quantity, type, unit)</span>
+<span class="sd">        :param: state doc, must contain lists under: </span>
+<span class="sd">                * State.Analysis.Values.Volume </span>
+<span class="sd">                * State.Analysis.Values.OutgasRate </span>
+<span class="sd">                * State.Analysis.Values.Time</span>
+<span class="sd">        :type: dict</span>
+<span class="sd">        &quot;&quot;&quot;</span> 
+        <span class="n">doc_id</span> <span class="o">=</span> <span class="n">state_doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">)</span>
+
+        <span class="n">values</span> <span class="o">=</span> <span class="n">state_doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Analysis&#39;</span><span class="p">,{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Values&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="k">if</span> <span class="s1">&#39;Volume&#39;</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">volume</span> <span class="ow">in</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Volume&#39;</span><span class="p">):</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">store_dict</span><span class="p">(</span><span class="s1">&#39;Volume&#39;</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;AuxValues&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;missing volume section in state doc </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">doc_id</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="s1">&#39;OutGasRate&#39;</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">outgasrate</span> <span class="ow">in</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OutGasRate&#39;</span><span class="p">):</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">store_dict</span><span class="p">(</span><span class="s1">&#39;OutGasRate&#39;</span><span class="p">,</span> <span class="n">outgasrate</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;AuxValues&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;missing outGas rate section in state doc </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">doc_id</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="s1">&#39;Time&#39;</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">):</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">store_dict</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;AuxValues&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;missing time section in state doc </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">doc_id</span><span class="p">))</span></div></div>
+        
+        
 </pre></div>
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -562,11 +624,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, wactbprot.
+        &copy; Copyright 2018, wactbprot
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -581,36 +643,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../../',
-            VERSION:'0.1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

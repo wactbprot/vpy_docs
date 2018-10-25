@@ -1,5 +1,5 @@
-vpy\.standard\.se3 package
-==========================
+vpy.standard.se3 package
+========================
 
 .. automodule:: vpy.standard.se3
     :members:
@@ -9,24 +9,24 @@ vpy\.standard\.se3 package
 Submodules
 ----------
 
-vpy\.standard\.se3\.cal module
-------------------------------
+vpy.standard.se3.cal module
+---------------------------
 
 .. automodule:: vpy.standard.se3.cal
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.standard\.se3\.std module
-------------------------------
+vpy.standard.se3.std module
+---------------------------
 
 .. automodule:: vpy.standard.se3.std
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy\.standard\.se3\.uncert module
----------------------------------
+vpy.standard.se3.uncert module
+------------------------------
 
 .. automodule:: vpy.standard.se3.uncert
     :members:
