@@ -24,26 +24,17 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="vpy 0.1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="Module code" href="../index.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -102,7 +93,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../modules.html">vpy</a>
@@ -110,9 +101,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -142,8 +134,6 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-        
       </li>
     
   </ul>
@@ -160,6 +150,7 @@
 <span class="kn">import</span> <span class="nn">locale</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="nn">.document</span> <span class="k">import</span> <span class="n">Document</span>
 
 
@@ -174,28 +165,22 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">quant</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-
         <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">quant</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">quant</span><span class="p">)</span>
-            <span class="k">if</span> <span class="s1">&#39;Calibration&#39;</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
-                <span class="n">doc</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;Calibration&#39;</span><span class="p">]</span>
-
             <span class="k">if</span> <span class="s1">&#39;State&#39;</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
                 <span class="n">doc</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span>
-
+            <span class="k">if</span> <span class="s1">&#39;Calibration&#39;</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+                <span class="n">doc</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;Calibration&#39;</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">quant</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
                 <span class="n">doc</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">quant</span><span class="p">]</span>
-
-            <span class="k">if</span> <span class="s1">&#39;Values&#39;</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
-                <span class="n">doc</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;Values&#39;</span><span class="p">]</span>
-
-                <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span> <span class="c1"># works e.g. for Date</span>
                 <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
-
+            <span class="k">else</span><span class="p">:</span> <span class="c1"># we have to dig deeper for Pressure etc.</span>
+                <span class="k">if</span> <span class="s1">&#39;Values&#39;</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+                    <span class="n">doc</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;Values&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+                    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
 
 <div class="viewcode-block" id="Values.unit_convert"><a class="viewcode-back" href="../../vpy.html#vpy.values.Values.unit_convert">[docs]</a>    <span class="k">def</span> <span class="nf">unit_convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns value (or numpy array of values) converted from unit a to unit b.</span>
@@ -230,6 +215,18 @@
             <span class="s2">&quot;Torr&quot;</span><span class="p">:</span> <span class="n">val</span><span class="o">/</span><span class="mf">133.322</span>
             <span class="p">}</span>
         <span class="k">return</span> <span class="n">to_target_unit</span><span class="p">[</span><span class="n">b</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Values.flatten"><a class="viewcode-back" href="../../vpy.html#vpy.values.Values.flatten">[docs]</a>    <span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Flattens a list of lists.</span>
+
+<span class="sd">        :param l: list of lists</span>
+<span class="sd">        :type cal: list</span>
+
+<span class="sd">        :returns: a list</span>
+<span class="sd">        :rtype: list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="Values.round_to_sig_dig"><a class="viewcode-back" href="../../vpy.html#vpy.values.Values.round_to_sig_dig">[docs]</a>    <span class="k">def</span> <span class="nf">round_to_sig_dig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -306,6 +303,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">round_to_uncertainty</span><span class="p">(</span><span class="n">val_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">unc_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">val_arr</span><span class="p">))])</span></div></div>
 
+<div class="viewcode-block" id="Expansion"><a class="viewcode-back" href="../../vpy.html#vpy.values.Expansion">[docs]</a><span class="k">class</span> <span class="nc">Expansion</span><span class="p">(</span><span class="n">Values</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">quant</span><span class="o">=</span><span class="s2">&quot;Measurement&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;Expansion&#39;</span><span class="p">,</span> <span class="n">quant</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Mass"><a class="viewcode-back" href="../../vpy.html#vpy.values.Mass">[docs]</a><span class="k">class</span> <span class="nc">Mass</span><span class="p">(</span><span class="n">Values</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">quant</span><span class="o">=</span><span class="s2">&quot;Measurement&quot;</span><span class="p">):</span>
@@ -328,32 +328,95 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">quant</span><span class="o">=</span><span class="s2">&quot;Measurement&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;Position&#39;</span><span class="p">,</span> <span class="n">quant</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="Error"><a class="viewcode-back" href="../../vpy.html#vpy.values.Error">[docs]</a><span class="k">class</span> <span class="nc">Error</span><span class="p">(</span><span class="n">Values</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">quant</span><span class="o">=</span><span class="s2">&quot;Measurement&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;Error&#39;</span><span class="p">,</span> <span class="n">quant</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Sigma"><a class="viewcode-back" href="../../vpy.html#vpy.values.Sigma">[docs]</a><span class="k">class</span> <span class="nc">Sigma</span><span class="p">(</span><span class="n">Values</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">quant</span><span class="o">=</span><span class="s2">&quot;Measurement&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;Error&#39;</span><span class="p">,</span> <span class="n">quant</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Uncertainty"><a class="viewcode-back" href="../../vpy.html#vpy.values.Uncertainty">[docs]</a><span class="k">class</span> <span class="nc">Uncertainty</span><span class="p">(</span><span class="n">Values</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">quant</span><span class="o">=</span><span class="s2">&quot;Measurement&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;Uncertainty&#39;</span><span class="p">,</span> <span class="n">quant</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="Time"><a class="viewcode-back" href="../../vpy.html#vpy.values.Time">[docs]</a><span class="k">class</span> <span class="nc">Time</span><span class="p">(</span><span class="n">Values</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">quant</span><span class="o">=</span><span class="s2">&quot;Measurement&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">quant</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Time.get_rmt"><a class="viewcode-back" href="../../vpy.html#vpy.values.Time.get_rmt">[docs]</a>    <span class="k">def</span> <span class="nf">get_rmt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
+<div class="viewcode-block" id="Time.get_rmt"><a class="viewcode-back" href="../../vpy.html#vpy.values.Time.get_rmt">[docs]</a>    <span class="k">def</span> <span class="nf">get_rmt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_type</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns the relative measurement.</span>
 
-<span class="sd">        :param type: name of the Type (e.g. amt_fill)</span>
-<span class="sd">        :type type: str</span>
+<span class="sd">        :param dict_type: name of the Type (e.g. amt_fill)</span>
+<span class="sd">        :type dict_type: str</span>
 <span class="sd">        :param unit: expected unit of the Type (e.g. ms)</span>
 <span class="sd">        :type unit: str</span>
 <span class="sd">        :returns: relative measure time</span>
 <span class="sd">        :rtype: np.array | None</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">dict_type</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">val</span> <span class="o">=</span> <span class="n">val</span> <span class="o">-</span> <span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-        <span class="k">return</span> <span class="n">val</span></div></div>
+        <span class="k">return</span> <span class="n">val</span></div>
+
+<div class="viewcode-block" id="Time.amt_to_date"><a class="viewcode-back" href="../../vpy.html#vpy.values.Time.amt_to_date">[docs]</a>    <span class="k">def</span> <span class="nf">amt_to_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>  <span class="n">dict_type</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;gets and converts an array containing _a_bsolut _m_easure _t_ime</span>
+<span class="sd">        to a date string.</span>
+
+<span class="sd">        :param dict_type: name of the Type (e.g. amt_fill)</span>
+<span class="sd">        :type dict_type: str</span>
+<span class="sd">     </span>
+<span class="sd">        :param unit: expected unit of the Type (e.g. ms)</span>
+<span class="sd">        :type unit: str</span>
+<span class="sd">        </span>
+<span class="sd">        :returns: relative measure time</span>
+<span class="sd">        :rtype: np.array | None</span>
+<span class="sd">        &quot;&quot;&quot;</span> 
+        <span class="n">amt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">dict_type</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="s2">&quot;ms&quot;</span><span class="p">:</span>        
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mf">1000.0</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">amt</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;todo: care about unit conversion&quot;</span><span class="p">)</span></div></div>
+
+
 
 <div class="viewcode-block" id="Date"><a class="viewcode-back" href="../../vpy.html#vpy.values.Date">[docs]</a><span class="k">class</span> <span class="nc">Date</span><span class="p">(</span><span class="n">Values</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">quant</span><span class="o">=</span><span class="s2">&quot;Measurement&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">quant</span><span class="p">)</span>
-        <span class="c1">#super().__init__(doc[&quot;Calibration&quot;][&quot;Measurement&quot;][&quot;Values&quot;])</span>
+    
+<div class="viewcode-block" id="Date.first_measurement"><a class="viewcode-back" href="../../vpy.html#vpy.values.Date.first_measurement">[docs]</a>    <span class="k">def</span> <span class="nf">first_measurement</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the first measurement date. The expected</span>
+<span class="sd">        structure is:</span>
+<span class="sd">        </span>
+<span class="sd">        .. code-block:: javascript</span>
+<span class="sd">        </span>
+<span class="sd">             &quot;Date&quot;: [</span>
+<span class="sd">                        {</span>
+<span class="sd">                        &quot;Type&quot;: &quot;measurement&quot;,</span>
+<span class="sd">                        &quot;Value&quot;: [ &quot;2018-10-19 09:01&quot;, &quot;2018-10-20 09:01&quot;]</span>
+<span class="sd">                        }</span>
+<span class="sd">                     ]</span>
+<span class="sd">        </span>
+<span class="sd">        at the path: ``Calibration.Measurement``</span>
 
+<span class="sd">        :returns: first entry where the type is measurement</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">date_arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_str</span><span class="p">(</span><span class="s1">&#39;measurement&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">date_arr</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">date_arr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">date_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">date</span> <span class="o">=</span> <span class="n">date_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">date</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span> 
+                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;implement me!&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;implement me!&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;implement me!&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">date</span></div>
 
 <div class="viewcode-block" id="Date.parse_labview_date"><a class="viewcode-back" href="../../vpy.html#vpy.values.Date.parse_labview_date">[docs]</a>    <span class="k">def</span> <span class="nf">parse_labview_date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Parses dates generated by LabView with the form:</span>
@@ -550,9 +613,7 @@
 </pre></div>
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -561,11 +622,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, wactbprot.
+        &copy; Copyright 2018, wactbprot
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -580,36 +641,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'0.1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

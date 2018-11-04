@@ -24,26 +24,17 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../../search.html"/>
-    <link rel="top" title="vpy 0.1.0 documentation" href="../../../../index.html"/>
-        <link rel="up" title="Module code" href="../../../index.html"/> 
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -102,7 +93,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../modules.html">vpy</a>
@@ -110,9 +101,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -142,8 +134,6 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-        
       </li>
     
   </ul>
@@ -159,13 +149,10 @@
 <span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
 <span class="kn">from</span> <span class="nn">.std</span> <span class="k">import</span> <span class="n">Frs5</span>
 
-
 <div class="viewcode-block" id="Cal"><a class="viewcode-back" href="../../../../vpy.standard.frs5.html#vpy.standard.frs5.cal.Cal">[docs]</a><span class="k">class</span> <span class="nc">Cal</span><span class="p">(</span><span class="n">Frs5</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;init func: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="vm">__name__</span><span class="p">))</span>
 
 <div class="viewcode-block" id="Cal.pressure_res"><a class="viewcode-back" href="../../../../vpy.standard.frs5.html#vpy.standard.frs5.cal.Cal.pressure_res">[docs]</a>    <span class="k">def</span> <span class="nf">pressure_res</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Calculates the residual Pressure from</span>
@@ -177,23 +164,20 @@
 <span class="sd">        :type: class</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="c1">## untestet methode call:</span>
-        <span class="n">tem</span><span class="p">,</span> <span class="n">tem_unit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temp</span><span class="o">.</span><span class="n">get_value_and_unit</span><span class="p">(</span><span class="s2">&quot;frs5&quot;</span><span class="p">)</span>
+        <span class="n">temperatur_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temp</span><span class="o">.</span><span class="n">get_dict</span><span class="p">(</span><span class="s1">&#39;Type&#39;</span><span class="p">,</span> <span class="s1">&#39;frs5&#39;</span><span class="p">)</span>
         <span class="n">gas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Aux</span><span class="o">.</span><span class="n">get_gas</span><span class="p">()</span>
-        <span class="n">mt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;amt_meas&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">)</span>
+        <span class="n">mt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s1">&#39;amt_meas&#39;</span><span class="p">,</span> <span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+        <span class="n">pressure_offset_dict</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Aux</span><span class="o">.</span><span class="n">get_obj_by_time</span><span class="p">(</span><span class="n">mt</span><span class="p">,</span> <span class="s2">&quot;amt_offset&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="s2">&quot;frs_res_off&quot;</span><span class="p">,</span> <span class="s2">&quot;DCR&quot;</span><span class="p">)</span>
+        <span class="n">pressure_ind_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Pres</span><span class="o">.</span><span class="n">get_dict</span><span class="p">(</span><span class="s2">&quot;Type&quot;</span><span class="p">,</span> <span class="s2">&quot;frs_res_ind&quot;</span><span class="p">)</span>
+        
+        <span class="n">res_off</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ResDev</span><span class="o">.</span><span class="n">pressure</span><span class="p">(</span><span class="n">pressure_offset_dict</span><span class="p">,</span> <span class="n">temperatur_dict</span><span class="p">,</span> <span class="n">gas</span><span class="o">=</span><span class="n">gas</span><span class="p">)</span>
+        <span class="n">res_ind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ResDev</span><span class="o">.</span><span class="n">pressure</span><span class="p">(</span><span class="n">pressure_ind_dict</span><span class="p">,</span> <span class="n">temperatur_dict</span><span class="p">,</span> <span class="n">gas</span><span class="o">=</span><span class="n">gas</span><span class="p">)</span>
 
-        <span class="n">off</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Aux</span><span class="o">.</span><span class="n">get_obj_by_time</span><span class="p">(</span>
-            <span class="n">mt</span><span class="p">,</span> <span class="s2">&quot;offset_mt&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="s2">&quot;frs_res_off&quot;</span><span class="p">,</span> <span class="s2">&quot;DCR&quot;</span><span class="p">)</span>
-        <span class="n">res_off</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ResDev</span><span class="o">.</span><span class="n">pressure</span><span class="p">(</span><span class="n">off</span><span class="p">,</span> <span class="n">tem</span><span class="p">,</span> <span class="s2">&quot;mbar&quot;</span><span class="p">,</span> <span class="n">gas</span><span class="p">)</span>
-
-        <span class="c1">## untestet methode call:</span>
-        <span class="n">ind</span><span class="p">,</span> <span class="n">ind_unit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Pres</span><span class="o">.</span><span class="n">get_value_and_unit</span><span class="p">(</span><span class="s2">&quot;frs_res_ind&quot;</span><span class="p">)</span>
-        <span class="n">res_ind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ResDev</span><span class="o">.</span><span class="n">pressure</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">tem</span><span class="p">,</span> <span class="s2">&quot;mbar&quot;</span><span class="p">,</span> <span class="n">gas</span><span class="p">)</span>
         <span class="n">p_res</span> <span class="o">=</span> <span class="n">res_ind</span> <span class="o">-</span> <span class="n">res_off</span>
 
-        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s1">&#39;Pressure&#39;</span><span class="p">,</span> <span class="s2">&quot;frs5_res_off&quot;</span><span class="p">,</span> <span class="n">res_off</span><span class="p">,</span> <span class="s2">&quot;mbar&quot;</span><span class="p">)</span>
-        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s1">&#39;Pressure&#39;</span><span class="p">,</span> <span class="s2">&quot;frs5_res_ind&quot;</span><span class="p">,</span> <span class="n">res_ind</span><span class="p">,</span> <span class="s2">&quot;mbar&quot;</span><span class="p">)</span>
-        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s1">&#39;Pressure&#39;</span><span class="p">,</span> <span class="s2">&quot;frs5_res&quot;</span><span class="p">,</span> <span class="n">p_res</span><span class="p">,</span> <span class="s2">&quot;mbar&quot;</span><span class="p">)</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s1">&#39;Pressure&#39;</span><span class="p">,</span> <span class="s2">&quot;frs5_res_off&quot;</span><span class="p">,</span> <span class="n">res_off</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s1">&#39;Pressure&#39;</span><span class="p">,</span> <span class="s2">&quot;frs5_res_ind&quot;</span><span class="p">,</span> <span class="n">res_ind</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s1">&#39;Pressure&#39;</span><span class="p">,</span> <span class="s2">&quot;frs5_res&quot;</span><span class="p">,</span> <span class="n">p_res</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;residial FRS5 pressure is: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_res</span><span class="p">))</span></div>
 
@@ -232,65 +216,54 @@
 <span class="sd">            pick(quantity, type, unit)</span>
 <span class="sd">        :type: class</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pressure_res</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+       
         <span class="n">N</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_of_meas_points</span>
         <span class="n">A</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value_full</span><span class="p">(</span><span class="s2">&quot;A_eff&quot;</span><span class="p">,</span> <span class="s2">&quot;m^2&quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
         <span class="n">r_cal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value_full</span><span class="p">(</span><span class="s2">&quot;R_cal&quot;</span><span class="p">,</span> <span class="s2">&quot;lb&quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
         <span class="n">m_cal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value_full</span><span class="p">(</span><span class="s2">&quot;m_cal&quot;</span><span class="p">,</span> <span class="s2">&quot;kg&quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
         <span class="n">g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value_full</span><span class="p">(</span><span class="s2">&quot;g_frs&quot;</span><span class="p">,</span> <span class="s2">&quot;m/s^2&quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-
-        <span class="c1"># correction buoyancy  piston</span>
-        <span class="n">rho_frs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value_full</span><span class="p">(</span><span class="s2">&quot;rho_frs&quot;</span><span class="p">,</span> <span class="s2">&quot;kg/m^3&quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-
-            <span class="c1">## Temperature in C</span>
-        <span class="n">T</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;frs5&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">)</span>
         <span class="n">ab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value_full</span><span class="p">(</span><span class="s2">&quot;alpha_beta_frs&quot;</span><span class="p">,</span> <span class="s2">&quot;1/C&quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+        <span class="n">rho_frs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value_full</span><span class="p">(</span><span class="s2">&quot;rho_frs&quot;</span><span class="p">,</span> <span class="s2">&quot;kg/m^3&quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+        <span class="n">conv_T</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cons</span><span class="o">.</span><span class="n">get_conv</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">)</span>
+        <span class="n">conv_p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cons</span><span class="o">.</span><span class="n">get_conv</span><span class="p">(</span><span class="s2">&quot;Pa&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
 
-        <span class="c1"># correction buoyancy  get info for gas</span>
+        <span class="c1"># Temperature in C</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;frs5&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># correction buoyancy  piston</span>
         <span class="n">approx_p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Pres</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;frs_p&quot;</span><span class="p">,</span> <span class="s2">&quot;lb&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">10.0</span>  <span class="c1"># mbar</span>
         <span class="n">gas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_gas</span><span class="p">()</span>
-        <span class="n">conv_T</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cons</span><span class="o">.</span><span class="n">get_conv</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">)</span>
-
-        <span class="n">rho_gas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cons</span><span class="o">.</span><span class="n">get_gas_density</span><span class="p">(</span>
-            <span class="n">gas</span><span class="p">,</span> <span class="n">approx_p</span><span class="p">,</span> <span class="s2">&quot;mbar&quot;</span><span class="p">,</span> <span class="n">T</span> <span class="o">+</span> <span class="n">conv_T</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;kg/m^3&quot;</span><span class="p">)</span>
-
+        <span class="n">rho_gas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cons</span><span class="o">.</span><span class="n">get_gas_density</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">approx_p</span><span class="p">,</span> <span class="s2">&quot;mbar&quot;</span><span class="p">,</span> <span class="n">T</span> <span class="o">+</span> <span class="n">conv_T</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;kg/m^3&quot;</span><span class="p">)</span>
+        <span class="n">corr_rho</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">rho_gas</span> <span class="o">/</span> <span class="n">rho_frs</span><span class="p">)</span>
 
         <span class="c1"># residual pressure in mbar</span>
         <span class="n">p_res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s2">&quot;Pressure&quot;</span><span class="p">,</span> <span class="s2">&quot;frs5_res&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
 
-        <span class="c1"># correction offset drift</span>
-        <span class="c1"># get measure time for r_zc0</span>
+        <span class="c1"># correction offset drift: get measure time for r_zc0</span>
         <span class="n">meas_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;amt_meas&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">)</span>
-
-        <span class="n">r_zc0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Aux</span><span class="o">.</span><span class="n">get_val_by_time</span><span class="p">(</span><span class="n">meas_time</span><span class="p">,</span> <span class="s2">&quot;offset_mt&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="s2">&quot;frs_zc0_p&quot;</span><span class="p">,</span> <span class="s2">&quot;lb&quot;</span><span class="p">)</span>
+        <span class="n">r_zc0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Aux</span><span class="o">.</span><span class="n">get_val_by_time</span><span class="p">(</span><span class="n">meas_time</span><span class="p">,</span> <span class="s2">&quot;amt_offset&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="s2">&quot;frs_zc0_p&quot;</span><span class="p">,</span> <span class="s2">&quot;lb&quot;</span><span class="p">)</span>
         <span class="n">r_zc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Pres</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;frs_zc_p&quot;</span><span class="p">,</span> <span class="s2">&quot;lb&quot;</span><span class="p">)</span>
-
         <span class="n">r_0</span> <span class="o">=</span> <span class="n">r_zc</span> <span class="o">-</span> <span class="n">r_zc0</span>
-
-        <span class="c1"># correction buoyancy</span>
-        <span class="n">corr_rho</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">rho_gas</span> <span class="o">/</span> <span class="n">rho_frs</span><span class="p">)</span>
-
+       
         <span class="c1"># correction temperature</span>
         <span class="n">corr_temp</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">ab</span> <span class="o">*</span> <span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mf">20.0</span><span class="p">))</span>
 
         <span class="c1">## lp to Pa</span>
         <span class="n">conv</span> <span class="o">=</span> <span class="n">m_cal</span> <span class="o">/</span> <span class="n">r_cal</span> <span class="o">*</span> <span class="n">g</span> <span class="o">/</span> <span class="n">A</span> <span class="o">*</span> <span class="n">corr_rho</span> <span class="o">*</span> <span class="n">corr_temp</span>
+
         <span class="c1">## Pa to self.unit</span>
-        <span class="n">conv_p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cons</span><span class="o">.</span><span class="n">get_conv</span><span class="p">(</span><span class="s2">&quot;Pa&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Pres</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;frs_p&quot;</span><span class="p">,</span> <span class="s2">&quot;lb&quot;</span><span class="p">)</span>
         <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">r_0</span><span class="p">)</span> <span class="o">*</span> <span class="n">conv</span> <span class="o">*</span> <span class="n">conv_p</span> <span class="o">+</span> <span class="n">p_res</span>
 
         <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s2">&quot;Correction&quot;</span><span class="p">,</span> <span class="s2">&quot;buoyancy_frs5&quot;</span><span class="p">,</span> <span class="n">corr_rho</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
         <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s2">&quot;Correction&quot;</span><span class="p">,</span> <span class="s2">&quot;temperature_frs5&quot;</span><span class="p">,</span> <span class="n">corr_temp</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
-        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s1">&#39;Pressure&#39;</span><span class="p">,</span> <span class="s2">&quot;frs5&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span></div></div>
+        <span class="n">res</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s1">&#39;Pressure&#39;</span><span class="p">,</span> <span class="s2">&quot;frs5&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;FRS5 pressure is: </span><span class="si">{p}</span><span class="s2"> </span><span class="si">{u}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">))</span></div></div>
 </pre></div>
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -299,11 +272,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, wactbprot.
+        &copy; Copyright 2018, wactbprot
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -318,36 +291,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../../',
-            VERSION:'0.1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

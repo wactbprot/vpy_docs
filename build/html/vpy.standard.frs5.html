@@ -24,28 +24,19 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="vpy 0.1.0 documentation" href="index.html"/>
-        <link rel="up" title="vpy.standard package" href="vpy.standard.html"/>
-        <link rel="next" title="vpy.standard.se2 package" href="vpy.standard.se2.html"/>
-        <link rel="prev" title="vpy.standard.dkm_ppc4 package" href="vpy.standard.dkm_ppc4.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="vpy.standard.se2 package" href="vpy.standard.se2.html" />
+    <link rel="prev" title="vpy.standard.dkm_ppc4 package" href="vpy.standard.dkm_ppc4.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -107,11 +98,13 @@
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.analysis">vpy.analysis module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.calibration_devices">vpy.calibration_devices module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.constants">vpy.constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.display">vpy.display module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.document">vpy.document module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.pkg_io">vpy.pkg_io module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.pkg_log">vpy.pkg_log module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.result">vpy.result module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.sim">vpy.sim module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_analysis">vpy.test_analysis module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_document">vpy.test_document module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_todo">vpy.test_todo module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.html#module-vpy.test_values">vpy.test_values module</a></li>
@@ -130,7 +123,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="modules.html">vpy</a>
@@ -138,9 +131,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -196,20 +190,20 @@
 <dl class="class">
 <dt id="vpy.standard.frs5.cal.Cal">
 <em class="property">class </em><code class="descclassname">vpy.standard.frs5.cal.</code><code class="descname">Cal</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/frs5/cal.html#Cal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.frs5.cal.Cal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.standard.frs5.std.Frs5" title="vpy.standard.frs5.std.Frs5"><code class="xref py py-class docutils literal"><span class="pre">vpy.standard.frs5.std.Frs5</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.standard.frs5.std.Frs5" title="vpy.standard.frs5.std.Frs5"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.standard.frs5.std.Frs5</span></code></a></p>
 <dl class="method">
 <dt id="vpy.standard.frs5.cal.Cal.pressure_cal">
 <code class="descname">pressure_cal</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/frs5/cal.html#Cal.pressure_cal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.frs5.cal.Cal.pressure_cal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the FRS5 calibration pressure from
 lb indication. The equation is:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[p=\frac{r}{r_{cal}} m_{cal}\frac{g}{A_{eff}}\
 \frac{1}{corr_{rho}corr_{tem}} + p_{res}\]</div>
 <p>with</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[corr_{rho} = 1 - \frac{\rho_{gas}}{\rho_{piston}}\]</div>
 <p>and</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[corr_{tem} = 1 + \alpha \beta (\vartheta - 20)\]</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -270,27 +264,27 @@ pick(quantity, type, unit)</td>
 <dl class="class">
 <dt id="vpy.standard.frs5.std.Frs5">
 <em class="property">class </em><code class="descclassname">vpy.standard.frs5.std.</code><code class="descname">Frs5</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/frs5/std.html#Frs5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.frs5.std.Frs5" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="vpy.standard.html#vpy.standard.standard.Standard" title="vpy.standard.standard.Standard"><code class="xref py py-class docutils literal"><span class="pre">vpy.standard.standard.Standard</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="vpy.standard.html#vpy.standard.standard.Standard" title="vpy.standard.standard.Standard"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.standard.standard.Standard</span></code></a></p>
 <p>Calculation methods of large area piston gauge FRS5.</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">p_frs</span></code>    … abs. pressure of the piston gauge [p]=Pa</li>
-<li><code class="docutils literal"><span class="pre">r</span></code>        … reading [r] = lb</li>
-<li><code class="docutils literal"><span class="pre">u_b</span></code>      … standard uncertainty of the balance [u_b] = lb</li>
-<li><code class="docutils literal"><span class="pre">u_sys</span></code>    … sys. uncertanty of the balance [u_sys]=lb</li>
-<li><code class="docutils literal"><span class="pre">r_0</span></code>      … zero reading [r_0] = lb</li>
-<li><code class="docutils literal"><span class="pre">A</span></code>        … effective area [A]= m^2</li>
-<li><code class="docutils literal"><span class="pre">p_res</span></code>    … residual pressure [p.res]=Pa</li>
-<li><code class="docutils literal"><span class="pre">m_cal</span></code>    … calibration mass piece [m.cal]=kg</li>
-<li><code class="docutils literal"><span class="pre">rho_gas</span></code>  … density gas</li>
-<li><code class="docutils literal"><span class="pre">rho_frs</span></code>  … density frs piston</li>
-<li><code class="docutils literal"><span class="pre">g</span></code>        … accelaration [g]=m/s^2</li>
-<li><code class="docutils literal"><span class="pre">r_cal</span></code>    … indication at m_cal [r_cal]=g</li>
-<li><code class="docutils literal"><span class="pre">r_cal_0</span></code>  …  indication at zero [r_cal_0]=g</li>
-<li><code class="docutils literal"><span class="pre">ab</span></code>       … temperatur coeff. [k]=1/K</li>
-<li><code class="docutils literal"><span class="pre">t</span></code>        … temperature of balance [t]=C</li>
+<li><code class="docutils literal notranslate"><span class="pre">p_frs</span></code>    … abs. pressure of the piston gauge [p]=Pa</li>
+<li><code class="docutils literal notranslate"><span class="pre">r</span></code>        … reading [r] = lb</li>
+<li><code class="docutils literal notranslate"><span class="pre">u_b</span></code>      … standard uncertainty of the balance [u_b] = lb</li>
+<li><code class="docutils literal notranslate"><span class="pre">u_sys</span></code>    … sys. uncertanty of the balance [u_sys]=lb</li>
+<li><code class="docutils literal notranslate"><span class="pre">r_0</span></code>      … zero reading [r_0] = lb</li>
+<li><code class="docutils literal notranslate"><span class="pre">A</span></code>        … effective area [A]= m^2</li>
+<li><code class="docutils literal notranslate"><span class="pre">p_res</span></code>    … residual pressure [p.res]=Pa</li>
+<li><code class="docutils literal notranslate"><span class="pre">m_cal</span></code>    … calibration mass piece [m.cal]=kg</li>
+<li><code class="docutils literal notranslate"><span class="pre">rho_gas</span></code>  … density gas</li>
+<li><code class="docutils literal notranslate"><span class="pre">rho_frs</span></code>  … density frs piston</li>
+<li><code class="docutils literal notranslate"><span class="pre">g</span></code>        … accelaration [g]=m/s^2</li>
+<li><code class="docutils literal notranslate"><span class="pre">r_cal</span></code>    … indication at m_cal [r_cal]=g</li>
+<li><code class="docutils literal notranslate"><span class="pre">r_cal_0</span></code>  …  indication at zero [r_cal_0]=g</li>
+<li><code class="docutils literal notranslate"><span class="pre">ab</span></code>       … temperatur coeff. [k]=1/K</li>
+<li><code class="docutils literal notranslate"><span class="pre">t</span></code>        … temperature of balance [t]=C</li>
 </ul>
 <p>model equation:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[p=\frac{r_{ind}-r_0+u_b+u_{sys}}{r_{cal}-r_{cal 0}}\
  m_{cal}\frac{g}{A_{eff}}\frac{1}{corr_{rho}corr_{tem}}\]</div>
 <dl class="method">
@@ -321,12 +315,12 @@ pick(quantity, type, unit)</td>
 <dl class="class">
 <dt id="vpy.standard.frs5.uncert.Uncert">
 <em class="property">class </em><code class="descclassname">vpy.standard.frs5.uncert.</code><code class="descname">Uncert</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/frs5/uncert.html#Uncert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.frs5.uncert.Uncert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.standard.frs5.std.Frs5" title="vpy.standard.frs5.std.Frs5"><code class="xref py py-class docutils literal"><span class="pre">vpy.standard.frs5.std.Frs5</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.standard.frs5.std.Frs5" title="vpy.standard.frs5.std.Frs5"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.standard.frs5.std.Frs5</span></code></a></p>
 <dl class="method">
 <dt id="vpy.standard.frs5.uncert.Uncert.define_model">
 <code class="descname">define_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/frs5/uncert.html#Uncert.define_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.frs5.uncert.Uncert.define_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines symbols and model for FRS5.
-The order of symbols must match the order in <code class="docutils literal"><span class="pre">gen_val_arr</span></code>:</p>
+The order of symbols must match the order in <code class="docutils literal notranslate"><span class="pre">gen_val_arr</span></code>:</p>
 <ol class="arabic simple">
 <li>A</li>
 <li>r</li>
@@ -345,14 +339,14 @@ The order of symbols must match the order in <code class="docutils literal"><spa
 <li>ab</li>
 </ol>
 <p>The equation is:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[p=\frac{r}{r_{cal}} m_{cal}\frac{g}{A_{eff}}\
 \frac{1}{corr_{rho}corr_{tem}} + p_{res}\]</div>
 <p>with</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[corr_{rho} = 1 - \frac{\rho_{gas}}{\rho_{piston}}\]</div>
 <p>and</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[corr_{tem} = 1 + \alpha \beta (\vartheta - 20)\]</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -404,7 +398,7 @@ pick(quantity, type, unit)</td>
 <dt id="vpy.standard.frs5.uncert.Uncert.gen_val_dict">
 <code class="descname">gen_val_dict</code><span class="sig-paren">(</span><em>res</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/standard/frs5/uncert.html#Uncert.gen_val_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.standard.frs5.uncert.Uncert.gen_val_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads in a dict of values
-with the same order as in <code class="docutils literal"><span class="pre">define_models</span></code>. For the calculation
+with the same order as in <code class="docutils literal notranslate"><span class="pre">define_models</span></code>. For the calculation
 of the gas density, the Frs reading is multiplyed by 10 which gives a
 suffucient approximation for the pressure.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -711,9 +705,7 @@ pick(quantity, type, unit)</td>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -731,11 +723,11 @@ pick(quantity, type, unit)</td>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, wactbprot.
+        &copy; Copyright 2018, wactbprot
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -750,36 +742,24 @@ pick(quantity, type, unit)</td>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

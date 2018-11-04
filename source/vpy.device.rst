@@ -49,4 +49,12 @@ vpy\.device\.srg module
     :undoc-members:
     :show-inheritance:
 
+vpy\.device\.test\_cdg module
+-----------------------------
+
+.. automodule:: vpy.device.test_cdg
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 

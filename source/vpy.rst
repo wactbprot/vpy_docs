@@ -41,6 +41,14 @@ vpy\.constants module
     :undoc-members:
     :show-inheritance:
 
+vpy\.display module
+-------------------
+
+.. automodule:: vpy.display
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 vpy\.document module
 --------------------
 
