@@ -96,12 +96,15 @@ todo_include_todos = True
 # Fit in the navbar at the height of image is 37 px.
 #html_logo = '_static/logo.jpg'
 #---sphinx-themes-----
-html_theme = 'p-main_theme'
-import os
-from PSphinxTheme import utils
-
-p, html_theme, needs_sphinx = utils.set_psphinxtheme(html_theme)
-html_theme_path = p
+import wild_sphinx_theme
+html_theme = 'wild'
+html_theme_path = [wild_sphinx_theme.get_theme_dir()]
+#html_theme = 'p-main_theme'
+#import os
+#from PSphinxTheme import utils
+#
+#p, html_theme, needs_sphinx = utils.set_psphinxtheme(html_theme)
+#html_theme_path = p
 #
 #html_theme = 'bootstrap'
 #html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
