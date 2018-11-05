@@ -1,5 +1,5 @@
-vpy.standard package
-====================
+vpy\.standard package
+=====================
 
 .. automodule:: vpy.standard
     :members:
@@ -19,8 +19,8 @@ Subpackages
 Submodules
 ----------
 
-vpy.standard.standard module
-----------------------------
+vpy\.standard\.standard module
+------------------------------
 
 .. automodule:: vpy.standard.standard
     :members:

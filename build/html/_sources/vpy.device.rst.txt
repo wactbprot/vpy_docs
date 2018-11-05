@@ -1,5 +1,5 @@
-vpy.device package
-==================
+vpy\.device package
+===================
 
 .. automodule:: vpy.device
     :members:
@@ -9,42 +9,50 @@ vpy.device package
 Submodules
 ----------
 
-vpy.device.cdg module
----------------------
+vpy\.device\.cdg module
+-----------------------
 
 .. automodule:: vpy.device.cdg
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy.device.device module
-------------------------
+vpy\.device\.device module
+--------------------------
 
 .. automodule:: vpy.device.device
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy.device.dmm module
----------------------
+vpy\.device\.dmm module
+-----------------------
 
 .. automodule:: vpy.device.dmm
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy.device.qbs module
----------------------
+vpy\.device\.qbs module
+-----------------------
 
 .. automodule:: vpy.device.qbs
     :members:
     :undoc-members:
     :show-inheritance:
 
-vpy.device.srg module
----------------------
+vpy\.device\.srg module
+-----------------------
 
 .. automodule:: vpy.device.srg
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+vpy\.device\.test\_cdg module
+-----------------------------
+
+.. automodule:: vpy.device.test_cdg
     :members:
     :undoc-members:
     :show-inheritance:

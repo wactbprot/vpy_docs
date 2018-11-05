@@ -1,201 +1,101 @@
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>vpy.device.cdg &mdash; vpy 0.1.0 documentation</title>
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>vpy.device.cdg &#8212; vpy 0.1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/wild.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../modules.html">vpy 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
 
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../../../modules.html" class="icon icon-home"> vpy
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.1.0
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../vpy.html">vpy package</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../modules.html">vpy</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../modules.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-      <li>vpy.device.cdg</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <h1>Source code for vpy.device.cdg</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="k">import</span> <span class="n">interp1d</span>
 <span class="kn">from</span> <span class="nn">..device.device</span> <span class="k">import</span> <span class="n">Device</span>
 
 
 <div class="viewcode-block" id="Cdg"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg">[docs]</a><span class="k">class</span> <span class="nc">Cdg</span><span class="p">(</span><span class="n">Device</span><span class="p">):</span>
-    <span class="n">unit</span> <span class="o">=</span> <span class="s2">&quot;mbar&quot;</span>
+    <span class="n">unit</span> <span class="o">=</span> <span class="s2">&quot;Pa&quot;</span>
     <span class="n">usable_decades</span> <span class="o">=</span> <span class="mi">3</span>
-    <span class="n">max_typehead_mbar</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;001Torr&quot;</span><span class="p">:</span>  <span class="mf">0.0013</span><span class="p">,</span>
-        <span class="s2">&quot;01Torr&quot;</span><span class="p">:</span>   <span class="mf">0.0133</span><span class="p">,</span>
-        <span class="s2">&quot;1Torr&quot;</span><span class="p">:</span>    <span class="mf">1.3332</span><span class="p">,</span>
-        <span class="s2">&quot;10Torr&quot;</span><span class="p">:</span>   <span class="mf">13.332</span><span class="p">,</span>
-        <span class="s2">&quot;100Torr&quot;</span><span class="p">:</span>  <span class="mf">133.32</span><span class="p">,</span>
-        <span class="s2">&quot;1000Torr&quot;</span><span class="p">:</span> <span class="mf">1333.2</span>
+    <span class="n">max_type_head</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;0.001Torr&quot;</span><span class="p">:</span>  <span class="mf">0.13</span><span class="p">,</span>
+        <span class="s2">&quot;0.01Torr&quot;</span><span class="p">:</span>   <span class="mf">1.33</span><span class="p">,</span>
+        <span class="s2">&quot;0.1Torr&quot;</span><span class="p">:</span>   <span class="mf">13.33</span><span class="p">,</span>        
+        <span class="s2">&quot;1Torr&quot;</span><span class="p">:</span>    <span class="mf">133.32</span><span class="p">,</span>
+        <span class="s2">&quot;10Torr&quot;</span><span class="p">:</span>   <span class="mf">1333.2</span><span class="p">,</span>
+        <span class="s2">&quot;100Torr&quot;</span><span class="p">:</span>  <span class="mf">13332.0</span><span class="p">,</span>
+        <span class="s2">&quot;1000Torr&quot;</span><span class="p">:</span> <span class="mf">133320.0</span>
     <span class="p">}</span>
-
+        
+    <span class="n">interpol_pressure_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">81</span><span class="p">)</span> <span class="c1"># Pa </span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">dev</span><span class="p">):</span>
-
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">dev</span><span class="p">)</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">doc</span> <span class="o">=</span> <span class="n">dev</span>
+        <span class="n">dev</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CalibrationObject&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dev</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span>
+            <span class="n">dev_setup</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Setup&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dev_setup</span><span class="p">:</span>
+                <span class="n">type_head</span> <span class="o">=</span> <span class="n">dev_setup</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TypeHead&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">type_head</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">type_head</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_type_head</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">max_p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_type_head</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">type_head</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">min_p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_p</span> <span class="o">/</span> <span class="mf">10.0</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">usable_decades</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;missing definition for type head </span><span class="si">{head}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">head</span><span class="o">=</span><span class="n">type_head</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="s2">&quot;CalibrationObject&quot;</span> <span class="ow">in</span> <span class="n">dev</span><span class="p">:</span>
-            <span class="n">dev</span> <span class="o">=</span> <span class="n">dev</span><span class="p">[</span><span class="s1">&#39;CalibrationObject&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Can&#39;t find device&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="s2">&quot;Name&quot;</span> <span class="ow">in</span> <span class="n">dev</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">dev</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="s2">&quot;Setup&quot;</span> <span class="ow">in</span> <span class="n">dev</span><span class="p">:</span>
-            <span class="n">dev_setup</span> <span class="o">=</span> <span class="n">dev</span><span class="p">[</span><span class="s1">&#39;Setup&#39;</span><span class="p">]</span>
-            <span class="k">if</span> <span class="s2">&quot;TypeHead&quot;</span> <span class="ow">in</span> <span class="n">dev_setup</span><span class="p">:</span>
-                <span class="n">th</span> <span class="o">=</span> <span class="n">dev_setup</span><span class="p">[</span><span class="s1">&#39;TypeHead&#39;</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">th</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">max_p_mbar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_typehead_mbar</span><span class="p">[</span><span class="n">th</span><span class="p">]</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">min_p_mbar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_p_mbar</span> <span class="o">/</span> <span class="mf">10.0</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">usable_decades</span>
-
-        <span class="k">if</span> <span class="s2">&quot;Interpol&quot;</span> <span class="ow">in</span> <span class="n">dev</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">interpol_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;p_ind&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">interpol_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">interpol_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interpol_x</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">interpol_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interpol_x</span><span class="p">)</span>
-
-
-<div class="viewcode-block" id="Cdg.pressure"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.pressure">[docs]</a>    <span class="k">def</span> <span class="nf">pressure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pressure_dict</span><span class="p">,</span> <span class="n">temperature_dict</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span> <span class="s2">&quot;Pa&quot;</span><span class="p">,</span> <span class="n">gas</span><span class="o">=</span> <span class="s2">&quot;N2&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="Cdg.pressure"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.pressure">[docs]</a>    <span class="k">def</span> <span class="nf">pressure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pressure_dict</span><span class="p">,</span> <span class="n">temperature_dict</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span> <span class="s1">&#39;Pa&#39;</span><span class="p">,</span> <span class="n">gas</span><span class="o">=</span> <span class="s2">&quot;N2&quot;</span><span class="p">):</span>
         <span class="n">pressure_unit</span> <span class="o">=</span> <span class="n">pressure_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Unit&#39;</span><span class="p">)</span>
         <span class="n">pressure_value</span> <span class="o">=</span> <span class="n">pressure_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
         
         <span class="k">if</span> <span class="n">pressure_unit</span> <span class="o">==</span> <span class="s2">&quot;V&quot;</span><span class="p">:</span>
             <span class="c1">#deal with it</span>
-            <span class="k">pass</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;missing implementation&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">pressure</span> <span class="o">=</span> <span class="n">pressure_value</span> <span class="o">*</span>  <span class="bp">self</span><span class="o">.</span><span class="n">Const</span><span class="o">.</span><span class="n">get_conv</span><span class="p">(</span><span class="n">from_unit</span><span class="o">=</span><span class="n">pressure_unit</span><span class="p">,</span> <span class="n">to_unit</span><span class="o">=</span><span class="n">unit</span><span class="p">)</span>
         
@@ -269,38 +169,73 @@
 <div class="viewcode-block" id="Cdg.interp_function"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.interp_function">[docs]</a>    <span class="k">def</span> <span class="nf">interp_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Cdg.cal_interpol"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.cal_interpol">[docs]</a>    <span class="k">def</span> <span class="nf">cal_interpol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p_cal</span><span class="p">,</span> <span class="n">p_ind</span><span class="p">,</span> <span class="n">uncert</span><span class="p">):</span>
+<div class="viewcode-block" id="Cdg.error"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.error">[docs]</a>    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p_cal</span><span class="p">,</span> <span class="n">p_ind</span><span class="p">,</span> <span class="n">p_unit</span><span class="p">):</span>
+        <span class="n">p_cal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_pressure</span><span class="p">(</span><span class="n">p_cal</span><span class="p">,</span> <span class="n">p_unit</span><span class="p">)</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">p_ind</span><span class="p">,</span> <span class="n">p_cal</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span>
+
+        <span class="k">return</span> <span class="n">err</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span></div>
+    
+<div class="viewcode-block" id="Cdg.conv_smooth"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.conv_smooth">[docs]</a>    <span class="k">def</span> <span class="nf">conv_smooth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;valid&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Cdg.rm_nan"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.rm_nan">[docs]</a>    <span class="k">def</span> <span class="nf">rm_nan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">ldx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ldx</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">ldx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="n">ldx</span><span class="p">],</span> <span class="n">ldx</span></div>
+
+<div class="viewcode-block" id="Cdg.cal_interpol"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.cal_interpol">[docs]</a>    <span class="k">def</span> <span class="nf">cal_interpol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">uncertainty</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Calculates a interpolation vector for the relative</span>
-<span class="sd">        error of indication and the uncertainty</span>
+<span class="sd">        error of indication and the uncertainty.</span>
+
+<span class="sd">        This is done as follows:</span>
+<span class="sd">            # conv_smooth</span>
+
+<span class="sd">            # shape_pressures</span>
+<span class="sd">            # rm_nan</span>
+<span class="sd">            # get_default_values</span>
+<span class="sd">            # interpolate default values</span>
+
+<span class="sd">        ... todo::</span>
+
+<span class="sd">            describe interpol proc</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rm_nan</span><span class="p">(</span><span class="n">pressure</span><span class="p">)</span>
+        <span class="n">e</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rm_nan</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rm_nan</span><span class="p">(</span><span class="n">uncertainty</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+       
+        <span class="n">f_e</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interp_function</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">f_u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interp_function</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
 
-        <span class="n">p_cal_cut</span><span class="p">,</span> <span class="n">p_ind_cut</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cut_values</span><span class="p">(</span><span class="n">p_cal</span><span class="p">,</span> <span class="n">p_ind</span><span class="p">)</span>
-        <span class="n">p_cal_cut</span><span class="p">,</span> <span class="n">uncert_cut</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cut_values</span><span class="p">(</span><span class="n">p_cal</span><span class="p">,</span> <span class="n">uncert</span><span class="p">)</span>
+        <span class="n">p_default</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_default_values</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
 
+        <span class="n">e_nice</span> <span class="o">=</span> <span class="n">f_e</span><span class="p">(</span> <span class="n">p_default</span> <span class="p">)</span>
+        <span class="n">u_nice</span> <span class="o">=</span> <span class="n">f_u</span><span class="p">(</span> <span class="n">p_default</span> <span class="p">)</span>
 
-        <span class="n">f_error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interp_function</span><span class="p">(</span><span class="n">p_ind_cut</span><span class="p">,</span> <span class="n">p_ind_cut</span> <span class="o">/</span> <span class="n">p_cal_cut</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
-        <span class="n">f_uncert</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interp_function</span><span class="p">(</span><span class="n">p_ind_cut</span><span class="p">,</span> <span class="n">uncert_cut</span><span class="p">)</span>
-        <span class="n">p_ind_cut_nice</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_nice_vals</span><span class="p">(</span><span class="n">p_ind_cut</span><span class="p">)</span>
-        <span class="n">error_nice</span> <span class="o">=</span> <span class="n">f_error</span><span class="p">(</span><span class="n">p_ind_cut_nice</span><span class="p">)</span>
-        <span class="n">uncert_nice</span> <span class="o">=</span> <span class="n">f_uncert</span><span class="p">(</span><span class="n">p_ind_cut_nice</span><span class="p">)</span>
+        <span class="k">return</span>  <span class="n">p_default</span><span class="p">,</span> <span class="n">e_nice</span><span class="p">,</span> <span class="n">u_nice</span></div>
 
-        <span class="k">return</span> <span class="n">p_ind_cut_nice</span><span class="p">,</span> <span class="n">error_nice</span><span class="p">,</span> <span class="n">uncert_nice</span></div>
+<div class="viewcode-block" id="Cdg.shape_pressure"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.shape_pressure">[docs]</a>    <span class="k">def</span> <span class="nf">shape_pressure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">:</span>
+            <span class="n">N</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Cdg.cut_values"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.cut_values">[docs]</a>    <span class="k">def</span> <span class="nf">cut_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">max_p_mbar</span><span class="p">))</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">min_p_mbar</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span></div>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">p</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_p</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_p</span><span class="p">))</span>
+            <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Cdg.get_nice_vals"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.get_nice_vals">[docs]</a>    <span class="k">def</span> <span class="nf">get_nice_vals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="n">ls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
-        <span class="n">x_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">x_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">arr</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;implement auto unit conversion&#39;</span><span class="p">)</span></div>
 
-        <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ls</span> <span class="o">&gt;</span> <span class="n">x_min</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ls</span> <span class="o">&lt;</span> <span class="n">x_max</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_min</span><span class="p">]),</span> <span class="n">ls</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">],</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_max</span><span class="p">])))</span></div></div>
+<div class="viewcode-block" id="Cdg.get_default_values"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.get_default_values">[docs]</a>    <span class="k">def</span> <span class="nf">get_default_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">):</span>
+        <span class="n">i_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interpol_pressure_points</span> <span class="o">&gt;</span> <span class="n">x_min</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">i_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interpol_pressure_points</span> <span class="o">&lt;</span> <span class="n">x_max</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        
+        <span class="n">start_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_min</span><span class="p">])</span>
+        <span class="n">med_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpol_pressure_points</span><span class="p">[</span><span class="n">i_min</span><span class="p">:</span><span class="n">i_max</span><span class="p">]</span>
+        <span class="n">end_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_max</span><span class="p">])</span>
+        
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">start_array</span><span class="p">,</span> <span class="n">med_array</span><span class="p">,</span> <span class="n">end_array</span> <span class="p">))</span> </div></div>
 
 
 <div class="viewcode-block" id="InfCdg"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.InfCdg">[docs]</a><span class="k">class</span> <span class="nc">InfCdg</span><span class="p">(</span><span class="n">Cdg</span><span class="p">):</span>
@@ -313,53 +248,41 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">dev</span><span class="p">)</span></div>
 </pre></div>
 
-           </div>
-           
           </div>
-          <footer>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, wactbprot
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
-
-    </section>
-
-  </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../modules.html">vpy 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, wactbprot.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
 </html>

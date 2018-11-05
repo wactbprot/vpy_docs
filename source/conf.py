@@ -21,7 +21,6 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
 
-
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -93,14 +92,25 @@ todo_include_todos = True
 # Html logo in navbar.
 # Fit in the navbar at the height of image is 37 px.
 #html_logo = '_static/logo.jpg'
-
-
+#---sphinx-themes-----
+import wild_sphinx_theme
+html_theme = 'wild'
+html_theme_path = [wild_sphinx_theme.get_theme_dir()]
+#html_theme = 'p-main_theme'
+#import os
+#from PSphinxTheme import utils
+#
+#p, html_theme, needs_sphinx = utils.set_psphinxtheme(html_theme)
+#html_theme_path = p
+#
+#html_theme = 'bootstrap'
+#html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 #html_theme = 'groundwork'
-import sphinx_rtd_theme
-html_theme = "sphinx_rtd_theme"
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-
+#import sphinx_rtd_theme
+#html_theme = "sphinx_rtd_theme"
+#html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+#
 #html_theme = "nature"
 #html_theme_options = {
 #    "rightsidebar": "true",

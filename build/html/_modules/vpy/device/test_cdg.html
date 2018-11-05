@@ -1,0 +1,177 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>vpy.device.test_cdg &#8212; vpy 0.1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/wild.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../modules.html">vpy 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for vpy.device.test_cdg</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">from</span> <span class="nn">vpy.device.cdg</span> <span class="k">import</span> <span class="n">Cdg</span>
+
+
+<div class="viewcode-block" id="TestAnalysis"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.test_cdg.TestAnalysis">[docs]</a><span class="k">class</span> <span class="nc">TestAnalysis</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="TestAnalysis.setUp"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.test_cdg.TestAnalysis.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;CalibrationObject&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;test-CDG&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;Setup&quot;</span><span class="p">:</span> <span class="p">{}</span>
+                    <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_cal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mf">1e4</span><span class="p">,</span> <span class="mf">1e5</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span> <span class="c1">#Pa</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0101</span><span class="p">,</span> <span class="mf">0.101</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">1010</span><span class="p">,</span> <span class="mf">1.01e4</span><span class="p">,</span> <span class="mf">1.01e5</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span> <span class="c1">#Pa</span></div>
+    
+<div class="viewcode-block" id="TestAnalysis.test_instance_1"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.test_cdg.TestAnalysis.test_instance_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_instance_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;should cal error</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">cob</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cob</span><span class="p">)</span>
+        <span class="n">cob</span><span class="p">[</span><span class="s1">&#39;CalibrationObject&#39;</span><span class="p">][</span><span class="s1">&#39;Setup&#39;</span><span class="p">][</span><span class="s1">&#39;TypeHead&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1Torr&#39;</span>        
+        <span class="n">cdg</span> <span class="o">=</span> <span class="n">Cdg</span><span class="p">({},</span> <span class="n">cob</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cdg</span><span class="o">.</span><span class="n">unit</span><span class="p">,</span> <span class="s1">&#39;Pa&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">cdg</span><span class="o">.</span><span class="n">min_p</span><span class="p">,</span> <span class="mf">0.13332</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestAnalysis.test_error_1"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.test_cdg.TestAnalysis.test_error_1">[docs]</a>    <span class="k">def</span> <span class="nf">test_error_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;should cal error for 1Torr CDG</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cob</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cob</span><span class="p">)</span>
+        <span class="n">cob</span><span class="p">[</span><span class="s1">&#39;CalibrationObject&#39;</span><span class="p">][</span><span class="s1">&#39;Setup&#39;</span><span class="p">][</span><span class="s1">&#39;TypeHead&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1Torr&#39;</span>
+        <span class="n">cdg</span> <span class="o">=</span> <span class="n">Cdg</span><span class="p">({},</span> <span class="n">cob</span><span class="p">)</span>
+
+        <span class="n">err</span><span class="p">,</span> <span class="n">unit</span> <span class="o">=</span> <span class="n">cdg</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p_cal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_ind</span><span class="p">,</span> <span class="s1">&#39;Pa&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">5</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">6</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">7</span><span class="p">]))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mf">1e-2</span><span class="p">)</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mf">1e-2</span><span class="p">)</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="mf">1e-2</span><span class="p">)</span>        </div>
+
+<div class="viewcode-block" id="TestAnalysis.test_error_2"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.test_cdg.TestAnalysis.test_error_2">[docs]</a>    <span class="k">def</span> <span class="nf">test_error_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;should cal error for 1000Torr CDG</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cob</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cob</span><span class="p">)</span>
+        <span class="n">cob</span><span class="p">[</span><span class="s1">&#39;CalibrationObject&#39;</span><span class="p">][</span><span class="s1">&#39;Setup&#39;</span><span class="p">][</span><span class="s1">&#39;TypeHead&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1000Torr&#39;</span>
+        <span class="n">cdg</span> <span class="o">=</span> <span class="n">Cdg</span><span class="p">({},</span> <span class="n">cob</span><span class="p">)</span>
+
+        <span class="n">err</span><span class="p">,</span> <span class="n">unit</span> <span class="o">=</span> <span class="n">cdg</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p_cal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_ind</span><span class="p">,</span> <span class="s1">&#39;Pa&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="mf">1e-2</span><span class="p">)</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="mf">1e-2</span><span class="p">)</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="mf">1e-2</span><span class="p">)</span>        </div>
+
+<div class="viewcode-block" id="TestAnalysis.test_nice_values"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.test_cdg.TestAnalysis.test_nice_values">[docs]</a>    <span class="k">def</span> <span class="nf">test_nice_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cob</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cob</span><span class="p">)</span>
+        <span class="n">cdg</span> <span class="o">=</span> <span class="n">Cdg</span><span class="p">({},</span> <span class="n">cob</span><span class="p">)</span>
+        <span class="n">vec</span> <span class="o">=</span> <span class="n">cdg</span><span class="o">.</span><span class="n">get_default_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+       
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vec</span><span class="p">),</span> <span class="mi">30</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1000</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="TestAnalysis.test_interpol_values"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.test_cdg.TestAnalysis.test_interpol_values">[docs]</a>    <span class="k">def</span> <span class="nf">test_interpol_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cob</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cob</span><span class="p">)</span>
+        <span class="n">cdg</span> <span class="o">=</span> <span class="n">Cdg</span><span class="p">({},</span> <span class="n">cob</span><span class="p">)</span>
+
+        <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="p">])</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span> <span class="p">])</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span> <span class="p">])</span>
+
+        <span class="n">i_p</span><span class="p">,</span> <span class="n">i_e</span><span class="p">,</span> <span class="n">i_u</span> <span class="o">=</span> <span class="n">cdg</span><span class="o">.</span><span class="n">cal_interpol</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">i_p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">i_e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">i_u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="mi">1</span><span class="p">)</span></div></div>
+        
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../modules.html">vpy 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, wactbprot.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

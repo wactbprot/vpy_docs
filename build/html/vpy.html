@@ -1,175 +1,56 @@
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>vpy package &mdash; vpy 0.1.0 documentation</title>
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>vpy package &#8212; vpy 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/wild.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="vpy.device package" href="vpy.device.html" />
     <link rel="prev" title="vpy" href="modules.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="vpy.device.html" title="vpy.device package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="vpy"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="modules.html">vpy 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
 
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="modules.html" class="icon icon-home"> vpy
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.1.0
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">vpy package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="vpy.device.html">vpy.device package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vpy.standard.html">vpy.standard package</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.analysis">vpy.analysis module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.calibration_devices">vpy.calibration_devices module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.constants">vpy.constants module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.display">vpy.display module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.document">vpy.document module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.pkg_io">vpy.pkg_io module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.pkg_log">vpy.pkg_log module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.result">vpy.result module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.sim">vpy.sim module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.test_analysis">vpy.test_analysis module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.test_document">vpy.test_document module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.test_todo">vpy.test_todo module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.test_values">vpy.test_values module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.todo">vpy.todo module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-vpy.values">vpy.values module</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="modules.html">vpy</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="modules.html">Docs</a> &raquo;</li>
-        
-      <li>vpy package</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/vpy.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="module-vpy">
 <span id="vpy-package"></span><h1>vpy package<a class="headerlink" href="#module-vpy" title="Permalink to this headline">¶</a></h1>
@@ -184,6 +65,7 @@
 <li class="toctree-l2"><a class="reference internal" href="vpy.device.html#module-vpy.device.dmm">vpy.device.dmm module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.device.html#module-vpy.device.qbs">vpy.device.qbs module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vpy.device.html#module-vpy.device.srg">vpy.device.srg module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpy.device.html#module-vpy.device.test_cdg">vpy.device.test_cdg module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="vpy.standard.html">vpy.standard package</a><ul>
@@ -233,8 +115,8 @@
 <dl class="class">
 <dt id="vpy.analysis.Analysis">
 <em class="property">class </em><code class="descclassname">vpy.analysis.</code><code class="descname">Analysis</code><span class="sig-paren">(</span><em>doc</em>, <em>init_dict=None</em>, <em>insert_dict=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/analysis.html#Analysis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.analysis.Analysis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.document.Document</span></code></a></p>
-<p>Holds a deep copy of <code class="docutils literal notranslate"><span class="pre">document</span></code>. Container for storing
+<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal"><span class="pre">vpy.document.Document</span></code></a></p>
+<p>Holds a deep copy of <code class="docutils literal"><span class="pre">document</span></code>. Container for storing
 the calculation results of analysis.</p>
 <dl class="method">
 <dt id="vpy.analysis.Analysis.build_doc">
@@ -260,7 +142,7 @@ the calculation results of analysis.</p>
 
 <dl class="method">
 <dt id="vpy.analysis.Analysis.pick">
-<code class="descname">pick</code><span class="sig-paren">(</span><em>quant</em>, <em>dict_type</em>, <em>dict_unit</em>, <em>dest='Values'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/analysis.html#Analysis.pick"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.analysis.Analysis.pick" title="Permalink to this definition">¶</a></dt>
+<code class="descname">pick</code><span class="sig-paren">(</span><em>quant</em>, <em>dict_type</em>, <em>dict_unit</em>, <em>dest='Values'</em>, <em>with_stats=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/analysis.html#Analysis.pick"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.analysis.Analysis.pick" title="Permalink to this definition">¶</a></dt>
 <dd><p>Picks and returns an already calculated value.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -348,7 +230,7 @@ the analysis structure under the given quant[ity].</p>
 <dl class="class">
 <dt id="vpy.calibration_devices.CalibrationObject">
 <em class="property">class </em><code class="descclassname">vpy.calibration_devices.</code><code class="descname">CalibrationObject</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/calibration_devices.html#CalibrationObject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.calibration_devices.CalibrationObject" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.document.Document</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal"><span class="pre">vpy.document.Document</span></code></a></p>
 <p>CalibrationObjects</p>
 <dl class="method">
 <dt id="vpy.calibration_devices.CalibrationObject.get_by_name">
@@ -360,7 +242,7 @@ the analysis structure under the given quant[ity].</p>
 <dl class="class">
 <dt id="vpy.calibration_devices.CustomerObject">
 <em class="property">class </em><code class="descclassname">vpy.calibration_devices.</code><code class="descname">CustomerObject</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/calibration_devices.html#CustomerObject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.calibration_devices.CustomerObject" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.document.Document</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal"><span class="pre">vpy.document.Document</span></code></a></p>
 <p>Customer Objects</p>
 <dl class="method">
 <dt id="vpy.calibration_devices.CustomerObject.get_class">
@@ -375,7 +257,7 @@ the analysis structure under the given quant[ity].</p>
 <dl class="class">
 <dt id="vpy.constants.Constants">
 <em class="property">class </em><code class="descclassname">vpy.constants.</code><code class="descname">Constants</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/constants.html#Constants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.constants.Constants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.document.Document</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal"><span class="pre">vpy.document.Document</span></code></a></p>
 <p>Initialisation of Constant class.</p>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
@@ -422,7 +304,7 @@ the analysis structure under the given quant[ity].</p>
 <dt id="vpy.constants.Constants.get_gas_density">
 <code class="descname">get_gas_density</code><span class="sig-paren">(</span><em>gas</em>, <em>p</em>, <em>punit</em>, <em>T</em>, <em>Tunit</em>, <em>dunit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/constants.html#Constants.get_gas_density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.constants.Constants.get_gas_density" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the gas density with:</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\rho_{gas} = \frac{M}{R T} p\]</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -480,8 +362,8 @@ the analysis structure under the given quant[ity].</p>
 <dl class="class">
 <dt id="vpy.display.Display">
 <em class="property">class </em><code class="descclassname">vpy.display.</code><code class="descname">Display</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/display.html#Display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.display.Display" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.document.Document</span></code></a></p>
-<p>Holds a deep copy of <code class="docutils literal notranslate"><span class="pre">document</span></code>.</p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal"><span class="pre">vpy.document.Document</span></code></a></p>
+<p>Holds a deep copy of <code class="docutils literal"><span class="pre">document</span></code>.</p>
 <dl class="method">
 <dt id="vpy.display.Display.SE2_CDG_error_plot">
 <code class="descname">SE2_CDG_error_plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/display.html#Display.SE2_CDG_error_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.display.Display.SE2_CDG_error_plot" title="Permalink to this definition">¶</a></dt>
@@ -505,7 +387,7 @@ the analysis structure under the given quant[ity].</p>
 <dl class="class">
 <dt id="vpy.document.Document">
 <em class="property">class </em><code class="descclassname">vpy.document.</code><code class="descname">Document</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/document.html#Document"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.document.Document" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="vpy.document.Document.get_all">
 <code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/document.html#Document.get_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.document.Document.get_all" title="Permalink to this definition">¶</a></dt>
@@ -526,10 +408,10 @@ the analysis structure under the given quant[ity].</p>
 <dt id="vpy.document.Document.get_array">
 <code class="descname">get_array</code><span class="sig-paren">(</span><em>prefix</em>, <em>iter_list</em>, <em>sufix</em>, <em>unit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/document.html#Document.get_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.document.Document.get_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a np.array  of values with analog type strings
-like <code class="docutils literal notranslate"><span class="pre">ch_1001_before</span></code> … <code class="docutils literal notranslate"><span class="pre">ch_1030_before</span></code>.</p>
-<p>In this example <code class="docutils literal notranslate"><span class="pre">ch_</span></code> would be the <code class="docutils literal notranslate"><span class="pre">prefix</span></code>,
-<code class="docutils literal notranslate"><span class="pre">[1001,</span> <span class="pre">...,</span> <span class="pre">1030]</span></code> is the <code class="docutils literal notranslate"><span class="pre">iter_list</span></code> and
-<code class="docutils literal notranslate"><span class="pre">_before</span></code> is the sufix.</p>
+like <code class="docutils literal"><span class="pre">ch_1001_before</span></code> … <code class="docutils literal"><span class="pre">ch_1030_before</span></code>.</p>
+<p>In this example <code class="docutils literal"><span class="pre">ch_</span></code> would be the <code class="docutils literal"><span class="pre">prefix</span></code>,
+<code class="docutils literal"><span class="pre">[1001,</span> <span class="pre">...,</span> <span class="pre">1030]</span></code> is the <code class="docutils literal"><span class="pre">iter_list</span></code> and
+<code class="docutils literal"><span class="pre">_before</span></code> is the sufix.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <ul class="last simple">
@@ -585,8 +467,8 @@ like <code class="docutils literal notranslate"><span class="pre">ch_1001_before
 <dl class="method">
 <dt id="vpy.document.Document.get_expression">
 <code class="descname">get_expression</code><span class="sig-paren">(</span><em>t</em>, <em>unit</em>, <em>o=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/document.html#Document.get_expression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.document.Document.get_expression" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets an dict by means of <code class="docutils literal notranslate"><span class="pre">o=get_object()</span></code>,
-compares <code class="docutils literal notranslate"><span class="pre">o.Unit</span></code> with unit and returns
+<dd><p>Gets an dict by means of <code class="docutils literal"><span class="pre">o=get_object()</span></code>,
+compares <code class="docutils literal"><span class="pre">o.Unit</span></code> with unit and returns
 sym.sympyfied expression.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -636,7 +518,7 @@ sym.sympyfied expression.</p>
 <dl class="method">
 <dt id="vpy.document.Document.get_str">
 <code class="descname">get_str</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/document.html#Document.get_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.document.Document.get_str" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets an dict by means of <code class="docutils literal notranslate"><span class="pre">o=get_object()</span></code>,
+<dd><p>Gets an dict by means of <code class="docutils literal"><span class="pre">o=get_object()</span></code>,
 returns numpy typed array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -654,17 +536,17 @@ returns numpy typed array.</p>
 
 <dl class="method">
 <dt id="vpy.document.Document.get_value">
-<code class="descname">get_value</code><span class="sig-paren">(</span><em>t</em>, <em>unit</em>, <em>o=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/document.html#Document.get_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.document.Document.get_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets an dict by means of  <code class="docutils literal notranslate"><span class="pre">o=get_object()</span></code>,
-compares o.Unit with unit and returns
+<code class="descname">get_value</code><span class="sig-paren">(</span><em>value_type</em>, <em>value_unit</em>, <em>o=False</em>, <em>with_stats=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/document.html#Document.get_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.document.Document.get_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets an dict by means of  <code class="docutils literal"><span class="pre">o=get_object()</span></code>,
+compares o.Unit with value_unit and returns
 numpy typed array.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>t</strong> (<em>str</em>) – value for type key</li>
-<li><strong>unit</strong> (<em>str</em>) – unit of value</li>
+<li><strong>value_type</strong> (<em>str</em>) – value for type key</li>
+<li><strong>value_unit</strong> (<em>str</em>) – value_unit of value</li>
 </ul>
 </td>
 </tr>
@@ -682,8 +564,8 @@ numpy typed array.</p>
 <dt id="vpy.document.Document.get_value_and_unit">
 <code class="descname">get_value_and_unit</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/document.html#Document.get_value_and_unit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.document.Document.get_value_and_unit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Intended use for this method: <strong>extracting values when unit is unknown</strong>.
-Searches <code class="docutils literal notranslate"><span class="pre">dict</span></code> by means of method <code class="docutils literal notranslate"><span class="pre">get_object()</span></code> and extracts the unit.
-Uses <code class="docutils literal notranslate"><span class="pre">get_value()</span></code> to shape values.</p>
+Searches <code class="docutils literal"><span class="pre">dict</span></code> by means of method <code class="docutils literal"><span class="pre">get_object()</span></code> and extracts the unit.
+Uses <code class="docutils literal"><span class="pre">get_value()</span></code> to shape values.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -701,8 +583,8 @@ Uses <code class="docutils literal notranslate"><span class="pre">get_value()</s
 <dl class="method">
 <dt id="vpy.document.Document.get_value_full">
 <code class="descname">get_value_full</code><span class="sig-paren">(</span><em>t</em>, <em>unit</em>, <em>N</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/document.html#Document.get_value_full"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.document.Document.get_value_full" title="Permalink to this definition">¶</a></dt>
-<dd><p>same as <code class="docutils literal notranslate"><span class="pre">self.get_value</span></code> but returns
-an array of the length <code class="docutils literal notranslate"><span class="pre">self.no_of_meas_points</span></code></p>
+<dd><p>same as <code class="docutils literal"><span class="pre">self.get_value</span></code> but returns
+an array of the length <code class="docutils literal"><span class="pre">self.no_of_meas_points</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -724,6 +606,24 @@ an array of the length <code class="docutils literal notranslate"><span class="p
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="vpy.document.Document.safe_float_array">
+<code class="descname">safe_float_array</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/document.html#Document.safe_float_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.document.Document.safe_float_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures the return value to be a numpy array of float</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>str|list|float|int</em>) – value</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">ret</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np: array of type np.float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -732,14 +632,14 @@ an array of the length <code class="docutils literal notranslate"><span class="p
 <dl class="class">
 <dt id="vpy.pkg_io.Io">
 <em class="property">class </em><code class="descclassname">vpy.pkg_io.</code><code class="descname">Io</code><span class="sig-paren">(</span><em>path='.'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/pkg_io.html#Io"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.pkg_io.Io" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Class Io should handle all the input
 output issues of the pkg.</p>
 <dl class="method">
 <dt id="vpy.pkg_io.Io.eval_args">
 <code class="descname">eval_args</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/pkg_io.html#Io.eval_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.pkg_io.Io.eval_args" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses the command line argumets.
-Traverse database commandline options to <code class="docutils literal notranslate"><span class="pre">self.config</span></code></p>
+Traverse database commandline options to <code class="docutils literal"><span class="pre">self.config</span></code></p>
 </dd></dl>
 
 <dl class="method">
@@ -751,7 +651,7 @@ database and combines it to one document.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – name of the standard e.g. <code class="docutils literal notranslate"><span class="pre">se2</span></code> or <code class="docutils literal notranslate"><span class="pre">se3</span></code></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – name of the standard e.g. <code class="docutils literal"><span class="pre">se2</span></code> or <code class="docutils literal"><span class="pre">se3</span></code></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">updated calibration document</td>
 </tr>
@@ -783,7 +683,7 @@ database and combines it to one document.</p>
 <dt id="vpy.pkg_io.Io.get_hist_data">
 <code class="descname">get_hist_data</code><span class="sig-paren">(</span><em>std</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/pkg_io.html#Io.get_hist_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.pkg_io.Io.get_hist_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets and returns an array containing history data.
-Please use  the view <code class="docutils literal notranslate"><span class="pre">se3_req/views/group_normal_hist/</span></code> as a
+Please use  the view <code class="docutils literal"><span class="pre">se3_req/views/group_normal_hist/</span></code> as a
 template.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -857,13 +757,13 @@ document is stored by means of <em>set_doc_db()</em></p>
 </dl>
 <div class="admonition-todo admonition" id="index-1">
 <p class="first admonition-title">Todo</p>
-<p>There seems to be no api to access <code class="docutils literal notranslate"><span class="pre">plot.title</span></code> in
+<p>There seems to be no api to access <code class="docutils literal"><span class="pre">plot.title</span></code> in
 order to have a nice name for the plot. Solutions:</p>
 <ul class="last simple">
-<li>add a <code class="docutils literal notranslate"><span class="pre">timestamp</span></code></li>
+<li>add a <code class="docutils literal"><span class="pre">timestamp</span></code></li>
 <li>add a function name</li>
 <li>both</li>
-<li>name as param of <code class="docutils literal notranslate"><span class="pre">save_plot</span></code></li>
+<li>name as param of <code class="docutils literal"><span class="pre">save_plot</span></code></li>
 </ul>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -893,7 +793,7 @@ order to have a nice name for the plot. Solutions:</p>
 <dl class="method">
 <dt id="vpy.pkg_io.Io.update_cal_doc">
 <code class="descname">update_cal_doc</code><span class="sig-paren">(</span><em>doc</em>, <em>base_doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/pkg_io.html#Io.update_cal_doc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.pkg_io.Io.update_cal_doc" title="Permalink to this definition">¶</a></dt>
-<dd><p>More or less a merge between <code class="docutils literal notranslate"><span class="pre">doc</span></code> and <code class="docutils literal notranslate"><span class="pre">base_doc</span></code>.</p>
+<dd><p>More or less a merge between <code class="docutils literal"><span class="pre">doc</span></code> and <code class="docutils literal"><span class="pre">base_doc</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -922,7 +822,7 @@ order to have a nice name for the plot. Solutions:</p>
 <dl class="class">
 <dt id="vpy.pkg_log.Log">
 <em class="property">class </em><code class="descclassname">vpy.pkg_log.</code><code class="descname">Log</code><a class="reference internal" href="_modules/vpy/pkg_log.html#Log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.pkg_log.Log" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="vpy.pkg_log.Log.logger">
 <code class="descname">logger</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/pkg_log.html#Log.logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.pkg_log.Log.logger" title="Permalink to this definition">¶</a></dt>
@@ -941,32 +841,9 @@ order to have a nice name for the plot. Solutions:</p>
 <dl class="class">
 <dt id="vpy.result.Result">
 <em class="property">class </em><code class="descclassname">vpy.result.</code><code class="descname">Result</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.analysis.Analysis" title="vpy.analysis.Analysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.analysis.Analysis</span></code></a></p>
-<p>Holds a deep copy of <code class="docutils literal notranslate"><span class="pre">document</span></code>. Container for storing
+<dd><p>Bases: <a class="reference internal" href="#vpy.analysis.Analysis" title="vpy.analysis.Analysis"><code class="xref py py-class docutils literal"><span class="pre">vpy.analysis.Analysis</span></code></a></p>
+<p>Holds a deep copy of <code class="docutils literal"><span class="pre">document</span></code>. Container for storing
 Results of analysis.</p>
-<dl class="method">
-<dt id="vpy.result.Result.fit_thermal_transpiration">
-<code class="descname">fit_thermal_transpiration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.fit_thermal_transpiration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.fit_thermal_transpiration" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="vpy.result.Result.flatten">
-<code class="descname">flatten</code><span class="sig-paren">(</span><em>l</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.flatten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.flatten" title="Permalink to this definition">¶</a></dt>
-<dd><p>Flattens a list of lists.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>l</strong> – list of lists</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="vpy.result.Result.gas">
 <code class="descname">gas</code><em class="property"> = {'de': {'Ar': 'Argon', 'H2': 'Wasserstoff', 'N2': 'Stickstoff', 'Ne': 'Neon'}, 'en': {'Ar': 'argon', 'H2': 'hydrogen', 'N2': 'nitrogen', 'Ne': 'neon'}}</em><a class="headerlink" href="#vpy.result.Result.gas" title="Permalink to this definition">¶</a></dt>
@@ -979,12 +856,7 @@ Results of analysis.</p>
 
 <dl class="attribute">
 <dt id="vpy.result.Result.head_cell">
-<code class="descname">head_cell</code><em class="property"> = {'cal': '{\\(p_\\text{cal}\\)}', 'error': '{\\(e\\)}', 'ind': '{\\(p_\\text{ind}\\)}', 'ind_corr': '{\\(p_\\text{ind} - p_\\text{r}\\)}', 'uncertTotal_abs': '{\\(U(k=2)\\)}', 'uncertTotal_rel': '{\\(U(k=2)\\)}'}</em><a class="headerlink" href="#vpy.result.Result.head_cell" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="vpy.result.Result.make_AuxValues_section">
-<code class="descname">make_AuxValues_section</code><span class="sig-paren">(</span><em>ana</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_AuxValues_section"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_AuxValues_section" title="Permalink to this definition">¶</a></dt>
+<code class="descname">head_cell</code><em class="property"> = {'cal': '{\\(p_\\text{cal}\\)}', 'ind': '{\\(p_\\text{ind}\\)}', 'ind_corr': '{\\(p_\\text{ind} - p_\\text{r}\\)}', 'uncertTotal_rel': '{\\(U(k=2)\\)}', 'uncertTotal_abs': '{\\(U(k=2)\\)}', 'error': '{\\(e\\)}'}</em><a class="headerlink" href="#vpy.result.Result.head_cell" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -993,87 +865,9 @@ Results of analysis.</p>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="vpy.result.Result.make_evis_formula">
-<code class="descname">make_evis_formula</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_evis_formula"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_evis_formula" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="vpy.result.Result.make_formula_section">
 <code class="descname">make_formula_section</code><span class="sig-paren">(</span><em>ana</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_formula_section"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_formula_section" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="method">
-<dt id="vpy.result.Result.make_main_maesurement_index">
-<code class="descname">make_main_maesurement_index</code><span class="sig-paren">(</span><em>ana</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_main_maesurement_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_main_maesurement_index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Collects indices of the main measurement in average_index.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of indices</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="vpy.result.Result.make_offset_stability">
-<code class="descname">make_offset_stability</code><span class="sig-paren">(</span><em>ana</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_offset_stability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_offset_stability" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="vpy.result.Result.make_pressure_range_index">
-<code class="descname">make_pressure_range_index</code><span class="sig-paren">(</span><em>ana</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_pressure_range_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_pressure_range_index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Collects indices of measurements with the same conversion factor in r1.
-Collects indices of measurements within the same decade of p_cal in r2.
-Returns the one with smaller standard deviation in the low pressure range.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of lists of indices</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="vpy.result.Result.make_sens_table">
-<code class="descname">make_sens_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_sens_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_sens_table" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="vpy.result.Result.make_sigma_formula">
-<code class="descname">make_sigma_formula</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.make_sigma_formula"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.make_sigma_formula" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="vpy.result.Result.reject_outliers_index">
-<code class="descname">reject_outliers_index</code><span class="sig-paren">(</span><em>ana</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/result.html#Result.reject_outliers_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.result.Result.reject_outliers_index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes the list of indices of measurement points belonging to a
-certain target pressure and rejects outliers by comparing each
-measurement value to the mean value of the neighbors (without the
-point itself).
-remarks: using the standard deviation of the neighbors is unsatisfactory
-because one may end up with a small value by chance. Probably it is
-better to use a threshold that is decreasing with increasing pressure
-values. Another problem is that iterating over empty lists aborts the
-program.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">array of arrays of indices</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.array</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
 
 <dl class="method">
 <dt id="vpy.result.Result.repeat_rel">
@@ -1087,12 +881,12 @@ program.</p>
 
 <dl class="attribute">
 <dt id="vpy.result.Result.unit">
-<code class="descname">unit</code><em class="property"> = {'Pa': '\\Pa', 'mbar': '\\mbar'}</em><a class="headerlink" href="#vpy.result.Result.unit" title="Permalink to this definition">¶</a></dt>
+<code class="descname">unit</code><em class="property"> = {'mbar': '\\mbar', 'Pa': '\\Pa'}</em><a class="headerlink" href="#vpy.result.Result.unit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="vpy.result.Result.unit_cell">
-<code class="descname">unit_cell</code><em class="property"> = {'%': '{\\(\\si{\\percent}\\)}', '1': '', 'mbar': 'mbar'}</em><a class="headerlink" href="#vpy.result.Result.unit_cell" title="Permalink to this definition">¶</a></dt>
+<code class="descname">unit_cell</code><em class="property"> = {'1': '', 'mbar': 'mbar', '%': '{\\(\\si{\\percent}\\)}'}</em><a class="headerlink" href="#vpy.result.Result.unit_cell" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1103,7 +897,7 @@ program.</p>
 <dl class="class">
 <dt id="vpy.sim.Sim">
 <em class="property">class </em><code class="descclassname">vpy.sim.</code><code class="descname">Sim</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/sim.html#Sim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.sim.Sim" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="vpy.sim.Sim.build">
 <code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/sim.html#Sim.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.sim.Sim.build" title="Permalink to this definition">¶</a></dt>
@@ -1127,12 +921,11 @@ program.</p>
 <dl class="class">
 <dt id="vpy.test_analysis.TestAnalysis">
 <em class="property">class </em><code class="descclassname">vpy.test_analysis.</code><code class="descname">TestAnalysis</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_analysis.html#TestAnalysis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_analysis.TestAnalysis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></code></p>
 <dl class="method">
 <dt id="vpy.test_analysis.TestAnalysis.setUp">
 <code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_analysis.html#TestAnalysis.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_analysis.TestAnalysis.setUp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hook method for setting up the test fixture before exercising it.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="vpy.test_analysis.TestAnalysis.test_store_dict_1">
@@ -1164,6 +957,12 @@ program.</p>
 <dd><p>store array, pick array containing float</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="vpy.test_analysis.TestAnalysis.test_store_pick_4">
+<code class="descname">test_store_pick_4</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_analysis.html#TestAnalysis.test_store_pick_4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_analysis.TestAnalysis.test_store_pick_4" title="Permalink to this definition">¶</a></dt>
+<dd><p>store int, pick array containing float with stats</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -1172,7 +971,7 @@ program.</p>
 <dl class="class">
 <dt id="vpy.test_document.TestDocument">
 <em class="property">class </em><code class="descclassname">vpy.test_document.</code><code class="descname">TestDocument</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_document.html#TestDocument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_document.TestDocument" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></code></p>
 <ul class="simple">
 <li>assertEqual(a, b) a == b</li>
 <li>assertNotEqual(a, b)      a != b</li>
@@ -1190,8 +989,7 @@ program.</p>
 <dl class="method">
 <dt id="vpy.test_document.TestDocument.setUp">
 <code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_document.html#TestDocument.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_document.TestDocument.setUp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hook method for setting up the test fixture before exercising it.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="vpy.test_document.TestDocument.test_get_all_1">
@@ -1266,6 +1064,12 @@ program.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="vpy.test_document.TestDocument.test_get_value_3">
+<code class="descname">test_get_value_3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_document.html#TestDocument.test_get_value_3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_document.TestDocument.test_get_value_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shold return the value, sd of value and N</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="vpy.test_document.TestDocument.test_get_value_and_unit_1">
 <code class="descname">test_get_value_and_unit_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_document.html#TestDocument.test_get_value_and_unit_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_document.TestDocument.test_get_value_and_unit_1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Should return value and unit</p>
@@ -1285,12 +1089,11 @@ program.</p>
 <dl class="class">
 <dt id="vpy.test_todo.TestToDo">
 <em class="property">class </em><code class="descclassname">vpy.test_todo.</code><code class="descname">TestToDo</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_todo.html#TestToDo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_todo.TestToDo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></code></p>
 <dl class="method">
 <dt id="vpy.test_todo.TestToDo.setUp">
 <code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_todo.html#TestToDo.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_todo.TestToDo.setUp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hook method for setting up the test fixture before exercising it.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="vpy.test_todo.TestToDo.test_average_index_1">
@@ -1305,12 +1108,11 @@ program.</p>
 <dl class="class">
 <dt id="vpy.test_values.TestValues">
 <em class="property">class </em><code class="descclassname">vpy.test_values.</code><code class="descname">TestValues</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_values.html#TestValues"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_values.TestValues" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></code></p>
 <dl class="method">
 <dt id="vpy.test_values.TestValues.setUp">
 <code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_values.html#TestValues.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_values.TestValues.setUp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hook method for setting up the test fixture before exercising it.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="vpy.test_values.TestValues.test_date_labview">
@@ -1330,7 +1132,7 @@ program.</p>
 <dl class="class">
 <dt id="vpy.todo.ToDo">
 <em class="property">class </em><code class="descclassname">vpy.todo.</code><code class="descname">ToDo</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/todo.html#ToDo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.todo.ToDo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.document.Document</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal"><span class="pre">vpy.document.Document</span></code></a></p>
 <p>Initialisation of ToDo class.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1374,21 +1176,21 @@ certain target pressure.</p>
 <dl class="class">
 <dt id="vpy.values.AuxDkmPpc4">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">AuxDkmPpc4</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#AuxDkmPpc4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.AuxDkmPpc4" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.AuxValues" title="vpy.values.AuxValues"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.AuxValues</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.AuxValues" title="vpy.values.AuxValues"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.AuxValues</span></code></a></p>
 <p>AuxValues for DKM_PPC4 Standard</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="vpy.values.AuxFrs5">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">AuxFrs5</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#AuxFrs5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.AuxFrs5" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.AuxValues" title="vpy.values.AuxValues"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.AuxValues</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.AuxValues" title="vpy.values.AuxValues"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.AuxValues</span></code></a></p>
 <p>AuxValues for FRS5 Standard</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="vpy.values.AuxSe2">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">AuxSe2</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#AuxSe2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.AuxSe2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.AuxValues" title="vpy.values.AuxValues"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.AuxValues</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.AuxValues" title="vpy.values.AuxValues"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.AuxValues</span></code></a></p>
 <p>AuxValues for SE2 Standard.</p>
 <dl class="method">
 <dt id="vpy.values.AuxSe2.get_expansion">
@@ -1413,14 +1215,14 @@ is stored in AuxValues.Expansion</p>
 <dl class="class">
 <dt id="vpy.values.AuxSe3">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">AuxSe3</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#AuxSe3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.AuxSe3" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.AuxValues" title="vpy.values.AuxValues"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.AuxValues</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.AuxValues" title="vpy.values.AuxValues"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.AuxValues</span></code></a></p>
 <p>AuxValues for SE3 Standard.</p>
 <dl class="method">
 <dt id="vpy.values.AuxSe3.get_expansion">
 <code class="descname">get_expansion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#AuxSe3.get_expansion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.AuxSe3.get_expansion" title="Permalink to this definition">¶</a></dt>
 <dd><p>At documents concerned with certain
 expansions ratios  (e.g. expanson ratio measurements) the name of the
-investigated :math: f is stored in <code class="docutils literal notranslate"><span class="pre">AuxValues.Expansion</span></code></p>
+investigated :math: f is stored in <code class="docutils literal"><span class="pre">AuxValues.Expansion</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1441,7 +1243,7 @@ investigated :math: f is stored in <code class="docutils literal notranslate"><s
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> – type of Volume (<code class="docutils literal notranslate"><span class="pre">abc</span></code>, <code class="docutils literal notranslate"><span class="pre">bc</span></code> or <code class="docutils literal notranslate"><span class="pre">c</span></code>)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> – type of Volume (<code class="docutils literal"><span class="pre">abc</span></code>, <code class="docutils literal"><span class="pre">bc</span></code> or <code class="docutils literal"><span class="pre">c</span></code>)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">name of the investigated expansion</td>
 </tr>
@@ -1456,15 +1258,15 @@ investigated :math: f is stored in <code class="docutils literal notranslate"><s
 <dl class="class">
 <dt id="vpy.values.AuxValues">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">AuxValues</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#AuxValues"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.AuxValues" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.document.Document</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal"><span class="pre">vpy.document.Document</span></code></a></p>
 <dl class="method">
 <dt id="vpy.values.AuxValues.get_by_time">
 <code class="descname">get_by_time</code><span class="sig-paren">(</span><em>meastime</em>, <em>auxtime</em>, <em>timeunit</em>, <em>auxval</em>, <em>valunit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#AuxValues.get_by_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.AuxValues.get_by_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>..todo:: write a better description</p>
 <p>Some values are measured only a few times like offsets.
-Such values are stored below the <code class="docutils literal notranslate"><span class="pre">AuxValues</span></code>-section.
+Such values are stored below the <code class="docutils literal"><span class="pre">AuxValues</span></code>-section.
 This Function implements a expansion mechanism
-and returns a array of the length <code class="docutils literal notranslate"><span class="pre">len(meastime)</span></code></p>
+and returns a array of the length <code class="docutils literal"><span class="pre">len(meastime)</span></code></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The first measured offset is valid until the
@@ -1507,13 +1309,13 @@ second offset is measured.</p>
 <dl class="class">
 <dt id="vpy.values.Date">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">Date</code><span class="sig-paren">(</span><em>doc</em>, <em>quant='Measurement'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Date" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.Values</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.Values</span></code></a></p>
 <dl class="method">
 <dt id="vpy.values.Date.first_measurement">
 <code class="descname">first_measurement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Date.first_measurement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Date.first_measurement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the first measurement date. The expected
 structure is:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Date&quot;</span><span class="o">:</span> <span class="p">[</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="s2">&quot;Date&quot;</span><span class="o">:</span> <span class="p">[</span>
            <span class="p">{</span>
            <span class="s2">&quot;Type&quot;</span><span class="o">:</span> <span class="s2">&quot;measurement&quot;</span><span class="p">,</span>
            <span class="s2">&quot;Value&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;2018-10-19 09:01&quot;</span><span class="p">,</span> <span class="s2">&quot;2018-10-20 09:01&quot;</span><span class="p">]</span>
@@ -1521,7 +1323,7 @@ structure is:</p>
         <span class="p">]</span>
 </pre></div>
 </div>
-<p>at the path: <code class="docutils literal notranslate"><span class="pre">Calibration.Measurement</span></code></p>
+<p>at the path: <code class="docutils literal"><span class="pre">Calibration.Measurement</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1538,12 +1340,12 @@ structure is:</p>
 <dt id="vpy.values.Date.parse_labview_date">
 <code class="descname">parse_labview_date</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Date.parse_labview_date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Date.parse_labview_date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses dates generated by LabView with the form:
-<code class="docutils literal notranslate"><span class="pre">Mi,</span> <span class="pre">Mai</span> <span class="pre">30,</span> <span class="pre">2018</span></code>
-To match such a date <code class="docutils literal notranslate"><span class="pre">locale.getlocale()</span></code> has to be <code class="docutils literal notranslate"><span class="pre">de_DE</span></code></p>
+<code class="docutils literal"><span class="pre">Mi,</span> <span class="pre">Mai</span> <span class="pre">30,</span> <span class="pre">2018</span></code>
+To match such a date <code class="docutils literal"><span class="pre">locale.getlocale()</span></code> has to be <code class="docutils literal"><span class="pre">de_DE</span></code></p>
 <div class="admonition-todo admonition" id="index-3">
 <p class="first admonition-title">Todo</p>
 <p class="last">Does not work on windows system:  This:
-<code class="docutils literal notranslate"><span class="pre">locale.setlocale(locale.LC_TIME,</span> <span class="pre">&quot;&quot;)</span></code>
+<code class="docutils literal"><span class="pre">locale.setlocale(locale.LC_TIME,</span> <span class="pre">&quot;&quot;)</span></code>
 works on unix; on windows too?
 (see <a class="reference external" href="https://www.python-forum.de/viewtopic.php?t=9906">https://www.python-forum.de/viewtopic.php?t=9906</a>)</p>
 </div>
@@ -1562,55 +1364,55 @@ works on unix; on windows too?
 <dl class="class">
 <dt id="vpy.values.Error">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">Error</code><span class="sig-paren">(</span><em>doc</em>, <em>quant='Measurement'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Error" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.Values</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.Values</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="vpy.values.Expansion">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">Expansion</code><span class="sig-paren">(</span><em>doc</em>, <em>quant='Measurement'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Expansion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Expansion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.Values</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.Values</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="vpy.values.Mass">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">Mass</code><span class="sig-paren">(</span><em>doc</em>, <em>quant='Measurement'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Mass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Mass" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.Values</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.Values</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="vpy.values.OutGasRate">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">OutGasRate</code><span class="sig-paren">(</span><em>doc</em>, <em>quant='Measurement'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#OutGasRate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.OutGasRate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.Values</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.Values</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="vpy.values.Position">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">Position</code><span class="sig-paren">(</span><em>doc</em>, <em>quant='Measurement'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Position"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.Values</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.Values</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="vpy.values.Pressure">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">Pressure</code><span class="sig-paren">(</span><em>doc</em>, <em>quant='Measurement'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Pressure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Pressure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.Values</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.Values</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="vpy.values.Sigma">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">Sigma</code><span class="sig-paren">(</span><em>doc</em>, <em>quant='Measurement'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Sigma"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Sigma" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.Values</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.Values</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="vpy.values.Temperature">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">Temperature</code><span class="sig-paren">(</span><em>doc</em>, <em>quant='Measurement'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Temperature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Temperature" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.Values</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.Values</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="vpy.values.Time">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">Time</code><span class="sig-paren">(</span><em>doc</em>, <em>quant='Measurement'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.values.Values</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.Values</span></code></a></p>
 <dl class="method">
 <dt id="vpy.values.Time.amt_to_date">
 <code class="descname">amt_to_date</code><span class="sig-paren">(</span><em>dict_type</em>, <em>unit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Time.amt_to_date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Time.amt_to_date" title="Permalink to this definition">¶</a></dt>
@@ -1663,9 +1465,15 @@ to a date string.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="vpy.values.Uncertainty">
+<em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">Uncertainty</code><span class="sig-paren">(</span><em>doc</em>, <em>quant='Measurement'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Uncertainty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Uncertainty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vpy.values.Values" title="vpy.values.Values"><code class="xref py py-class docutils literal"><span class="pre">vpy.values.Values</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
 <dt id="vpy.values.Values">
 <em class="property">class </em><code class="descclassname">vpy.values.</code><code class="descname">Values</code><span class="sig-paren">(</span><em>doc</em>, <em>name=None</em>, <em>quant=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Values" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal notranslate"><span class="pre">vpy.document.Document</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#vpy.document.Document" title="vpy.document.Document"><code class="xref py py-class docutils literal"><span class="pre">vpy.document.Document</span></code></a></p>
 <p>Values class implements special methodes for
 temperature, pressure …</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1681,9 +1489,27 @@ temperature, pressure …</p>
 </tbody>
 </table>
 <dl class="method">
+<dt id="vpy.values.Values.flatten">
+<code class="descname">flatten</code><span class="sig-paren">(</span><em>l</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Values.flatten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Values.flatten" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flattens a list of lists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>l</strong> – list of lists</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="vpy.values.Values.round_to_sig_dig">
 <code class="descname">round_to_sig_dig</code><span class="sig-paren">(</span><em>val</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Values.round_to_sig_dig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Values.round_to_sig_dig" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rounds the value <code class="docutils literal notranslate"><span class="pre">val</span></code> to <code class="docutils literal notranslate"><span class="pre">n</span></code> significant digits
+<dd><p>Rounds the value <code class="docutils literal"><span class="pre">val</span></code> to <code class="docutils literal"><span class="pre">n</span></code> significant digits
 and outputs a formated string</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1708,13 +1534,13 @@ and outputs a formated string</p>
 <dl class="method">
 <dt id="vpy.values.Values.round_to_sig_dig_array">
 <code class="descname">round_to_sig_dig_array</code><span class="sig-paren">(</span><em>val_arr</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Values.round_to_sig_dig_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Values.round_to_sig_dig_array" title="Permalink to this definition">¶</a></dt>
-<dd><p>Applies <code class="docutils literal notranslate"><span class="pre">round_to_sig_dig</span></code> to the array <code class="docutils literal notranslate"><span class="pre">val_arr</span></code></p>
+<dd><p>Applies <code class="docutils literal"><span class="pre">round_to_sig_dig</span></code> to the array <code class="docutils literal"><span class="pre">val_arr</span></code></p>
 </dd></dl>
 
 <dl class="method">
 <dt id="vpy.values.Values.round_to_uncertainty">
 <code class="descname">round_to_uncertainty</code><span class="sig-paren">(</span><em>val</em>, <em>unc</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Values.round_to_uncertainty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Values.round_to_uncertainty" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rounds the value <code class="docutils literal notranslate"><span class="pre">val</span></code> to the <code class="docutils literal notranslate"><span class="pre">n``th</span> <span class="pre">significant</span> <span class="pre">digit</span>
+<dd><p>Rounds the value <code class="docutils literal"><span class="pre">val</span></code> to the <code class="docutils literal"><span class="pre">n``th</span> <span class="pre">significant</span> <span class="pre">digit</span>
 <span class="pre">of</span> <span class="pre">its</span> <span class="pre">uncertainty</span> <span class="pre">``unc</span></code> and outputs a formated string</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1740,8 +1566,8 @@ and outputs a formated string</p>
 <dl class="method">
 <dt id="vpy.values.Values.round_to_uncertainty_array">
 <code class="descname">round_to_uncertainty_array</code><span class="sig-paren">(</span><em>val_arr</em>, <em>unc_arr</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/values.html#Values.round_to_uncertainty_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.values.Values.round_to_uncertainty_array" title="Permalink to this definition">¶</a></dt>
-<dd><p>Applies <code class="docutils literal notranslate"><span class="pre">round_to_uncertainty</span></code> to the array of values <code class="docutils literal notranslate"><span class="pre">val_arr</span></code>
-using the array of uncertainties <code class="docutils literal notranslate"><span class="pre">unc_arr</span></code></p>
+<dd><p>Applies <code class="docutils literal"><span class="pre">round_to_uncertainty</span></code> to the array of values <code class="docutils literal"><span class="pre">val_arr</span></code>
+using the array of uncertainties <code class="docutils literal"><span class="pre">unc_arr</span></code></p>
 </dd></dl>
 
 <dl class="method">
@@ -1776,62 +1602,83 @@ Returns value in SI units if no third argument is given.</p>
 </div>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="vpy.device.html" class="btn btn-neutral float-right" title="vpy.device package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="modules.html" class="btn btn-neutral" title="vpy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, wactbprot
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="modules.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">vpy package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-vpy.analysis">vpy.analysis module</a></li>
+<li><a class="reference internal" href="#module-vpy.calibration_devices">vpy.calibration_devices module</a></li>
+<li><a class="reference internal" href="#module-vpy.constants">vpy.constants module</a></li>
+<li><a class="reference internal" href="#module-vpy.display">vpy.display module</a></li>
+<li><a class="reference internal" href="#module-vpy.document">vpy.document module</a></li>
+<li><a class="reference internal" href="#module-vpy.pkg_io">vpy.pkg_io module</a></li>
+<li><a class="reference internal" href="#module-vpy.pkg_log">vpy.pkg_log module</a></li>
+<li><a class="reference internal" href="#module-vpy.result">vpy.result module</a></li>
+<li><a class="reference internal" href="#module-vpy.sim">vpy.sim module</a></li>
+<li><a class="reference internal" href="#module-vpy.test_analysis">vpy.test_analysis module</a></li>
+<li><a class="reference internal" href="#module-vpy.test_document">vpy.test_document module</a></li>
+<li><a class="reference internal" href="#module-vpy.test_todo">vpy.test_todo module</a></li>
+<li><a class="reference internal" href="#module-vpy.test_values">vpy.test_values module</a></li>
+<li><a class="reference internal" href="#module-vpy.todo">vpy.todo module</a></li>
+<li><a class="reference internal" href="#module-vpy.values">vpy.values module</a></li>
+</ul>
+</li>
+</ul>
 
-    </section>
-
-  </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="modules.html"
+                        title="previous chapter">vpy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="vpy.device.html"
+                        title="next chapter">vpy.device package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/vpy.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="vpy.device.html" title="vpy.device package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="vpy"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="modules.html">vpy 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, wactbprot.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
 </html>
