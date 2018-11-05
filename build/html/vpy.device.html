@@ -71,17 +71,11 @@
 error of indication and the uncertainty.</p>
 <dl class="docutils">
 <dt>This is done as follows:</dt>
-<dd><p class="first"># conv_smooth</p>
-<p class="last"># shape_pressures
-# rm_nan
+<dd># conv_smooth
 # get_default_values
-# interpolate default values</p>
-</dd>
+# gen. interp. functions
+# interpolate default values</dd>
 </dl>
-<p>… todo:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">describe</span> <span class="n">interpol</span> <span class="n">proc</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="method">
@@ -137,8 +131,18 @@ error of indication and the uncertainty.</p>
 
 <dl class="method">
 <dt id="vpy.device.cdg.Cdg.shape_pressure">
-<code class="descname">shape_pressure</code><span class="sig-paren">(</span><em>p</em>, <em>unit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/cdg.html#Cdg.shape_pressure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.cdg.Cdg.shape_pressure" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">shape_pressure</code><span class="sig-paren">(</span><em>p</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/device/cdg.html#Cdg.shape_pressure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.device.cdg.Cdg.shape_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shapes the pressures by means of self.min and self.max
+in the unit self.unit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<em>np.array</em>) – pressure in the unit self.unit</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="vpy.device.cdg.Cdg.store_interpol">

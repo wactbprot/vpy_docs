@@ -170,19 +170,7 @@
         <span class="k">return</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Cdg.error"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.error">[docs]</a>    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p_cal</span><span class="p">,</span> <span class="n">p_ind</span><span class="p">,</span> <span class="n">p_unit</span><span class="p">):</span>
-        <span class="n">p_cal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_pressure</span><span class="p">(</span><span class="n">p_cal</span><span class="p">,</span> <span class="n">p_unit</span><span class="p">)</span>
-        <span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">p_ind</span><span class="p">,</span> <span class="n">p_cal</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span>
-
-        <span class="k">return</span> <span class="n">err</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span></div>
-    
-<div class="viewcode-block" id="Cdg.conv_smooth"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.conv_smooth">[docs]</a>    <span class="k">def</span> <span class="nf">conv_smooth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
-        <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;valid&#39;</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Cdg.rm_nan"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.rm_nan">[docs]</a>    <span class="k">def</span> <span class="nf">rm_nan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">ldx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ldx</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-            <span class="n">ldx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="n">ldx</span><span class="p">],</span> <span class="n">ldx</span></div>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">p_ind</span><span class="p">,</span> <span class="n">p_cal</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span></div>
 
 <div class="viewcode-block" id="Cdg.cal_interpol"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.cal_interpol">[docs]</a>    <span class="k">def</span> <span class="nf">cal_interpol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">uncertainty</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Calculates a interpolation vector for the relative</span>
@@ -190,42 +178,52 @@
 
 <span class="sd">        This is done as follows:</span>
 <span class="sd">            # conv_smooth</span>
-
-<span class="sd">            # shape_pressures</span>
-<span class="sd">            # rm_nan</span>
 <span class="sd">            # get_default_values</span>
+<span class="sd">            # gen. interp. functions</span>
 <span class="sd">            # interpolate default values</span>
 
-<span class="sd">        ... todo::</span>
-
-<span class="sd">            describe interpol proc</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">p</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rm_nan</span><span class="p">(</span><span class="n">pressure</span><span class="p">)</span>
-        <span class="n">e</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rm_nan</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
-        <span class="n">u</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rm_nan</span><span class="p">(</span><span class="n">uncertainty</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
-       
+        <span class="c1"># smooth</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv_smooth</span><span class="p">(</span><span class="n">pressure</span><span class="p">)</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv_smooth</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>       
+        <span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv_smooth</span><span class="p">(</span><span class="n">uncertainty</span><span class="p">)</span>
+        <span class="c1">#interpolate function</span>
         <span class="n">f_e</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interp_function</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
         <span class="n">f_u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interp_function</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
-
+        <span class="c1"># default values</span>
         <span class="n">p_default</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_default_values</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+        <span class="c1"># cal. interpol on default values</span>
+        <span class="n">e_default</span> <span class="o">=</span> <span class="n">f_e</span><span class="p">(</span> <span class="n">p_default</span> <span class="p">)</span>
+        <span class="n">u_default</span> <span class="o">=</span> <span class="n">f_u</span><span class="p">(</span> <span class="n">p_default</span> <span class="p">)</span>
 
-        <span class="n">e_nice</span> <span class="o">=</span> <span class="n">f_e</span><span class="p">(</span> <span class="n">p_default</span> <span class="p">)</span>
-        <span class="n">u_nice</span> <span class="o">=</span> <span class="n">f_u</span><span class="p">(</span> <span class="n">p_default</span> <span class="p">)</span>
+        <span class="k">return</span>  <span class="n">p_default</span><span class="p">,</span> <span class="n">e_default</span><span class="p">,</span> <span class="n">u_default</span></div>
 
-        <span class="k">return</span>  <span class="n">p_default</span><span class="p">,</span> <span class="n">e_nice</span><span class="p">,</span> <span class="n">u_nice</span></div>
+<div class="viewcode-block" id="Cdg.conv_smooth"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.conv_smooth">[docs]</a>    <span class="k">def</span> <span class="nf">conv_smooth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+        <span class="n">start_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">])])</span>
+        <span class="n">med_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;valid&#39;</span><span class="p">)</span>
+     
+        <span class="n">end_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])])</span>
 
-<div class="viewcode-block" id="Cdg.shape_pressure"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.shape_pressure">[docs]</a>    <span class="k">def</span> <span class="nf">shape_pressure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">:</span>
-            <span class="n">N</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">start_array</span><span class="p">,</span> <span class="n">med_array</span><span class="p">,</span> <span class="n">end_array</span> <span class="p">))</span></div>
 
-            <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">p</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_p</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_p</span><span class="p">))</span>
-            <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<div class="viewcode-block" id="Cdg.rm_nan"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.rm_nan">[docs]</a>    <span class="k">def</span> <span class="nf">rm_nan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">ldx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ldx</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">ldx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="n">ldx</span><span class="p">],</span> <span class="n">ldx</span></div>
 
-            <span class="k">return</span> <span class="n">arr</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;implement auto unit conversion&#39;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Cdg.shape_pressure"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.shape_pressure">[docs]</a>    <span class="k">def</span> <span class="nf">shape_pressure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Shapes the pressures by means of self.min and self.max</span>
+<span class="sd">        in the unit self.unit</span>
+
+<span class="sd">        :param p: pressure in the unit self.unit</span>
+<span class="sd">        :type p: np.array</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">p</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_p</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_p</span><span class="p">))</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">arr</span></div>
+       
 
 <div class="viewcode-block" id="Cdg.get_default_values"><a class="viewcode-back" href="../../../vpy.device.html#vpy.device.cdg.Cdg.get_default_values">[docs]</a>    <span class="k">def</span> <span class="nf">get_default_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">):</span>
         <span class="n">i_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interpol_pressure_points</span> <span class="o">&gt;</span> <span class="n">x_min</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
