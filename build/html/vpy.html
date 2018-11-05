@@ -163,6 +163,10 @@ the calculation results of analysis.</p>
 <dt id="vpy.analysis.Analysis.pick_dict">
 <code class="descname">pick_dict</code><span class="sig-paren">(</span><em>quant</em>, <em>dict_type</em>, <em>dest='Values'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/analysis.html#Analysis.pick_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.analysis.Analysis.pick_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Picks and returns an already calculated value.</p>
+<p>A possible call signature is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="bp">cls</span><span class="o">&gt;.</span><span class="n">pick_dict</span><span class="p">(</span><span class="n">quant</span><span class="o">=</span><span class="s1">&#39;SomeIndex&#39;</span><span class="p">,</span> <span class="n">dict_type</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;AuxValues&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -182,7 +186,8 @@ the calculation results of analysis.</p>
 <dt id="vpy.analysis.Analysis.store">
 <code class="descname">store</code><span class="sig-paren">(</span><em>quant</em>, <em>type</em>, <em>value</em>, <em>unit</em>, <em>sd=None</em>, <em>n=None</em>, <em>dest='Values'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/analysis.html#Analysis.store"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.analysis.Analysis.store" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stores the result of a calculation in
-the analysis structure under the given quant[ity].</p>
+the analysis structure under the given quant[ity]. See function <code class="docutils literal"><span class="pre">store_dict()</span></code>
+for a more detailed explanation of <code class="docutils literal"><span class="pre">dest</span></code> and <code class="docutils literal"><span class="pre">quant</span></code> params.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -205,7 +210,28 @@ the analysis structure under the given quant[ity].</p>
 <dl class="method">
 <dt id="vpy.analysis.Analysis.store_dict">
 <code class="descname">store_dict</code><span class="sig-paren">(</span><em>quant</em>, <em>d</em>, <em>dest='Values'</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/analysis.html#Analysis.store_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.analysis.Analysis.store_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Appends complete dicts to document under the given destination.</p>
+<dd><p>Appends a dict to document under the given destination. 
+Use this function if the dict d has not a <code class="docutils literal"><span class="pre">Type</span></code>, <code class="docutils literal"><span class="pre">Value</span></code>, 
+<code class="docutils literal"><span class="pre">Unit</span></code> structure. Otherwise use <code class="docutils literal"><span class="pre">store()</span></code>.</p>
+<p>The document structure <code class="docutils literal"><span class="pre">self.doc</span></code> afterwards is:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;Values&#39;</span><span class="o">:</span><span class="p">{</span><span class="nx">quant</span><span class="o">:</span> <span class="p">[</span><span class="nx">d</span><span class="p">]},</span> <span class="p">..}</span> <span class="c1">// plain=False</span>
+<span class="p">{</span><span class="s1">&#39;Values&#39;</span><span class="o">:</span><span class="p">{</span><span class="nx">quant</span><span class="o">:</span>  <span class="nx">d</span> <span class="p">},</span> <span class="p">..}</span> <span class="c1">// plain=True</span>
+</pre></div>
+</div>
+<p>if only <code class="docutils literal"><span class="pre">quant</span></code> and <code class="docutils literal"><span class="pre">d</span></code> is given. If <code class="docutils literal"><span class="pre">dest</span></code> and <code class="docutils literal"><span class="pre">quant</span></code> is given:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;dest&#39;</span><span class="o">:</span><span class="p">{</span><span class="nx">quant</span><span class="o">:</span> <span class="p">[</span><span class="nx">d</span><span class="p">]</span> <span class="p">},</span> <span class="p">..}</span> <span class="c1">// plain=False</span>
+<span class="p">{</span><span class="s1">&#39;dest&#39;</span><span class="o">:</span><span class="p">{</span><span class="nx">quant</span><span class="o">:</span>  <span class="nx">d</span>  <span class="p">},</span> <span class="p">..}</span> <span class="c1">// plain=True</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal"><span class="pre">dest</span></code> is given but not <code class="docutils literal"><span class="pre">quant</span></code> (the quantity is provided by the dict key(s)):</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="nx">dest</span><span class="o">:</span> <span class="p">[</span><span class="nx">d</span><span class="p">]</span> <span class="p">},</span> <span class="p">..}</span> <span class="c1">// plain=False</span>
+<span class="p">{{</span><span class="nx">dest</span><span class="o">:</span>  <span class="nx">d</span>  <span class="p">},</span> <span class="p">..}</span> <span class="c1">// plain=True</span>
+</pre></div>
+</div>
+<p>A possible call signature is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="bp">cls</span><span class="o">&gt;.</span><span class="n">store_dict</span><span class="p">(</span><span class="n">quant</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="n">SomeIndex</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]},</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;AuxValues&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -213,7 +239,7 @@ the analysis structure under the given quant[ity].</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>quant</strong> (<em>str</em>) – quant measurement quantity (Pressure, Temperature, ect)</li>
 <li><strong>d</strong> (<em>dict</em>) – dictionary to store</li>
-<li><strong>dest</strong> – destination (default in Values)</li>
+<li><strong>dest</strong> – destination like Table, AuxValues or Values (default is Values)</li>
 <li><strong>plain</strong> – if True stores dict w/o creating an array</li>
 </ul>
 </td>
@@ -926,6 +952,18 @@ Results of analysis.</p>
 <dt id="vpy.test_analysis.TestAnalysis.setUp">
 <code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_analysis.html#TestAnalysis.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_analysis.TestAnalysis.setUp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="vpy.test_analysis.TestAnalysis.test_pick_auxvalues_1">
+<code class="descname">test_pick_auxvalues_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_analysis.html#TestAnalysis.test_pick_auxvalues_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_analysis.TestAnalysis.test_pick_auxvalues_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>should store list in AuxValues</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vpy.test_analysis.TestAnalysis.test_store_auxvalues_1">
+<code class="descname">test_store_auxvalues_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vpy/test_analysis.html#TestAnalysis.test_store_auxvalues_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vpy.test_analysis.TestAnalysis.test_store_auxvalues_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>should store list in AuxValues</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="vpy.test_analysis.TestAnalysis.test_store_dict_1">
